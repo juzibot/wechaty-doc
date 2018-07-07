@@ -7,14 +7,41 @@
   <meta name="description" content="Wechaty is a Bot SDK for Wechat Personal Account">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+    #language {
+      position: fixed;
+      right: 80px;
+      top: 10px;
+      z-index: 999999;
+      text-decoration: none;
+      color: black;
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>
+  <a id="language"></a>
   <script>
     window.$docsify = {
       name: 'wechaty',
       repo: 'https://github.com/chatie/wechaty'
     }
+    
+    function languageSwitch() {
+      var language = document.querySelector('#language')
+      if (document.URL.match(/\/zh/i)) {
+        language.textContent = 'English Version'
+        language.href = "#/"
+      } else {
+        language.textContent = '中文版'
+        language.href = "#/zh"
+      }
+      language.onclick = function () {
+        setTimeout(languageSwitch, 100)
+      }
+    }
+
+    languageSwitch()
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 </body>

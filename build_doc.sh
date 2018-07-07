@@ -12,4 +12,4 @@ echo '\n# API\n' >> docs/README.md
 
 cat src/api.md | sed -e 's/<a href=\"#\([^"]\+\)\">[^<]\+<\/a>/[\1](#\1)/g' >> docs/README.md
 
-
+cp README-zh.md ./docs/zh.md
