@@ -541,7 +541,7 @@ Learn more between version at:
 
 See more in [releases](https://github.com/chatie/wechaty/releases)
 
-## Awesome docsify
+## Awesome Wechaty
 
 ### Showcase
 
