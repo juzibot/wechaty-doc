@@ -38,11 +38,11 @@ npm install
 
 ### 3. Run the Bot
 > **Notice: Wechaty requires Node.js version >= 9**
-```sh
+
+```shell
 npm start
 
 # Or use node to run bot directly
-
 node examples/starter-bot.js
 ```
 
@@ -55,7 +55,7 @@ You can see the following result after running:
 This demo will show all message on the bot.
 
 ## DEMO
-![demo-png](https://chatie.io/wechaty-getting-started/demo.png)
+![Wechaty Developers' Home](https://chatie.io/wechaty-getting-started/bot-qr-code.png)
 
 Scan the following QR Code in WeChat with secret code _wechaty_, join our **Wechaty Developers' Home**. This group is only for developers.
 
@@ -87,14 +87,14 @@ Above is a 10 minute video tutorial(a little outdated, it's running under v0.14 
 
 > Wechaty Docker supports both JavaScript and TypeScript. To use TypeScript just write in TypeScript and save with extension name `.ts`, no need to compile because we use `ts-node` to run it.
 
-2.1. Run JavaScript
+**2.1. Run JavaScript**
 
 ```shell
 # for JavaScript
 docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.js
 ```
 
-2.2. Run TypeScript
+**2.2. Run TypeScript**
 
 ```shell
 # for TypeScript
