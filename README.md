@@ -12,6 +12,8 @@
 
 `./server.sh` script to run a web server at `http://localhost:8080` for preview
 
+## Preview
 
+https://qhduan.github.io/wechaty-doc/
 
 
