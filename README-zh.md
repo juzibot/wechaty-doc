@@ -1,8 +1,6 @@
-# WECHATY: Node.JS 个人号微信机器人
------------
+# 入门
 
-# Wechaty 是什么
-
+## Wechaty 是什么
 [![Powered by Wechaty](https://img.shields.io/badge/Powered%20By-Wechaty-blue.svg)](https://github.com/chatie/wechaty)
 [![English Version](https://img.shields.io/badge/-English%20Version-blue.svg)](README.md)
 
@@ -19,9 +17,7 @@
 
 详情请看[Wechaty](https://github.com/chatie/wechaty)项目。这个项目是 wechaty 初学者的入门教程。
 
-# 起步
-
-## 简单入门
+## 快速开始
 
 ### 1. 下载代码
 ```sh
@@ -50,7 +46,7 @@ node examples/starter-bot.js
 截图展示二维码，扫码登陆后，这个微信号就会变成机器人，并在命令行显示机器人登陆信息： `Contact<李佳芮>login`       
 之后，你就可以在命令行看到这个微信收到的所有消息了。
 
-## 试一试
+## Demo 展示
 ![Wechaty Developers' Home](https://chatie.io/wechaty-getting-started/bot-qr-code.png)
 
 回复 'wechaty' 加入 Wechaty 开发者群。
@@ -69,7 +65,7 @@ node examples/starter-bot.js
 
 # 进阶学习
 
-### 1. Wechaty 视频教学课程
+## 1. Wechaty 视频教学课程
 
 <div align="center">
 <a target="_blank" href="https://blog.chatie.io/getting-started-wechaty/"><img src="https://cloud.githubusercontent.com/assets/1361891/21722581/3ec957d0-d468-11e6-8888-a91c236e0ba2.jpg" border=0 width="60%"></a>
@@ -77,9 +73,9 @@ node examples/starter-bot.js
 
 请观看这个1分钟的教学视频，帮助你快速了解如何使用wechaty
 
-## 3. Docker 运行
+## 2. Docker 运行
 
-## 2. 示例代码
+## 3. 示例代码
 下面的表格解释了examples目录下各个代码的功能
 
 | 文件名称        | 描述 |
@@ -99,6 +95,8 @@ node examples/starter-bot.js
 
 # 常见问题 FAQ
 
+## 常见问题 FAQ
+
 ### 1. 每次登陆都要扫码么？
 默认情况下，系统可以自动登陆，信息保存在 *.memory-card.json 中
 
@@ -114,16 +112,14 @@ node examples/starter-bot.js
 
 更多详见 [FAQ-ZH](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-ZH)
 
-# 更新
+# 其他
 
 ## Change Log
 
 ## Release Log
 
-# 他们说
-
 ## 开发者声音
 
 ## 使用Wechaty 的开源项目
 
-## ContriuTing List
+## Contributing List
