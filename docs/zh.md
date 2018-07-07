@@ -114,6 +114,12 @@ node examples/starter-bot.js
 
 更多详见 [FAQ-ZH](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-ZH)
 
+# 更新
+
+## Change Log
+
+## Release Log
+
 # 他们说
 
 ## 开发者声音
