@@ -14,5 +14,9 @@ cat src/api.md >> docs/README.md
 
 cp README-zh.md ./docs/zh.md
 
+echo '\n# API\n' >> docs/zh.md
+
+cat src/api.md >> docs/zh.md
+
 cp ./src/index.html ./docs/
 echo '' > ./docs/.nojekyll
