@@ -1,2 +1,0 @@
-* [Wechaty](/)
-* [ZH](zh.md)

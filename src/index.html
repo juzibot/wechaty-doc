@@ -19,6 +19,7 @@
   </style>
 </head>
 <body>
+  <div id="top"></div>
   <div id="app"></div>
   <a id="language"></a>
   <script>
@@ -34,7 +35,7 @@
 
         // Localization
         placeholder: {
-          '/zh-cn/': '搜索',
+          '/zh/': '搜索',
           '/': 'Type to search'
         },
 
@@ -42,12 +43,16 @@
 
         // Localization
         noData: {
-          '/zh-cn/': '找不到结果',
+          '/zh/': '找不到结果',
           '/': 'No Results'
         },
 
         // Headline depth, 1 - 6
         depth: 2
+      },
+      nameLink: {
+        '/zh': '#/zh?id=top',
+        '/': '#/?id=top'
       }
     }
     
