@@ -16,4 +16,8 @@
 
 https://qhduan.github.io/wechaty-doc/
 
+## Other
 
+why `docs/.nojekyll`
+
+    You need to create a .nojekyll in ./docs to prevent GitHub Pages from ignoring files that begin with an underscore.

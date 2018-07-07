@@ -1,6 +1,6 @@
 #!/bin/sh
 
-make -p docs > /dev/null
+mkdir -p docs
 
 set -e
 
@@ -10,6 +10,13 @@ echo '\n# API\n' >> docs/README.md
 
 # cat src/api.md >> docs/README.md
 
-cat src/api.md | sed -e 's/<a href=\"#\([^"]\+\)\">[^<]\+<\/a>/[\1](#\1)/g' >> docs/README.md
+cat src/api.md >> docs/README.md
 
 cp README-zh.md ./docs/zh.md
+
+echo '\n# API\n' >> docs/zh.md
+
+cat src/api.md >> docs/zh.md
+
+cp ./src/index.html ./docs/
+echo '' > ./docs/.nojekyll
