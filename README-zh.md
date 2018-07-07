@@ -153,8 +153,10 @@ wechaty 可以实现多个微信接入的方案，对外提供统一的接口，
 
 ## RELEASELOG
 
-## 开发者声音
+## Awesome docsify
 
-## 使用Wechaty 的开源项目
+### Showcase
+### Plugins
+### Enterprise Usage
 
 ## Contributing List
