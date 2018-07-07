@@ -1,7 +1,7 @@
 # WECHATY: Node.JS 个人号微信机器人
 -----------
 
-## Wechaty 是什么
+# Wechaty 是什么
 
 [![Powered by Wechaty](https://img.shields.io/badge/Powered%20By-Wechaty-blue.svg)](https://github.com/chatie/wechaty)
 [![English Version](https://img.shields.io/badge/-English%20Version-blue.svg)](README.md)
@@ -18,6 +18,8 @@
 - ... 请自行开脑洞
 
 详情请看[Wechaty](https://github.com/chatie/wechaty)项目。这个项目是 wechaty 初学者的入门教程。
+
+# 起步
 
 ## 简单入门
 
@@ -65,7 +67,7 @@ node examples/starter-bot.js
 
 **解决方案：我们提供了非web 版本的解决方案，正在进行alpha 测试，[点击申请测试token](https://github.com/Chatie/wechaty/issues/1296)，技术细节及实现请查看[wechaty-puppet-padchat](https://github.com/lijiarui/wechaty-puppet-padchat)**
 
-## 进阶学习
+# 进阶学习
 
 ### 1. Wechaty 视频教学课程
 
@@ -75,7 +77,9 @@ node examples/starter-bot.js
 
 请观看这个1分钟的教学视频，帮助你快速了解如何使用wechaty
 
-### 2. 示例代码
+## 3. Docker 运行
+
+## 2. 示例代码
 下面的表格解释了examples目录下各个代码的功能
 
 | 文件名称        | 描述 |
@@ -89,11 +93,11 @@ node examples/starter-bot.js
 
 [点击这里查看 更多Wechaty 官方 示例代码](https://github.com/Chatie/wechaty/tree/master/examples)
 
-## 接口文档
+# 接口文档
 
-## 如何购买
+# 如何购买
 
-## 常见问题 FAQ
+# 常见问题 FAQ
 
 ### 1. 每次登陆都要扫码么？
 默认情况下，系统可以自动登陆，信息保存在 *.memory-card.json 中
@@ -110,10 +114,10 @@ node examples/starter-bot.js
 
 更多详见 [FAQ-ZH](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-ZH)
 
-## 他们说
+# 他们说
 
-### 开发者声音
+## 开发者声音
 
-### 使用Wechaty 的开源项目
+## 使用Wechaty 的开源项目
 
-### ContriuTing List
+## ContriuTing List
