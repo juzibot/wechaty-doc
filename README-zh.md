@@ -187,7 +187,7 @@ wechaty 可以实现多个微信接入的方案，对外提供统一的接口，
 
 ## CHANGELOG
 
-#### [v0.16.0](https://github.com/chatie/wechaty/tree/v0.16.0) (2018-06-21)
+### [v0.16.0](https://github.com/chatie/wechaty/tree/v0.16.0) (2018-06-21)
 [Full Changelog](https://github.com/chatie/wechaty/compare/v0.14.0...v0.16.0)
 
 **Implemented enhancements:**
@@ -324,7 +324,7 @@ wechaty 可以实现多个微信接入的方案，对外提供统一的接口，
 - fix\(package\): update rx-queue to version 0.4.4 [\#1190](https://github.com/Chatie/wechaty/pull/1190) ([zixia](https://github.com/zixia))
 - Multi-Instance Support [\#1159](https://github.com/Chatie/wechaty/pull/1159) ([zixia](https://github.com/zixia))
 
-#### [v0.14.0](https://github.com/chatie/wechaty/tree/v0.14.0) (2018-04-15)
+### [v0.14.0](https://github.com/chatie/wechaty/tree/v0.14.0) (2018-04-15)
 [Full Changelog](https://github.com/chatie/wechaty/compare/v0.12.0...v0.14.0)
 
 **Implemented enhancements:**
@@ -400,7 +400,7 @@ wechaty 可以实现多个微信接入的方案，对外提供统一的接口，
 - fix \#961 onbuild operation not permitted [\#962](https://github.com/Chatie/wechaty/pull/962) ([mukaiu](https://github.com/mukaiu))
 - Fix \#923 [\#935](https://github.com/Chatie/wechaty/pull/935) ([xinbenlv](https://github.com/xinbenlv))
 
-#### [v0.12.0](https://github.com/chatie/wechaty/tree/v0.12.0) (2017-10-30)
+### [v0.12.0](https://github.com/chatie/wechaty/tree/v0.12.0) (2017-10-30)
 [Full Changelog](https://github.com/chatie/wechaty/compare/v0.9.0...v0.12.0)
 
 **Implemented enhancements:**
@@ -578,7 +578,7 @@ In Gist-bot
 
 See more at [Wiki:VoiceOfDeveloper](https://github.com/Chatie/wechaty/wiki/VoiceOfDeveloper)
 
-## Contributing List
+#### Contributing List
 
 | Contributor | Main Contributions | Bio  |
 |    :---:    | :---          | :--- |
