@@ -90,6 +90,7 @@ node examples/starter-bot.js
 [点击这里查看 更多Wechaty 官方 示例代码](https://github.com/Chatie/wechaty/tree/master/examples)
 
 # 接口文档
+见[下面](https://qhduan.github.io/wechaty-doc/#/zh?id=api)
 
 # 如何购买
 
