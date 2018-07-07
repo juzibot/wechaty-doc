@@ -239,17 +239,17 @@ At last, It's built for my personal study purpose of Automatically Testing.
 ## Classes
 
 <dl>
-<dt><a href="#Wechaty">Wechaty</a></dt>
+<dt>[Wechaty](#Wechaty)</dt>
 <dd><p>Main bot class.</p>
-<p><a href="#wechatyinstance">The World&#39;s Shortest ChatBot Code: 6 lines of JavaScript</a></p>
+<p>[wechatyinstance](#wechatyinstance)</p>
 <p><a href="https://github.com/lijiarui/wechaty-getting-started">Wechaty Starter Project</a></p>
 </dd>
-<dt><a href="#Contact">Contact</a></dt>
+<dt>[Contact](#Contact)</dt>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.</p>
 <p><code>Contact</code> is <code>Sayable</code>,
 <a href="https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
-<dt><a href="#Friendship">Friendship</a></dt>
+<dt>[Friendship](#Friendship)</dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
 <ol>
 <li>send request</li>
@@ -258,12 +258,12 @@ At last, It's built for my personal study purpose of Automatically Testing.
 </ol>
 <p><a href="https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts">Examples/Friend-Bot</a></p>
 </dd>
-<dt><a href="#Message">Message</a></dt>
+<dt>[Message](#Message)</dt>
 <dd><p>All wechat messages will be encapsulated as a Message.</p>
 <p><code>Message</code> is <code>Sayable</code>,
 <a href="https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
 </dd>
-<dt><a href="#Room">Room</a></dt>
+<dt>[Room](#Room)</dt>
 <dd><p>All wechat rooms(groups) will be encapsulated as a Room.</p>
 <p><code>Room</code> is <code>Sayable</code>,
 <a href="https://github.com/Chatie/wechaty/blob/master/examples/room-bot.ts">Examples/Room-Bot</a></p>
@@ -273,22 +273,22 @@ At last, It's built for my personal study purpose of Automatically Testing.
 ## Typedefs
 
 <dl>
-<dt><a href="#WechatyEventName">WechatyEventName</a></dt>
+<dt>[WechatyEventName](#WechatyEventName)</dt>
 <dd><p>Wechaty Class Event Type</p>
 </dd>
-<dt><a href="#WechatyEventFunction">WechatyEventFunction</a></dt>
+<dt>[WechatyEventFunction](#WechatyEventFunction)</dt>
 <dd><p>Wechaty Class Event Function</p>
 </dd>
-<dt><a href="#ContactQueryFilter">ContactQueryFilter</a></dt>
+<dt>[ContactQueryFilter](#ContactQueryFilter)</dt>
 <dd><p>The way to search Contact</p>
 </dd>
-<dt><a href="#RoomEventName">RoomEventName</a></dt>
+<dt>[RoomEventName](#RoomEventName)</dt>
 <dd><p>Room Class Event Type</p>
 </dd>
-<dt><a href="#RoomEventFunction">RoomEventFunction</a></dt>
+<dt>[RoomEventFunction](#RoomEventFunction)</dt>
 <dd><p>Room Class Event Function</p>
 </dd>
-<dt><a href="#MemberQueryFilter">MemberQueryFilter</a></dt>
+<dt>[MemberQueryFilter](#MemberQueryFilter)</dt>
 <dd><p>The way to search member by Room.member()</p>
 </dd>
 </dl>
