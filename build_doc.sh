@@ -1,22 +1,17 @@
 #!/bin/sh
 
-mkdir -p docs
-
 set -e
 
-cat src/README.md > docs/README.md
+mkdir -p docs
+mkdir -p docs/zh
 
-echo '\n# API\n' >> docs/README.md
+cp src/en/*.md docs/
+echo '#API\n\n' > docs/api.md
+cat src/api.md >> docs/api.md
 
-# cat src/api.md >> docs/README.md
-
-cat src/api.md >> docs/README.md
-
-cp README-zh.md ./docs/zh.md
-
-echo '\n# API\n' >> docs/zh.md
-
-cat src/api.md >> docs/zh.md
+cp src/zh/*.md docs/zh/
+echo '#API\n\n' > docs/zh/api.md
+cat src/api.md >> docs/zh/api.md
 
 cp ./src/index.html ./docs/
 echo '' > ./docs/.nojekyll

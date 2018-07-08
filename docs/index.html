@@ -26,33 +26,28 @@
     window.$docsify = {
       name: 'wechaty',
       repo: 'https://github.com/chatie/wechaty',
-      subMaxLevel: 4,
-      // loadSidebar: true,
+      maxLevel: 3,
+      subMaxLevel: 3,
+      loadSidebar: true,
       search: {
-        maxAge: 86400000, // Expiration time, the default one day
-        paths: [], // or 'auto'
-        placeholder: 'Type to search',
-
+        paths: 'auto',
         // Localization
         placeholder: {
           '/zh/': '搜索',
-          '/': 'Type to search'
+          '/': 'Search'
         },
-
-        noData: 'No Results!',
-
         // Localization
         noData: {
-          '/zh/': '找不到结果',
-          '/': 'No Results'
+          '/zh/': '找不到结果!',
+          '/': 'No Results!'
         },
-
-        // Headline depth, 1 - 6
-        depth: 2
       },
       nameLink: {
-        '/zh': '#/zh?id=top',
+        '/zh/': '#/zh/?id=top',
         '/': '#/?id=top'
+      },
+      alias: {
+        '/zh/(.*)': '/zh/$1'
       }
     }
     
@@ -63,7 +58,7 @@
         language.href = "#/"
       } else {
         language.textContent = '中文版'
-        language.href = "#/zh"
+        language.href = "#/zh/"
       }
       language.onclick = function () {
         setTimeout(languageSwitch, 100)
@@ -71,6 +66,7 @@
     }
 
     languageSwitch()
+    setInterval(languageSwitch, 100)
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
