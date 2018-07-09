@@ -1,5 +1,5 @@
 * [WECHATY](/)
 * [ADVANCED](advanced.md)
+* [API](api.md)
 * [FAQ](faq.md)
 * [OTHERS](others.md)
-* [API](api.md)

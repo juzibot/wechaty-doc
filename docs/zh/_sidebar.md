@@ -1,5 +1,5 @@
 * [WECHATY](/zh/)
 * [进阶学习](/zh/advanced.md)
+* [API文档](/zh/api.md)
 * [常见问题 FAQ](/zh/faq.md)
 * [其他](/zh/others.md)
-* [API](/zh/api.md)
