@@ -16,6 +16,8 @@ ret = {}
 
 for line in lines:
 
+    line = line.strip()
+
     if line.startswith('## Wechaty'):
         key = 'wechaty'
     if line.startswith('## Friendship'):
