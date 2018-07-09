@@ -4,11 +4,11 @@
 * [进阶学习](/zh/advanced.md)
 
 * [API文档](/zh/api/)
-  * [Wechaty](/zh/api/wechaty)
-  * [Contact](/zh/api/contact)
-  * [Friendship](/zh/api/friendship)
-  * [Message](/zh/api/message)
-  * [Room](/zh/api/room)
+  * [Wechaty类](/zh/api/wechaty)
+  * [Contact类](/zh/api/contact)
+  * [Friendship类](/zh/api/friendship)
+  * [Message类](/zh/api/message)
+  * [Room类](/zh/api/room)
 
 * [常见问题 FAQ](/zh/faq.md)
 

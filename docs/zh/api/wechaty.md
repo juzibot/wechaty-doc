@@ -21,7 +21,7 @@
 
 <a name="Wechaty"></a>
 
-## Wechaty
+## Wechaty类
 Main bot class.
 
 [The World's Shortest ChatBot Code: 6 lines of JavaScript](#wechatyinstance)
@@ -239,7 +239,7 @@ Send message to userSelf
 
 <a name="Wechaty.instance"></a>
 
-### Wechaty.instance()
+### Wechaty类.instance()
 get the singleton instance of Wechaty
 
 **Kind**: static method of [<code>Wechaty</code>](#Wechaty)  
@@ -255,7 +255,7 @@ Wechaty.instance() // Singleton
 ```
 <a name="WechatyEventName"></a>
 
-## WechatyEventName
+## Wechaty类EventName
 Wechaty Class Event Type
 
 **Kind**: global typedef  
@@ -276,7 +276,7 @@ Wechaty Class Event Type
 
 <a name="WechatyEventFunction"></a>
 
-## WechatyEventFunction
+## Wechaty类EventFunction
 Wechaty Class Event Function
 
 **Kind**: global typedef  

@@ -24,7 +24,7 @@
 
 <a name="Room"></a>
 
-## Room
+## Room类
 All wechat rooms(groups) will be encapsulated as a Room.
 
 `Room` is `Sayable`,
@@ -337,7 +337,7 @@ Sync data for Room
 **Kind**: instance method of [<code>Room</code>](#Room)  
 <a name="Room.create"></a>
 
-### Room.create(contactList, [topic]) ⇒ [<code>Promise.&lt;Room&gt;</code>](#Room)
+### Room类.create(contactList, [topic]) ⇒ [<code>Promise.&lt;Room&gt;</code>](#Room)
 Create a new room.
 
 **Kind**: static method of [<code>Room</code>](#Room)  
@@ -360,7 +360,7 @@ await room.say('ding - created')
 ```
 <a name="Room.findAll"></a>
 
-### Room.findAll([query]) ⇒ <code>Promise.&lt;Array.&lt;Room&gt;&gt;</code>
+### Room类.findAll([query]) ⇒ <code>Promise.&lt;Array.&lt;Room&gt;&gt;</code>
 Find room by topic, return all the matched room
 
 **Kind**: static method of [<code>Room</code>](#Room)  
@@ -376,7 +376,7 @@ const roomList = await Room.findAll({name: 'wechaty'})   // find all of the room
 ```
 <a name="Room.find"></a>
 
-### Room.find(query) ⇒ <code>Promise.&lt;(Room\|null)&gt;</code>
+### Room类.find(query) ⇒ <code>Promise.&lt;(Room\|null)&gt;</code>
 Try to find a room by filter: {topic: string | RegExp}. If get many, return the first one.
 
 **Kind**: static method of [<code>Room</code>](#Room)  
@@ -388,7 +388,7 @@ Try to find a room by filter: {topic: string | RegExp}. If get many, return the 
 
 <a name="RoomEventName"></a>
 
-## RoomEventName
+## Room类EventName
 Room Class Event Type
 
 **Kind**: global typedef  
@@ -402,7 +402,7 @@ Room Class Event Type
 
 <a name="RoomEventFunction"></a>
 
-## RoomEventFunction
+## Room类EventFunction
 Room Class Event Function
 
 **Kind**: global typedef  

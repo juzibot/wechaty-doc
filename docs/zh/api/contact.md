@@ -18,7 +18,7 @@
 
 <a name="Contact"></a>
 
-## Contact
+## Contact类
 All wechat contacts(friend) will be encapsulated as a Contact.
 
 `Contact` is `Sayable`,
@@ -261,7 +261,7 @@ const isSelf = contact.self()
 ```
 <a name="Contact.find"></a>
 
-### Contact.find(query) ⇒ <code>Promise.&lt;(Contact\|null)&gt;</code>
+### Contact类.find(query) ⇒ <code>Promise.&lt;(Contact\|null)&gt;</code>
 Try to find a contact by filter: {name: string | RegExp} / {alias: string | RegExp}
 
 Find contact by name or alias, if the result more than one, return the first one.
@@ -280,7 +280,7 @@ const contactFindByAlias = await Contact.find({ alias:"lijiarui"} )
 ```
 <a name="Contact.findAll"></a>
 
-### Contact.findAll([queryArg]) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
+### Contact类.findAll([queryArg]) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 Find contact by `name` or `alias`
 
 If use Contact.findAll() get the contact list of the bot.
@@ -303,7 +303,7 @@ const contactList = await Contact.findAll({alias: 'lijiarui'}) // find all of th
 ```
 <a name="ContactQueryFilter"></a>
 
-## ContactQueryFilter
+## Contact类QueryFilter
 The way to search Contact
 
 **Kind**: global typedef  

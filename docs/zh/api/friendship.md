@@ -1,6 +1,6 @@
 <a name="Friendship"></a>
 
-## Friendship
+## Friendship类
 Send, receive friend request, and friend confirmation events.
 
 1. send request
@@ -39,7 +39,7 @@ no `dirty` support because Friendship has no rawPayload(yet)
 **Kind**: static method of [<code>Friendship</code>](#Friendship)  
 <a name="Friendship.add"></a>
 
-### Friendship.add(contact, hello)
+### Friendship类.add(contact, hello)
 Send a Friend Request to a `contact` with message `hello`.
 
 **Kind**: static method of [<code>Friendship</code>](#Friendship)  

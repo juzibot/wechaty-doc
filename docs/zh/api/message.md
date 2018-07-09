@@ -1,6 +1,6 @@
 <a name="Message"></a>
 
-## Message
+## Messagey类
 All wechat messages will be encapsulated as a Message.
 
 `Message` is `Sayable`,
@@ -168,13 +168,13 @@ Message Age:
 **Kind**: instance method of [<code>Message</code>](#Message)  
 <a name="Message.Type"></a>
 
-### Message.Type
+### Messagey类.Type
 Static Properties
 
 **Kind**: static property of [<code>Message</code>](#Message)  
 <a name="Message.find"></a>
 
-### Message.find()
+### Messagey类.find()
 **Kind**: static method of [<code>Message</code>](#Message)  
 **Todo**
 
@@ -182,7 +182,7 @@ Static Properties
 
 <a name="Message.findAll"></a>
 
-### Message.findAll()
+### Messagey类.findAll()
 **Kind**: static method of [<code>Message</code>](#Message)  
 **Todo**
 
@@ -190,7 +190,7 @@ Static Properties
 
 <a name="Message.create"></a>
 
-### Message.create()
+### Messagey类.create()
 Create a Mobile Terminated Message
 
 "mobile originated" or "mobile terminated"
