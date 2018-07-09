@@ -14,8 +14,9 @@ cp src/zh/*.md docs/zh/
 cp -r src/zh_api docs/zh/
 rm -rf docs/zh/api
 mv docs/zh/zh_api docs/zh/api
-# echo '# API\n\n' > docs/zh/api.md
-# cat src/api.md >> docs/zh/api.md
+
+cp src/en/_sidebar.md docs/api/
+cp src/zh/_sidebar.md docs/zh/api/
 
 cp ./src/index.html ./docs/
 echo '' > ./docs/.nojekyll
