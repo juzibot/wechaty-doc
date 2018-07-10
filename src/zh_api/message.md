@@ -1,85 +1,103 @@
-<a name="Message"></a>
-
-## Messagey类
+# Message类
 All wechat messages will be encapsulated as a Message.
 
 `Message` is `Sayable`,
-[Examples/Ding-Dong-Bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)
+[Examples/Ding-Dong-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/ding-dong-botts)
 
 **Kind**: global class  
 
-* [Message](#Message)
+* [Message](/zh/api/message?id=top)
     * _instance_
-        * [.payload](#Message+payload)
-        * [.from()](#Message+from) ⇒ <code>Contact</code>
-        * [.to()](#Message+to) ⇒ <code>Contact</code> \| <code>null</code>
-        * [.room()](#Message+room) ⇒ <code>Room</code> \| <code>null</code>
-        * ~~[.content()](#Message+content)~~
-        * [.text()](#Message+text) ⇒ <code>string</code>
-        * [.say(textOrContactOrFile, [mention])](#Message+say) ⇒ <code>Promise.&lt;void&gt;</code>
-        * ~~[.file()](#Message+file)~~
-        * [.type()](#Message+type) ⇒ <code>WebMsgType</code>
-        * [.self()](#Message+self) ⇒ <code>boolean</code>
-        * [.mention()](#Message+mention) ⇒ <code>Array.&lt;Contact&gt;</code>
-        * [.mentioned()](#Message+mentioned)
-        * [.forward(to)](#Message+forward) ⇒ <code>Promise.&lt;void&gt;</code>
-        * [.age()](#Message+age)
+        * [.payload](#Messagepayload)
+        * [.from()](#Messagefrom) [<code>Contact</code>](/zh/api/contact?id=top)
+        * [.to()](#Messageto) [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
+        * [.room()](#Messageroom) [<code>Room</code>](/zh/api/room?id=top) &#124; <code>null</code>
+        * ~~[.content()](#Messagecontent)~~
+        * [.text()](#Messagetext) <code>string</code>
+        * [.say(textOrContactOrFile, [mention])](#MessagesaytextOrContactOrFile-mention) <code>Promise.&lt;void&gt;</code>
+        * ~~[.file()](#Messagefile)~~
+        * [.type()](#Messagetype) <code>WebMsgType</code>
+        * [.self()](#Messageself) <code>boolean</code>
+        * [.mention()](#Messagemention) [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top)
+        * [.mentioned()](#Messagementioned)
+        * [.forward(to)](#Messageforwardto) <code>Promise.&lt;void&gt;</code>
+        * [.age()](#Messageage)
     * _static_
-        * [.Type](#Message.Type)
-        * [.find()](#Message.find)
-        * [.findAll()](#Message.findAll)
-        * [.create()](#Message.create)
+        * [.Type](#MessageType)
+        * [.find()](#Messagefind)
+        * [.findAll()](#MessagefindAll)
+        * [.create()](#Messagecreate)
 
 <a name="Message+payload"></a>
 
-### message.payload
+## message.payload
 Instance Properties
 
-**Kind**: instance property of [<code>Message</code>](#Message)  
+**Kind**: instance property of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+from"></a>
 
-### message.from() ⇒ <code>Contact</code>
+## message.from()
+
+**Return the type of**: [Contact](/zh/api/contact?id=top) 
+
+
 Get the sender from a message.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+to"></a>
 
-### message.to() ⇒ <code>Contact</code> \| <code>null</code>
+## message.to()
+
+**Return the type of**: [Contact](/zh/api/contact?id=top)  &#124; <code>null</code>
+
+
 Get the destination of the message
 Message.to() will return null if a message is in a room, use Message.room() to get the room.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+room"></a>
 
-### message.room() ⇒ <code>Room</code> \| <code>null</code>
+## message.room()
+
+**Return the type of**: [Room](/zh/api/room?id=top)  &#124; <code>null</code>
+
+
 Get the room from the message.
 If the message is not in a room, then will return `null`
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+content"></a>
 
-### ~~message.content()~~
+## ~~message.content()~~
 ***Deprecated***
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+text"></a>
 
-### message.text() ⇒ <code>string</code>
+## message.text()
+
+**Return the type of**: string 
+
+
 Get the text content of the message
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+say"></a>
 
-### message.say(textOrContactOrFile, [mention]) ⇒ <code>Promise.&lt;void&gt;</code>
+## message.say(textOrContactOrFile, [mention])
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Reply a Text or Media File message to the sender.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
-**See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**See**: [Examples/ding-dong-bot](https://githubcom/Chatie/wechaty/blob/master/examples/ding-dong-botts)  
 
 | Param | Type |
 | --- | --- |
-| textOrContactOrFile | <code>string</code> \| <code>FileBox</code> | 
-| [mention] | <code>Contact</code> \| <code>Array.&lt;Contact&gt;</code> | 
+| textOrContactOrFile | <code>string</code> &#124; <code>FileBox</code> | 
+| [mention] | [<code>Contact</code>](/zh/api/contact?id=top) &#124; [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top) | 
 
 **Example**  
 ```js
@@ -96,25 +114,33 @@ bot
 ```
 <a name="Message+file"></a>
 
-### ~~message.file()~~
+## ~~message.file()~~
 ***Deprecated***
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message+type"></a>
 
-### message.type() ⇒ <code>WebMsgType</code>
+## message.type()
+
+**Return the type of**: WebMsgType 
+
+
 Get the type from the message.
 
 If type is equal to `MsgType.RECALLED`, [Message#id](Message#id) is the msgId of the recalled message.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 **See**: [MsgType](MsgType)  
 <a name="Message+self"></a>
 
-### message.self() ⇒ <code>boolean</code>
+## message.self()
+
+**Return the type of**: boolean 
+
+
 Check if a message is sent by self.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 **Returns**: <code>boolean</code> - - Return `true` for send from self, `false` for send from others.  
 **Example**  
 ```js
@@ -124,7 +150,11 @@ if (message.self()) {
 ```
 <a name="Message+mention"></a>
 
-### message.mention() ⇒ <code>Array.&lt;Contact&gt;</code>
+## message.mention()
+
+**Return the type of**: [Array.&lt;Contact&gt;](/zh/api/contact?id=top) 
+
+
 Get message mentioned contactList.
 
 Message event table as follows
@@ -136,8 +166,8 @@ Message event table as follows
 | Identify magic code (8197) by programming                                  |  ✘   |        ✘       |     ✘      |       ✘         |
 | Identify two contacts with the same roomAlias by [You were  mentioned] tip |  ✘   |        ✘       |     √      |       √         |
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
-**Returns**: <code>Array.&lt;Contact&gt;</code> - - Return message mentioned contactList  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Returns**: [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top) - - Return message mentioned contactList  
 **Example**  
 ```js
 const contactList = message.mentioned()
@@ -145,55 +175,59 @@ console.log(contactList)
 ```
 <a name="Message+mentioned"></a>
 
-### message.mentioned()
-**Kind**: instance method of [<code>Message</code>](#Message)  
+## message.mentioned()
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 **Deprecated:**: use mention() instead  
 <a name="Message+forward"></a>
 
-### message.forward(to) ⇒ <code>Promise.&lt;void&gt;</code>
+## message.forward(to)
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Forward the received message.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| to | <code>Sayable</code> \| <code>Array.&lt;Sayable&gt;</code> | Room or Contact The recipient of the message, the room, or the contact |
+| to | <code>Sayable</code> &#124; <code>Array.&lt;Sayable&gt;</code> | Room or Contact The recipient of the message, the room, or the contact |
 
 <a name="Message+age"></a>
 
-### message.age()
+## message.age()
 Message Age:
  in seconds.
 
-**Kind**: instance method of [<code>Message</code>](#Message)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message.Type"></a>
 
-### Messagey类.Type
+## Message.Type
 Static Properties
 
-**Kind**: static property of [<code>Message</code>](#Message)  
+**Kind**: static property of [<code>Message</code>](/zh/api/message?id=top)  
 <a name="Message.find"></a>
 
-### Messagey类.find()
-**Kind**: static method of [<code>Message</code>](#Message)  
+## Message.find()
+**Kind**: static method of [<code>Message</code>](/zh/api/message?id=top)  
 **Todo**
 
 - [ ] add function
 
 <a name="Message.findAll"></a>
 
-### Messagey类.findAll()
-**Kind**: static method of [<code>Message</code>](#Message)  
+## Message.findAll()
+**Kind**: static method of [<code>Message</code>](/zh/api/message?id=top)  
 **Todo**
 
 - [ ] add function
 
 <a name="Message.create"></a>
 
-### Messagey类.create()
+## Message.create()
 Create a Mobile Terminated Message
 
 "mobile originated" or "mobile terminated"
 https://www.tatango.com/resources/video-lessons/video-mo-mt-sms-messaging/
 
-**Kind**: static method of [<code>Message</code>](#Message)  
+**Kind**: static method of [<code>Message</code>](/zh/api/message?id=top)  

@@ -1,51 +1,50 @@
-<a name="Friendship"></a>
-
-## Friendship类
+# Friendship类
 Send, receive friend request, and friend confirmation events.
 
 1. send request
 2. receive request(in friend event)
 3. confirmation friendship(friend event)
 
-[Examples/Friend-Bot](https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts)
+[Examples/Friend-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/friend-botts)
 
 **Kind**: global class  
 
-* [Friendship](#Friendship)
+* [Friendship](/zh/api/friendship?id=top)
     * _instance_
-        * [.payload](#Friendship+payload)
-        * [.ready()](#Friendship+ready)
+        * [.payload](#Friendshippayload)
+        * [.ready()](#Friendshipready)
     * _static_
-        * ~~[.send()](#Friendship.send)~~
-        * [.add(contact, hello)](#Friendship.add)
+        * ~~[.send()](#Friendshipsend)~~
+        * [.add(contact, hello)](#Friendshipaddcontact-hello)
 
 <a name="Friendship+payload"></a>
 
-### friendship.payload
+## friendship.payload
 Instance Properties
 
-**Kind**: instance property of [<code>Friendship</code>](#Friendship)  
+**Kind**: instance property of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 <a name="Friendship+ready"></a>
 
-### friendship.ready()
+## friendship.ready()
 no `dirty` support because Friendship has no rawPayload(yet)
 
-**Kind**: instance method of [<code>Friendship</code>](#Friendship)  
+**Kind**: instance method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 <a name="Friendship.send"></a>
 
-### ~~Friendship.send()~~
+## ~~Friendship.send()~~
 ***Deprecated***
 
-**Kind**: static method of [<code>Friendship</code>](#Friendship)  
+**Kind**: static method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 <a name="Friendship.add"></a>
 
-### Friendship类.add(contact, hello)
+## Friendship.add(contact, hello)
 Send a Friend Request to a `contact` with message `hello`.
 
-**Kind**: static method of [<code>Friendship</code>](#Friendship)  
+**Kind**: static method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 
 | Param |
 | --- |
 | contact | 
 | hello | 
 
+<a name="Message"></a>

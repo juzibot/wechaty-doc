@@ -1,85 +1,68 @@
-## Classes
-
-<dl>
-<dt><a href="#Wechaty">Wechaty</a></dt>
-<dd><p>Main bot class.</p>
-<p><a href="#wechatyinstance">The World&#39;s Shortest ChatBot Code: 6 lines of JavaScript</a></p>
-<p><a href="https://github.com/lijiarui/wechaty-getting-started">Wechaty Starter Project</a></p>
-</dd>
-</dl>
-
-## Typedefs
-
-<dl>
-<dt><a href="#WechatyEventName">WechatyEventName</a></dt>
-<dd><p>Wechaty Class Event Type</p>
-</dd>
-<dt><a href="#WechatyEventFunction">WechatyEventFunction</a></dt>
-<dd><p>Wechaty Class Event Function</p>
-</dd>
-</dl>
-
 <a name="Wechaty"></a>
 
-## Wechaty类
+# Wechaty类
 Main bot class.
 
 [The World's Shortest ChatBot Code: 6 lines of JavaScript](#wechatyinstance)
 
-[Wechaty Starter Project](https://github.com/lijiarui/wechaty-getting-started)
+[Wechaty Starter Project](https://githubcom/lijiarui/wechaty-getting-started)
 
 **Kind**: global class  
 
-* [Wechaty](#Wechaty)
+* [Wechaty](/zh/api/wechaty?id=top)
     * _instance_
-        * [.Contact](#Wechaty+Contact)
-            * [.wechaty](#Wechaty+Contact.wechaty)
-            * [.puppet](#Wechaty+Contact.puppet)
-        * [.version([forceNpm])](#Wechaty+version) ⇒ <code>string</code>
-        * [.on(event, listener)](#Wechaty+on) ⇒ [<code>Wechaty</code>](#Wechaty)
-        * [.start()](#Wechaty+start) ⇒ <code>Promise.&lt;void&gt;</code>
-        * [.stop()](#Wechaty+stop) ⇒ <code>Promise.&lt;void&gt;</code>
-        * [.logout()](#Wechaty+logout) ⇒ <code>Promise.&lt;void&gt;</code>
-        * [.logonoff()](#Wechaty+logonoff) ⇒ <code>boolean</code>
-        * ~~[.self()](#Wechaty+self)~~
-        * [.userSelf()](#Wechaty+userSelf) ⇒ <code>Contact</code>
-        * [.say(textOrContactOrFile)](#Wechaty+say) ⇒ <code>Promise.&lt;boolean&gt;</code>
+        * [.Contact](#WechatyContact)
+            * [.wechaty](#WechatyContactwechaty)
+            * [.puppet](#WechatyContactpuppet)
+        * [.version([forceNpm])](#WechatyversionforceNpm) <code>string</code>
+        * [.on(event, listener)](#Wechatyonevent-listener) [<code>Wechaty</code>](/zh/api/wechaty?id=top)
+        * [.start()](#Wechatystart) <code>Promise.&lt;void&gt;</code>
+        * [.stop()](#Wechatystop) <code>Promise.&lt;void&gt;</code>
+        * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
+        * [.logonoff()](#Wechatylogonoff) <code>boolean</code>
+        * ~~[.self()](#Wechatyself)~~
+        * [.userSelf()](#WechatyuserSelf) [<code>Contact</code>](/zh/api/contact?id=top)
+        * [.say(textOrContactOrFile)](#WechatysaytextOrContactOrFile) <code>Promise.&lt;boolean&gt;</code>
     * _static_
-        * [.instance()](#Wechaty.instance)
+        * [.instance()](#Wechatyinstance)
 
 <a name="Wechaty+Contact"></a>
 
-### wechaty.Contact
+## wechaty.Contact
 Clone Classes for this bot and attach the `puppet` to the Class
 
   https://stackoverflow.com/questions/36886082/abstract-constructor-type-in-typescript
   https://github.com/Microsoft/TypeScript/issues/5843#issuecomment-290972055
   https://github.com/Microsoft/TypeScript/issues/19197
 
-**Kind**: instance property of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance property of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 
-* [.Contact](#Wechaty+Contact)
-    * [.wechaty](#Wechaty+Contact.wechaty)
-    * [.puppet](#Wechaty+Contact.puppet)
+* [.Contact](#WechatyContact)
+    * [.wechaty](#WechatyContactwechaty)
+    * [.puppet](#WechatyContactpuppet)
 
 <a name="Wechaty+Contact.wechaty"></a>
 
-#### Contact.wechaty
+### Contact.wechaty
 1. Set Wechaty
 
-**Kind**: static property of [<code>Contact</code>](#Wechaty+Contact)  
+**Kind**: static property of [<code>Contact</code>](#WechatyContact)  
 <a name="Wechaty+Contact.puppet"></a>
 
-#### Contact.puppet
+### Contact.puppet
 2. Set Puppet
 
-**Kind**: static property of [<code>Contact</code>](#Wechaty+Contact)  
+**Kind**: static property of [<code>Contact</code>](#WechatyContact)  
 <a name="Wechaty+version"></a>
 
-### wechaty.version([forceNpm]) ⇒ <code>string</code>
+## wechaty.version([forceNpm])
+
+**Return the type of**: string 
+
+
 Return version of Wechaty
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Returns**: <code>string</code> - - the version number  
 
 | Param | Type | Default | Description |
@@ -93,16 +76,20 @@ console.log(Wechaty.instance().version(true))   // return '0.7.9'
 ```
 <a name="Wechaty+on"></a>
 
-### wechaty.on(event, listener) ⇒ [<code>Wechaty</code>](#Wechaty)
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
-**Returns**: [<code>Wechaty</code>](#Wechaty) - - this for chain
+## wechaty.on(event, listener)
 
-More Example Gist: [Examples/Friend-Bot](https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts)  
+**Return the type of**: [Wechaty](/zh/api/wechaty?id=top) 
+
+
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Returns**: [<code>Wechaty</code>](/zh/api/wechaty?id=top) - - this for chain
+
+More Example Gist: [Examples/Friend-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/friend-botts)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| event | [<code>WechatyEventName</code>](#WechatyEventName) | Emit WechatyEvent |
-| listener | [<code>WechatyEventFunction</code>](#WechatyEventFunction) | Depends on the WechatyEvent |
+| event | [<code>WechatyEventName</code>](/zh/api/?id=wechatyeventname) | Emit WechatyEvent |
+| listener | [<code>WechatyEventFunction</code>](/zh/api/?id=wechatyeventfunction) | Depends on the WechatyEvent |
 
 **Example** *(Event:scan )*  
 ```js
@@ -166,10 +153,14 @@ bot.on('room-topic', (room: Room, topic: string, oldTopic: string, changer: Cont
 ```
 <a name="Wechaty+start"></a>
 
-### wechaty.start() ⇒ <code>Promise.&lt;void&gt;</code>
+## wechaty.start()
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Start the bot, return Promise.
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example**  
 ```js
 await bot.start()
@@ -177,30 +168,42 @@ await bot.start()
 ```
 <a name="Wechaty+stop"></a>
 
-### wechaty.stop() ⇒ <code>Promise.&lt;void&gt;</code>
+## wechaty.stop()
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Stop the bot
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example**  
 ```js
 await bot.stop()
 ```
 <a name="Wechaty+logout"></a>
 
-### wechaty.logout() ⇒ <code>Promise.&lt;void&gt;</code>
+## wechaty.logout()
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Logout the bot
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example**  
 ```js
 await bot.logout()
 ```
 <a name="Wechaty+logonoff"></a>
 
-### wechaty.logonoff() ⇒ <code>boolean</code>
+## wechaty.logonoff()
+
+**Return the type of**: boolean 
+
+
 Get the logon / logoff state
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example**  
 ```js
 if (bot.logonoff()) {
@@ -211,16 +214,20 @@ if (bot.logonoff()) {
 ```
 <a name="Wechaty+self"></a>
 
-### ~~wechaty.self()~~
+## ~~wechaty.self()~~
 ***Deprecated***
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 <a name="Wechaty+userSelf"></a>
 
-### wechaty.userSelf() ⇒ <code>Contact</code>
+## wechaty.userSelf()
+
+**Return the type of**: [Contact](/zh/api/contact?id=top) 
+
+
 Get current user
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example**  
 ```js
 const contact = bot.userSelf()
@@ -228,10 +235,14 @@ console.log(`Bot is ${contact.name()}`)
 ```
 <a name="Wechaty+say"></a>
 
-### wechaty.say(textOrContactOrFile) ⇒ <code>Promise.&lt;boolean&gt;</code>
+## wechaty.say(textOrContactOrFile)
+
+**Return the type of**: Promise.&lt;boolean&gt; 
+
+
 Send message to userSelf
 
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 
 | Param | Type |
 | --- | --- |
@@ -239,10 +250,10 @@ Send message to userSelf
 
 <a name="Wechaty.instance"></a>
 
-### Wechaty类.instance()
+## Wechaty.instance()
 get the singleton instance of Wechaty
 
-**Kind**: static method of [<code>Wechaty</code>](#Wechaty)  
+**Kind**: static method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
 **Example** *(The World&#x27;s Shortest ChatBot Code: 6 lines of JavaScript)*  
 ```js
 const { Wechaty } = require('wechaty')
@@ -253,45 +264,4 @@ Wechaty.instance() // Singleton
 .on('message',  message => console.log(`Message: ${message}`))
 .init()
 ```
-<a name="WechatyEventName"></a>
-
-## Wechaty类EventName
-Wechaty Class Event Type
-
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| error | <code>string</code> | When the bot get error, there will be a Wechaty error event fired. |
-| login | <code>string</code> | After the bot login full successful, the event login will be emitted, with a Contact of current logined user. |
-| logout | <code>string</code> | Logout will be emitted when bot detected log out, with a Contact of the current login user. |
-| heartbeat | <code>string</code> | Get bot's heartbeat. |
-| friend | <code>string</code> | When someone sends you a friend request, there will be a Wechaty friend event fired. |
-| message | <code>string</code> | Emit when there's a new message. |
-| room-join | <code>string</code> | Emit when anyone join any room. |
-| room-topic | <code>string</code> | Get topic event, emitted when someone change room topic. |
-| room-leave | <code>string</code> | Emit when anyone leave the room.<br>                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
-| scan | <code>string</code> | A scan event will be emitted when the bot needs to show you a QR Code for scanning. |
-
-<a name="WechatyEventFunction"></a>
-
-## Wechaty类EventFunction
-Wechaty Class Event Function
-
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| error | <code>function</code> | (this: Wechaty, error: Error) => void callback function |
-| login | <code>function</code> | (this: Wechaty, user: ContactSelf)=> void |
-| logout | <code>function</code> | (this: Wechaty, user: ContactSelf) => void |
-| scan | <code>function</code> | (this: Wechaty, url: string, code: number) => void <br> <ol> <li>URL: {String} the QR code image URL</li> <li>code: {Number} the scan status code. some known status of the code list here is:</li> </ol> <ul> <li>0 initial_</li> <li>200 login confirmed</li> <li>201 scaned, wait for confirm</li> <li>408 waits for scan</li> </ul> |
-| heartbeat | <code>function</code> | (this: Wechaty, data: any) => void |
-| friendship | <code>function</code> | (this: Wechaty, friendship: Friendship) => void |
-| message | <code>function</code> | (this: Wechaty, message: Message) => void |
-| room-join | <code>function</code> | (this: Wechaty, room: Room, inviteeList: Contact[],  inviter: Contact) => void |
-| room-topic | <code>function</code> | (this: Wechaty, room: Room, newTopic: string, oldTopic: string, changer: Contact) => void |
-| room-leave | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void |
-
+<a name="Room"></a>
