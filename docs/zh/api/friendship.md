@@ -11,40 +11,154 @@ Send, receive friend request, and friend confirmation events.
 
 * [Friendship](/zh/api/friendship?id=top)
     * _instance_
-        * [.payload](#Friendshippayload)
-        * [.ready()](#Friendshipready)
+        * [.accept()](#Friendshipaccept) <code>Promise.&lt;void&gt;</code>
+        * [.hello()](#Friendshiphello) <code>string</code>
+        * [.contact()](#Friendshipcontact) [<code>Contact</code>](/zh/api/contact?id=top)
+        * [.type()](#Friendshiptype) <code>FriendshipType</code>
     * _static_
         * ~~[.send()](#Friendshipsend)~~
-        * [.add(contact, hello)](#Friendshipaddcontact-hello)
+        * [.add(contact, hello)](#Friendshipaddcontact-hello) <code>Promise.&lt;void&gt;</code>
 
-<a name="Friendship+payload"></a>
+<a name="Friendship+accept"></a>
 
-## friendship.payload
-Instance Properties
+## friendship.accept()
 
-**Kind**: instance property of [<code>Friendship</code>](/zh/api/friendship?id=top)  
-<a name="Friendship+ready"></a>
+**Return the type of**: Promise.&lt;void&gt; 
 
-## friendship.ready()
-no `dirty` support because Friendship has no rawPayload(yet)
+
+Accept Friend Request
 
 **Kind**: instance method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
+**Example**  
+```js
+const bot = new Wechaty()
+bot.on('friendship', async friendship => {
+  try {
+    console.log(`received friend event from ${friendship.contact().name()}`)
+    switch (friendship.type()) {
+
+    # 1. New Friend Request
+
+    case Friendship.Type.Receive:
+      await friendship.accept()
+      break
+
+    # 2. Friend Ship Confirmed
+
+    case Friendship.Type.Confirm:
+      console.log(`friend ship confirmed with ${friendship.contact().name()}`)
+      break
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+.start()
+```
+<a name="Friendship+hello"></a>
+
+## friendship.hello()
+
+**Return the type of**: string 
+
+
+Get verify message from
+
+**Kind**: instance method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
+**Example** *(If request content is &#x60;ding&#x60;, then accept the friendship)*  
+```js
+const bot = new Wechaty()
+bot.on('friendship', async friendship => {
+  try {
+    console.log(`received friend event from ${friendship.contact().name()}`)
+    if (friendship.type() === Friendship.Type.Receive && friendship.hello() === 'ding') {
+      await friendship.accept()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+.start()
+```
+<a name="Friendship+contact"></a>
+
+## friendship.contact()
+
+**Return the type of**: [Contact](/zh/api/contact?id=top) 
+
+
+Get the contact from friendship
+
+**Kind**: instance method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
+**Example**  
+```js
+const bot = new Wechaty()
+bot.on('friendship', async friendship => {
+  console.log(`received friend event from ${friendship.contact().name()}`)
+}
+.start()
+```
+<a name="Friendship+type"></a>
+
+## friendship.type()
+
+**Return the type of**: FriendshipType 
+
+
+Return the Friendship Type
+> Tips: FriendshipType is enum here. </br>
+- FriendshipType.Unknown = 0 </br>
+- FriendshipType.Confirm = 1 </br>
+- FriendshipType.Receive = 2 </br>
+- FriendshipType.Verify  = 3 </br>
+
+**Kind**: instance method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
+**Example** *(If request content is &#x60;ding&#x60;, then accept the friendship)*  
+```js
+const bot = new Wechaty()
+bot.on('friendship', async friendship => {
+  try {
+    if (friendship.type() === Friendship.Type.Receive && friendship.hello() === 'ding') {
+      await friendship.accept()
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+.start()
+```
 <a name="Friendship.send"></a>
 
 ## ~~Friendship.send()~~
 ***Deprecated***
 
+use [Friendship#add](Friendship#add) instead
+
 **Kind**: static method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 <a name="Friendship.add"></a>
 
 ## Friendship.add(contact, hello)
+
+**Return the type of**: Promise.&lt;void&gt; 
+
+
 Send a Friend Request to a `contact` with message `hello`.
+
+The best practice is to send friend request once per minute.
+Remeber not to do this too frequently, or your account may be blocked.
 
 **Kind**: static method of [<code>Friendship</code>](/zh/api/friendship?id=top)  
 
-| Param |
-| --- |
-| contact | 
-| hello | 
+| Param | Type | Description |
+| --- | --- | --- |
+| contact | [<code>Contact</code>](/zh/api/contact?id=top) | Send friend request to contact |
+| hello | <code>string</code> | The friend request content |
 
+**Example**  
+```js
+const memberList = await room.memberList()
+for (let i = 0; i < memberList.length; i++) {
+  await bot.Friendship.send(member, 'Nice to meet you! I am wechaty bot!')
+}
+```
 <a name="Message"></a>

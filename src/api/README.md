@@ -9,18 +9,29 @@
 <dl>
 <dt>[Wechaty](/api/wechaty?id=top)</dt>
 <dd><p>Main bot class.</p>
-<p><a href="#wechatyinstance">The World&#39;s Shortest ChatBot Code: 6 lines of JavaScript</a></p>
-<p><a href="https://github.com/lijiarui/wechaty-getting-started">Wechaty Starter Project</a></p>
+<p>A <code>Bot</code> is a wechat client depends on which puppet you use.
+It may equals</p>
+<ul>
+<li>web-wechat, when you use: <a href="https://github.com/chatie/wechaty-puppet-puppeteer">puppet-puppeteer</a>/<a href="https://github.com/chatie/wechaty-puppet-wechat4u">puppet-wechat4u</a></li>
+<li>ipad-wechat, when you use: <a href="https://github.com/lijiarui/wechaty-puppet-padchat">puppet-padchat</a></li>
+<li>ios-wechat, when you use: puppet-ioscat</li>
+</ul>
+<p>See more:</p>
+<ul>
+<li><a href="https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-EN#31-what-is-a-puppet-in-wechaty">What is a Puppet in Wechaty</a></li>
+</ul>
+<blockquote>
+<p>If you want to know how to send message, see [Message](/api/message?id=top)
+If you want to know how to get contact, see [Contact](/api/contact?id=top)</p>
+</blockquote>
 </dd>
 <dt>[Room](/api/room?id=top)</dt>
 <dd><p>All wechat rooms(groups) will be encapsulated as a Room.</p>
-<p><code>Room</code> is <code>Sayable</code>,
-<a href="https://github.com/Chatie/wechaty/blob/master/examples/room-bot.ts">Examples/Room-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/room-bot.ts">Examples/Room-Bot</a></p>
 </dd>
 <dt>[Contact](/api/contact?id=top)</dt>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.</p>
-<p><code>Contact</code> is <code>Sayable</code>,
-<a href="https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
 <dt>[Friendship](/api/friendship?id=top)</dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
@@ -33,19 +44,33 @@
 </dd>
 <dt>[Message](/api/message?id=top)</dt>
 <dd><p>All wechat messages will be encapsulated as a Message.</p>
-<p><code>Message</code> is <code>Sayable</code>,
-<a href="https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
 </dd>
 </dl>
 
 # Typedefs
 
 <dl>
+[PuppetName](/api/?id=puppetname)
+<dd><p>The term <a href="https://github.com/Chatie/wechaty/wiki/Puppet">Puppet</a> in Wechaty is an Abstract Class for implementing protocol plugins.
+The plugins are the component that helps Wechaty to control the Wechat(that&#39;s the reason we call it puppet).
+The plugins are named XXXPuppet, for example:</p>
+<ul>
+<li><a href="https://github.com/Chatie/wechaty-puppet-puppeteer">PuppetPuppeteer</a>:</li>
+<li><a href="https://github.com/lijiarui/wechaty-puppet-padchat">PuppetPadchat</a></li>
+</ul>
+</dd>
+[WechatyOptions](/api/?id=wechatyoptions)
+<dd><p>The option parameter to create a wechaty instance</p>
+</dd>
 [WechatyEventName](/api/?id=wechatyeventname)
 <dd><p>Wechaty Class Event Type</p>
 </dd>
 [WechatyEventFunction](/api/?id=wechatyeventfunction)
 <dd><p>Wechaty Class Event Function</p>
+</dd>
+[RoomQueryFilter](/api/?id=roomqueryfilter)
+<dd><p>The filter to find the room:  {topic: string | RegExp}</p>
 </dd>
 [RoomEventName](/api/?id=roomeventname)
 <dd><p>Room Class Event Type</p>
@@ -53,7 +78,7 @@
 [RoomEventFunction](/api/?id=roomeventfunction)
 <dd><p>Room Class Event Function</p>
 </dd>
-[MemberQueryFilter](/api/?id=memberqueryfilter)
+[RoomMemberQueryFilter](/api/?id=roommemberqueryfilter)
 <dd><p>The way to search member by Room.member()</p>
 </dd>
 [ContactQueryFilter](/api/?id=contactqueryfilter)
@@ -80,7 +105,7 @@ Wechaty Class Event Type
 | room-join | <code>string</code> | Emit when anyone join any room. |
 | room-topic | <code>string</code> | Get topic event, emitted when someone change room topic. |
 | room-leave | <code>string</code> | Emit when anyone leave the room.<br>                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
-| scan | <code>string</code> | A scan event will be emitted when the bot needs to show you a QR Code for scanning. |
+| scan | <code>string</code> | A scan event will be emitted when the bot needs to show you a QR Code for scanning. </br>                                    It is recommend to install qrcode-terminal(run `npm install qrcode-terminal`) in order to show qrcode in the terminal. |
 
 <a name="WechatyEventFunction"></a>
 
@@ -102,6 +127,18 @@ Wechaty Class Event Function
 | room-join | <code>function</code> | (this: Wechaty, room: Room, inviteeList: Contact[],  inviter: Contact) => void |
 | room-topic | <code>function</code> | (this: Wechaty, room: Room, newTopic: string, oldTopic: string, changer: Contact) => void |
 | room-leave | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void |
+
+<a name="RoomQueryFilter"></a>
+
+# RoomQueryFilter
+The filter to find the room:  {topic: string | RegExp}
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| topic | <code>string</code> | 
 
 <a name="RoomEventName"></a>
 
@@ -131,9 +168,9 @@ Room Class Event Function
 | room-topic | <code>function</code> | (this: Room, topic: string, oldTopic: string, changer: Contact) => void |
 | room-leave | <code>function</code> | (this: Room, leaver: Contact) => void |
 
-<a name="MemberQueryFilter"></a>
+<a name="RoomMemberQueryFilter"></a>
 
-# MemberQueryFilter
+# RoomMemberQueryFilter
 The way to search member by Room.member()
 
 **Kind**: global typedef  
