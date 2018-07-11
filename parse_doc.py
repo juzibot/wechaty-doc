@@ -34,7 +34,7 @@ for line in lines:
         key = 'message'
     if line == '## Contact':
         key = 'contact'
-    if line == '<a name="WechatyEventName"></a>':
+    if line == '<a name="PuppetName"></a>':
         key = 'README'
 
     if line.startswith('#'):
@@ -95,6 +95,7 @@ for line in lines:
 
 # 找到类型定义
 typedefs = re.findall(r'<dt><a href="#([^"]+)">[^<]+</a></dt>', '\n'.join(ret['README']))
+
 for key in ret.keys():
     for t in typedefs:
         s = '<dt><a href="#{}">{}</a></dt>'.format(t, t)
@@ -150,6 +151,8 @@ for key in keys:
         path = os.path.join(od, key + '.md')
         content = ret[key]
         if key == 'README':
+            for t in typedefs:
+                content = content.replace('## ' + t, '### ' + t)
             content = open('api.md').read() + '\n\n' + content
 
         content = re.sub(r'^##\s', '# ', content)

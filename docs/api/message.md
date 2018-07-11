@@ -315,36 +315,3 @@ Get Share Card of the Message
 TODO
 
 **Kind**: instance method of [<code>Message</code>](/api/message?id=top)  
-<a name="PuppetName"></a>
-
-# PuppetName
-The term [Puppet](https://githubcom/Chatie/wechaty/wiki/Puppet) in Wechaty is an Abstract Class for implementing protocol plugins.
-The plugins are the component that helps Wechaty to control the Wechat(that's the reason we call it puppet).
-The plugins are named XXXPuppet, for example:
-- [PuppetPuppeteer](https://githubcom/Chatie/wechaty-puppet-puppeteer):
-- [PuppetPadchat](https://githubcom/lijiarui/wechaty-puppet-padchat)
-
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| wechat4u | <code>string</code> | The default puppet, using the [wechat4u](https://githubcom/nodeWechat/wechat4u) to control the [WeChat Web API](https://wxqqcom/) via a chrome browser. |
-| padchat | <code>string</code> | - Using the WebSocket protocol to connect with a Protocol Server for controlling the iPad Wechat program. |
-| puppeteer | <code>string</code> | - Using the [google puppeteer](https://githubcom/GoogleChrome/puppeteer) to control the [WeChat Web API](https://wxqqcom/) via a chrome browser. |
-| mock | <code>string</code> | - Using the mock data to mock wechat operation, just for test. |
-
-<a name="WechatyOptions"></a>
-
-# WechatyOptions
-The option parameter to create a wechaty instance
-
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| profile | <code>string</code> | Wechaty Name. </br>          When you set this: </br>          `new Wechaty({profile: 'wechatyName'}) ` </br>          it will generate a file called `wechatyName.memory-card.json`. </br>          This file stores the bot's login information. </br>          If the file is valid, the bot can auto login so you don't need to scan the qrcode to login again. </br>          Also, you can set the environment variable for `WECHATY_PROFILE` to set this value when you start. </br>          eg:  `WECHATY_PROFILE="your-cute-bot-name" node bot.js` |
-| puppet | [<code>PuppetName</code>](/api/?id=puppetname) &#124; <code>Puppet</code> | Puppet name or instance |
-| puppetOptions | <code>Partial.&lt;PuppetOptions&gt;</code> | Puppet TOKEN |
-| ioToken | <code>string</code> | Io TOKEN |

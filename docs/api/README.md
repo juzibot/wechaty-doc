@@ -86,9 +86,43 @@ The plugins are named XXXPuppet, for example:</p>
 </dd>
 </dl>
 
+<a name="PuppetName"></a>
+
+## PuppetName
+The term [Puppet](https://githubcom/Chatie/wechaty/wiki/Puppet) in Wechaty is an Abstract Class for implementing protocol plugins.
+The plugins are the component that helps Wechaty to control the Wechat(that's the reason we call it puppet).
+The plugins are named XXXPuppet, for example:
+- [PuppetPuppeteer](https://githubcom/Chatie/wechaty-puppet-puppeteer):
+- [PuppetPadchat](https://githubcom/lijiarui/wechaty-puppet-padchat)
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| wechat4u | <code>string</code> | The default puppet, using the [wechat4u](https://githubcom/nodeWechat/wechat4u) to control the [WeChat Web API](https://wxqqcom/) via a chrome browser. |
+| padchat | <code>string</code> | - Using the WebSocket protocol to connect with a Protocol Server for controlling the iPad Wechat program. |
+| puppeteer | <code>string</code> | - Using the [google puppeteer](https://githubcom/GoogleChrome/puppeteer) to control the [WeChat Web API](https://wxqqcom/) via a chrome browser. |
+| mock | <code>string</code> | - Using the mock data to mock wechat operation, just for test. |
+
+<a name="WechatyOptions"></a>
+
+## WechatyOptions
+The option parameter to create a wechaty instance
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>string</code> | Wechaty Name. </br>          When you set this: </br>          `new Wechaty({profile: 'wechatyName'}) ` </br>          it will generate a file called `wechatyName.memory-card.json`. </br>          This file stores the bot's login information. </br>          If the file is valid, the bot can auto login so you don't need to scan the qrcode to login again. </br>          Also, you can set the environment variable for `WECHATY_PROFILE` to set this value when you start. </br>          eg:  `WECHATY_PROFILE="your-cute-bot-name" node bot.js` |
+| puppet | [<code>PuppetName</code>](/api/?id=puppetname) &#124; <code>Puppet</code> | Puppet name or instance |
+| puppetOptions | <code>Partial.&lt;PuppetOptions&gt;</code> | Puppet TOKEN |
+| ioToken | <code>string</code> | Io TOKEN |
+
 <a name="WechatyEventName"></a>
 
-# WechatyEventName
+## WechatyEventName
 Wechaty Class Event Type
 
 **Kind**: global typedef  
@@ -109,7 +143,7 @@ Wechaty Class Event Type
 
 <a name="WechatyEventFunction"></a>
 
-# WechatyEventFunction
+## WechatyEventFunction
 Wechaty Class Event Function
 
 **Kind**: global typedef  
@@ -130,7 +164,7 @@ Wechaty Class Event Function
 
 <a name="RoomQueryFilter"></a>
 
-# RoomQueryFilter
+## RoomQueryFilter
 The filter to find the room:  {topic: string | RegExp}
 
 **Kind**: global typedef  
@@ -142,7 +176,7 @@ The filter to find the room:  {topic: string | RegExp}
 
 <a name="RoomEventName"></a>
 
-# RoomEventName
+## RoomEventName
 Room Class Event Type
 
 **Kind**: global typedef  
@@ -156,7 +190,7 @@ Room Class Event Type
 
 <a name="RoomEventFunction"></a>
 
-# RoomEventFunction
+## RoomEventFunction
 Room Class Event Function
 
 **Kind**: global typedef  
@@ -170,7 +204,7 @@ Room Class Event Function
 
 <a name="RoomMemberQueryFilter"></a>
 
-# RoomMemberQueryFilter
+## RoomMemberQueryFilter
 The way to search member by Room.member()
 
 **Kind**: global typedef  
@@ -184,7 +218,7 @@ The way to search member by Room.member()
 
 <a name="ContactQueryFilter"></a>
 
-# ContactQueryFilter
+## ContactQueryFilter
 The way to search Contact
 
 **Kind**: global typedef  
