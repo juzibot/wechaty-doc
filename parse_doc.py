@@ -153,7 +153,12 @@ for key in keys:
         if key == 'README':
             for t in typedefs:
                 content = content.replace('## ' + t, '### ' + t)
+            
+            # 载入api预设
             content = open('api.md').read() + '\n\n' + content
+            # 中文的修改标题
+            if 'zh' in od:
+                content = content.replace('# API\n', '# API文档\n')
 
         content = re.sub(r'^##\s', '# ', content)
         content = re.sub(r'^###\s', '## ', content)
