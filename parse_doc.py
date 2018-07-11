@@ -160,6 +160,9 @@ for key in keys:
             if 'zh' in od:
                 content = content.replace('# API\n', '# API文档\n')
 
+        # hack fix empty table cell
+        content = content.replace('|  |', '| 　 |')
+
         content = re.sub(r'^##\s', '# ', content)
         content = re.sub(r'^###\s', '## ', content)
         content = re.sub(r'^####\s', '### ', content)

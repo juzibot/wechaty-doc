@@ -138,7 +138,7 @@ Reply a Text or Media File message to the sender.
 | Param | Type | Description |
 | --- | --- | --- |
 | textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://wwwnpmjscom/package/file-box) to send file |
-| [mention] | [<code>Contact</code>](/zh/api/contact?id=top) &#124; [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top) |  |
+| [mention] | [<code>Contact</code>](/zh/api/contact?id=top) &#124; [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top) | 　 |
 
 **Example**  
 ```js
