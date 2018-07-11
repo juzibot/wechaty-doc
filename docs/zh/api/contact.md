@@ -1,15 +1,15 @@
 # Contact类
 All wechat contacts(friend) will be encapsulated as a Contact.
 
-[Examples/Contact-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/contact-botts)
+[Examples/Contact-Bot](https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts)
 
 **Kind**: global class  
 
-* [Contact](/zh/api/contact?id=top)
+* [Contact](/zh/api/contact)
     * _instance_
-        * [.say(textOrContactOrFile)](#ContactsaytextOrContactOrFile) <code>Promise.&lt;void&gt;</code>
+        * [.say(textOrContactOrFile)](#Contactsay) <code>Promise.&lt;void&gt;</code>
         * [.name()](#Contactname) <code>string</code>
-        * [.alias(newAlias)](#ContactaliasnewAlias) <code>string</code> &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
+        * [.alias(newAlias)](#Contactalias) <code>string</code> &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
         * ~~[.stranger()](#Contactstranger)~~
         * [.friend()](#Contactfriend) <code>boolean</code> &#124; <code>null</code>
         * ~~[.official()](#Contactofficial)~~
@@ -23,22 +23,22 @@ All wechat contacts(friend) will be encapsulated as a Contact.
         * [.sync()](#Contactsync) <code>Promise.&lt;this&gt;</code>
         * [.self()](#Contactself) <code>boolean</code>
     * _static_
-        * [.load(id)](#Contactloadid) [<code>Contact</code>](/zh/api/contact?id=top)
-        * [.find(query)](#Contactfindquery) <code>Promise.&lt;(Contact&#124;null)&gt;</code>
-        * [.findAll([queryArg])](#ContactfindAllqueryArg) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
+        * [.load(id)](#Contactload) [<code>Contact</code>](/zh/api/contact)
+        * [.find(query)](#Contactfind) <code>Promise.&lt;(Contact&#124;null)&gt;</code>
+        * [.findAll([queryArg])](#ContactfindAll) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
-<a name="Contact+say"></a>
+<a id="contactsay"></a>
 
 ## contact.say(textOrContactOrFile)
 
 **Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>FileBox</code> | send text, Contact, or file to contact. </br> You can use [FileBox](https://wwwnpmjscom/package/file-box) to send file |
+| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact) &#124; <code>FileBox</code> | send text, Contact, or file to contact. </br> You can use [FileBox](https://www.npmjs.com/package/file-box) to send file |
 
 **Example**  
 ```js
@@ -63,7 +63,7 @@ await contact.say(fileBox2)
 const contactCard = bot.Contact.load('contactId')
 await contact.say(contactCard)
 ```
-<a name="Contact+name"></a>
+<a id="contactname"></a>
 
 ## contact.name()
 
@@ -72,12 +72,12 @@ await contact.say(contactCard)
 
 Get the name from a contact
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 const name = contact.name()
 ```
-<a name="Contact+alias"></a>
+<a id="contactalias"></a>
 
 ## contact.alias(newAlias)
 
@@ -88,7 +88,7 @@ GET / SET / DELETE the alias for a contact
 
 Tests show it will failed if set alias too frequently(60 times in one minute).
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 
 | Param | Type |
 | --- | --- |
@@ -122,15 +122,15 @@ try {
   console.log(`failed to delete ${contact.name()}'s alias!`)
 }
 ```
-<a name="Contact+stranger"></a>
+<a id="contactstranger"></a>
 
 ## ~~contact.stranger()~~
 ***Deprecated***
 
 Should use [friend](#Contactfriend) instead
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
-<a name="Contact+friend"></a>
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
+<a id="contactfriend"></a>
 
 ## contact.friend()
 
@@ -139,30 +139,30 @@ Should use [friend](#Contactfriend) instead
 
 Check if contact is friend
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Returns**: <code>boolean</code> &#124; <code>null</code> - <br>True for friend of the bot <br>
 False for not friend of the bot, null for unknown.  
 **Example**  
 ```js
 const isFriend = contact.friend()
 ```
-<a name="Contact+official"></a>
+<a id="contactofficial"></a>
 
 ## ~~contact.official()~~
 ***Deprecated***
 
 Check if it's a offical account, should use [type](#Contacttype) instead
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
-<a name="Contact+personal"></a>
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
+<a id="contactpersonal"></a>
 
 ## ~~contact.personal()~~
 ***Deprecated***
 
 Check if it's a personal account, should use [type](#Contacttype) instead
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
-<a name="Contact+type"></a>
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
+<a id="contacttype"></a>
 
 ## contact.type()
 
@@ -175,14 +175,14 @@ Return the type of the Contact
 - ContactType.Personal = 1</br>
 - ContactType.Official = 2</br>
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 const bot = new Wechaty()
 await bot.start()
 const isOfficial = contact.type() === bot.Contact.Type.OFFICIAL
 ```
-<a name="Contact+gender"></a>
+<a id="contactgender"></a>
 
 ## contact.gender()
 
@@ -195,12 +195,12 @@ Contact gender
 - ContactGender.Male    </br>
 - ContactGender.Female  </br>
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 const gender = contact.gender()
 ```
-<a name="Contact+province"></a>
+<a id="contactprovince"></a>
 
 ## contact.province()
 
@@ -209,12 +209,12 @@ const gender = contact.gender()
 
 Get the region 'province' from a contact
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 const province = contact.province()
 ```
-<a name="Contact+city"></a>
+<a id="contactcity"></a>
 
 ## contact.city()
 
@@ -223,12 +223,12 @@ const province = contact.province()
 
 Get the region 'city' from a contact
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 const city = contact.city()
 ```
-<a name="Contact+avatar"></a>
+<a id="contactavatar"></a>
 
 ## contact.avatar()
 
@@ -237,7 +237,7 @@ const city = contact.city()
 
 Get avatar picture file stream
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 # Save avatar to local file like `1-name.jpg`
@@ -247,15 +247,15 @@ const name = file.name
 await file.toFile(name, true)
 console.log(`Contact: ${contact.name()} with avatar file: ${name}`)
 ```
-<a name="Contact+refresh"></a>
+<a id="contactrefresh"></a>
 
 ## ~~contact.refresh()~~
 ***Deprecated***
 
 Force reload(re-ready()) data for Contact, use [sync](#Contactsync) instead
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
-<a name="Contact+sync"></a>
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
+<a id="contactsync"></a>
 
 ## contact.sync()
 
@@ -264,12 +264,12 @@ Force reload(re-ready()) data for Contact, use [sync](#Contactsync) instead
 
 Force reload(re-ready()) data for Contact,
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
 await contact.sync()
 ```
-<a name="Contact+self"></a>
+<a id="contactself"></a>
 
 ## contact.self()
 
@@ -278,22 +278,22 @@ await contact.sync()
 
 Check if contact is self
 
-**Kind**: instance method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Returns**: <code>boolean</code> - True for contact is self, False for contact is others  
 **Example**  
 ```js
 const isSelf = contact.self()
 ```
-<a name="Contact.load"></a>
+<a id="contactload"></a>
 
 ## Contact.load(id)
 
-**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
+**Return the type of**: [<code>Contact</code>](/zh/api/contact)
 
 
 Get Contact by id
 
-**Kind**: static method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: static method of [<code>Contact</code>](/zh/api/contact)  
 
 | Param | Type |
 | --- | --- |
@@ -305,7 +305,7 @@ const bot = new Wechaty()
 await bot.start()
 const contact = bot.Contact.load('contactId')
 ```
-<a name="Contact.find"></a>
+<a id="contactfind"></a>
 
 ## Contact.find(query)
 
@@ -316,7 +316,7 @@ Try to find a contact by filter: {name: string | RegExp} / {alias: string | RegE
 
 Find contact by name or alias, if the result more than one, return the first one.
 
-**Kind**: static method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: static method of [<code>Contact</code>](/zh/api/contact)  
 **Returns**: <code>Promise.&lt;(Contact&#124;null)&gt;</code> - If can find the contact, return Contact, or return null  
 
 | Param | Type |
@@ -330,7 +330,7 @@ await bot.start()
 const contactFindByName = await bot.Contact.find({ name:"ruirui"} )
 const contactFindByAlias = await bot.Contact.find({ alias:"lijiarui"} )
 ```
-<a name="Contact.findAll"></a>
+<a id="contactfindall"></a>
 
 ## Contact.findAll([queryArg])
 
@@ -345,7 +345,7 @@ If use Contact.findAll() get the contact list of the bot.
 - `name`   the name-string set by user-self, should be called name
 - `alias`  the name-string set by bot for others, should be called alias
 
-**Kind**: static method of [<code>Contact</code>](/zh/api/contact?id=top)  
+**Kind**: static method of [<code>Contact</code>](/zh/api/contact)  
 
 | Param | Type |
 | --- | --- |
@@ -359,4 +359,4 @@ const contactList = await bot.Contact.findAll()                    // get the co
 const contactList = await bot.Contact.findAll({name: 'ruirui'})    // find allof the contacts whose name is 'ruirui'
 const contactList = await bot.Contact.findAll({alias: 'lijiarui'}) // find all of the contacts whose alias is 'lijiarui'
 ```
-<a name="Friendship"></a>
+<a id="friendship"></a>

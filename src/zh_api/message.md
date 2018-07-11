@@ -1,37 +1,37 @@
 # Message类
 All wechat messages will be encapsulated as a Message.
 
-[Examples/Ding-Dong-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/ding-dong-botts)
+[Examples/Ding-Dong-Bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)
 
 **Kind**: global class  
 
-* [Message](/zh/api/message?id=top)
-    * [.from()](#Messagefrom) [<code>Contact</code>](/zh/api/contact?id=top)
-    * [.to()](#Messageto) [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
-    * [.room()](#Messageroom) [<code>Room</code>](/zh/api/room?id=top) &#124; <code>null</code>
+* [Message](/zh/api/message)
+    * [.from()](#Messagefrom) [<code>Contact</code>](/zh/api/contact)
+    * [.to()](#Messageto) [<code>Contact</code>](/zh/api/contact) &#124; <code>null</code>
+    * [.room()](#Messageroom) [<code>Room</code>](/zh/api/room) &#124; <code>null</code>
     * ~~[.content()](#Messagecontent)~~
     * [.text()](#Messagetext) <code>string</code>
-    * [.say(textOrContactOrFile, [mention])](#MessagesaytextOrContactOrFile-mention) <code>Promise.&lt;void&gt;</code>
+    * [.say(textOrContactOrFile, [mention])](#Messagesay) <code>Promise.&lt;void&gt;</code>
     * [.type()](#Messagetype) <code>MessageType</code>
     * [.self()](#Messageself) <code>boolean</code>
     * [.mention()](#Messagemention) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
     * ~~[.mentioned()](#Messagementioned)~~
-    * [.forward(to)](#Messageforwardto) <code>Promise.&lt;void&gt;</code>
+    * [.forward(to)](#Messageforward) <code>Promise.&lt;void&gt;</code>
     * [.age()](#Messageage) <code>number</code>
     * ~~[.file()](#Messagefile)~~
     * [.toFileBox()](#MessagetoFileBox) <code>Promise.&lt;FileBox&gt;</code>
     * [.toContact()](#MessagetoContact) <code>Promise.&lt;FileBox&gt;</code>
 
-<a name="Message+from"></a>
+<a id="messagefrom"></a>
 
 ## message.from()
 
-**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
+**Return the type of**: [<code>Contact</code>](/zh/api/contact)
 
 
 Get the sender from a message.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -49,28 +49,28 @@ bot
 })
 .start()
 ```
-<a name="Message+to"></a>
+<a id="messageto"></a>
 
 ## message.to()
 
-**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
+**Return the type of**: [<code>Contact</code>](/zh/api/contact) &#124; <code>null</code>
 
 
 Get the destination of the message
 Message.to() will return null if a message is in a room, use Message.room() to get the room.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+room"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messageroom"></a>
 
 ## message.room()
 
-**Return the type of**: [<code>Room</code>](/zh/api/room?id=top) &#124; <code>null</code>
+**Return the type of**: [<code>Room</code>](/zh/api/room) &#124; <code>null</code>
 
 
 Get the room from the message.
 If the message is not in a room, then will return `null`
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -88,15 +88,15 @@ bot
 })
 .start()
 ```
-<a name="Message+content"></a>
+<a id="messagecontent"></a>
 
 ## ~~message.content()~~
 ***Deprecated***
 
 use [text](#Messagetext) instead
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+text"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messagetext"></a>
 
 ## message.text()
 
@@ -105,7 +105,7 @@ use [text](#Messagetext) instead
 
 Get the text content of the message
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -123,7 +123,7 @@ bot
 })
 .start()
 ```
-<a name="Message+say"></a>
+<a id="messagesay"></a>
 
 ## message.say(textOrContactOrFile, [mention])
 
@@ -132,13 +132,13 @@ bot
 
 Reply a Text or Media File message to the sender.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-**See**: [Examples/ding-dong-bot](https://githubcom/Chatie/wechaty/blob/master/examples/ding-dong-botts)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+**See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://wwwnpmjscom/package/file-box) to send file |
-| [mention] | [<code>Contact</code>](/zh/api/contact?id=top) &#124; [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact?id=top) | 　 |
+| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://www.npmjs.com/package/file-box) to send file |
+| [mention] | [<code>Contact</code>](/zh/api/contact) &#124; [<code>Array.&lt;Contact&gt;</code>](/zh/api/contact) | 　 |
 
 **Example**  
 ```js
@@ -174,7 +174,7 @@ bot
 })
 .start()
 ```
-<a name="Message+type"></a>
+<a id="messagetype"></a>
 
 ## message.type()
 
@@ -192,7 +192,7 @@ Get the type from the message.
 - MessageType.Text        </br>
 - MessageType.Video       </br>
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -200,7 +200,7 @@ if (message.type() === bot.Message.Type.Text) {
   console.log('This is a text message')
 }
 ```
-<a name="Message+self"></a>
+<a id="messageself"></a>
 
 ## message.self()
 
@@ -209,7 +209,7 @@ if (message.type() === bot.Message.Type.Text) {
 
 Check if a message is sent by self.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Returns**: <code>boolean</code> - - Return `true` for send from self, `false` for send from others.  
 **Example**  
 ```js
@@ -217,7 +217,7 @@ if (message.self()) {
  console.log('this message is sent by myself!')
 }
 ```
-<a name="Message+mention"></a>
+<a id="messagemention"></a>
 
 ## message.mention()
 
@@ -235,22 +235,22 @@ Message event table as follows
 | Identify magic code (8197) by programming                                  |  ✘   |        ✘       |     ✘      |       ✘         |
 | Identify two contacts with the same roomAlias by [You were  mentioned] tip |  ✘   |        ✘       |     √      |       √         |
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **Returns**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code> - - Return message mentioned contactList  
 **Example**  
 ```js
 const contactList = await message.mentioned()
 console.log(contactList)
 ```
-<a name="Message+mentioned"></a>
+<a id="messagementioned"></a>
 
 ## ~~message.mentioned()~~
 ***Deprecated***
 
 should use [mention](#Messagemention) instead
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+forward"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messageforward"></a>
 
 ## message.forward(to)
 
@@ -259,7 +259,7 @@ should use [mention](#Messagemention) instead
 
 Forward the received message.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -278,7 +278,7 @@ bot
 })
 .start()
 ```
-<a name="Message+age"></a>
+<a id="messageage"></a>
 
 ## message.age()
 
@@ -291,16 +291,16 @@ For example, the message is sent at time 8:43:01,
 and when we received it in Wechaty, the time is 8:43:15,
 then the age() will return 8:43:15 - 8:43:01 = 14 (seconds)
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+file"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messagefile"></a>
 
 ## ~~message.file()~~
 ***Deprecated***
 
 use [toFileBox](#MessagetoFileBox) instead
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+toFileBox"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messagetofilebox"></a>
 
 ## message.toFileBox()
 
@@ -309,8 +309,8 @@ use [toFileBox](#MessagetoFileBox) instead
 
 Extract the Media File from the Message, and put it into the FileBox.
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
-<a name="Message+toContact"></a>
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  
+<a id="messagetocontact"></a>
 
 ## message.toContact()
 
@@ -320,4 +320,4 @@ Extract the Media File from the Message, and put it into the FileBox.
 Get Share Card of the Message
 TODO
 
-**Kind**: instance method of [<code>Message</code>](/zh/api/message?id=top)  
+**Kind**: instance method of [<code>Message</code>](/zh/api/message)  

@@ -63,16 +63,17 @@ for line in lines:
         a = a.replace('&#41;', ')')
         a = a.replace('&#93;', ']')
 
-        b = b.replace('+', '')
-        b = b.replace('.', '')
-        b = b.replace(' ', '')
-        aa = re.findall(r'\(([^\)]+)\)', a)
-        if aa:
-            c = aa[0]
-            c = re.sub(r'\(|\)|\[|\{|\]|\}|\+|\.', '', c)
-            c = c.replace(',', '-')
-            b += c
-        b = b.replace(' ', '')
+        if 'http' not in b and '//' not in b:
+            b = b.replace('+', '')
+            b = b.replace('.', '')
+            b = b.replace(' ', '')
+            # aa = re.findall(r'\(([^\)]+)\)', a)
+            # if aa:
+            #     c = aa[0]
+            #     c = re.sub(r'\(|\)|\[|\{|\]|\}|\+|\.', '', c)
+            #     c = c.replace(',', '-')
+            #     b += c
+            # b = b.replace(' ', '')
         r = '[{}]({})'.format(a, b)
         # if 'say' in line:
         #     print('a', line, a, b, r)
@@ -81,11 +82,21 @@ for line in lines:
     line = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', replace_markdown_link, line.replace('])](', '&#93;&#41;]('))
 
     # 替换几个主类的链接
-    line = re.sub(r'<a href="#Wechaty">Wechaty</a>', '[Wechaty](/api/wechaty?id=top)', line)
-    line = re.sub(r'<a href="#Friendship">Friendship</a>', '[Friendship](/api/friendship?id=top)', line)
-    line = re.sub(r'<a href="#Message">Message</a>', '[Message](/api/message?id=top)', line)
-    line = re.sub(r'<a href="#Contact">Contact</a>', '[Contact](/api/contact?id=top)', line)
-    line = re.sub(r'<a href="#Room">Room</a>', '[Room](/api/room?id=top)', line)
+    line = re.sub(r'<a href="#Wechaty">Wechaty</a>', '[Wechaty](/api/wechaty)', line)
+    line = re.sub(r'<a href="#Friendship">Friendship</a>', '[Friendship](/api/friendship)', line)
+    line = re.sub(r'<a href="#Message">Message</a>', '[Message](/api/message)', line)
+    line = re.sub(r'<a href="#Contact">Contact</a>', '[Contact](/api/contact)', line)
+    line = re.sub(r'<a href="#Room">Room</a>', '[Room](/api/room)', line)
+
+    def _fun(x):
+        x = x.group(1).lower()
+        x = x.replace('+', '')
+        x = x.replace('.', '')
+        x =  '<a id="{}"></a>'.format(x)
+
+        return x
+        
+    line = re.sub(r'<a name="([^"]+)"></a>', _fun, line)
     
     if key not in ret:
         ret[key] = []
@@ -134,11 +145,11 @@ if not os.path.exists(zh_output_dir):
 
 def replace(text):
     replace_list = [
-        ['(#Message)', '(/api/message?id=top)'],
-        ['(#Room)', '(/api/room?id=top)'],
-        ['(#Contact)', '(/api/contact?id=top)'],
-        ['(#Wechaty)', '(/api/wechaty?id=top)'],
-        ['(#Friendship)', '(/api/friendship?id=top)'],
+        ['(#Message)', '(/api/message)'],
+        ['(#Room)', '(/api/room)'],
+        ['(#Contact)', '(/api/contact)'],
+        ['(#Wechaty)', '(/api/wechaty)'],
+        ['(#Friendship)', '(/api/friendship)'],
     ]
     
     for a, b in replace_list:
@@ -174,6 +185,11 @@ for key in keys:
         content = re.sub(r'\n####\s', '\n### ', content)
         content = re.sub(r'\n#####\s', '\n#### ', content)
         content = replace(content)
+
+        # content = re.sub('\n### (.+)', lambda x: '\n<h3>{}</h3>'.format(x.group(1)), content)
+        # content = re.sub('\n#### (.+)', lambda x: '\n<h4>{}</h4>'.format(x.group(1)), content)
+        # content = re.sub('\n##### (.+)', lambda x: '\n<h5>{}</h5>'.format(x.group(1)), content)
+        # content = re.sub('\n###### (.+)', lambda x: '\n<h6>{}</h6>'.format(x.group(1)), content)
 
         with open(path, 'w') as fp:
             if 'zh' in od:

@@ -1,38 +1,38 @@
-<a name="Wechaty"></a>
+<a id="wechaty"></a>
 
 # Wechaty类
 Main bot class.
 
 A `Bot` is a wechat client depends on which puppet you use.
 It may equals
-- web-wechat, when you use: [puppet-puppeteer](https://githubcom/chatie/wechaty-puppet-puppeteer)/[puppet-wechat4u](https://githubcom/chatie/wechaty-puppet-wechat4u)
-- ipad-wechat, when you use: [puppet-padchat](https://githubcom/lijiarui/wechaty-puppet-padchat)
+- web-wechat, when you use: [puppet-puppeteer](https://github.com/chatie/wechaty-puppet-puppeteer)/[puppet-wechat4u](https://github.com/chatie/wechaty-puppet-wechat4u)
+- ipad-wechat, when you use: [puppet-padchat](https://github.com/lijiarui/wechaty-puppet-padchat)
 - ios-wechat, when you use: puppet-ioscat
 
 See more:
-- [What is a Puppet in Wechaty](https://githubcom/Chatie/wechaty-getting-started/wiki/FAQ-EN#31-what-is-a-puppet-in-wechaty)
+- [What is a Puppet in Wechaty](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-EN#31-what-is-a-puppet-in-wechaty)
 
-> If you want to know how to send message, see [Message](/zh/api/message?id=top)
-> If you want to know how to get contact, see [Contact](/zh/api/contact?id=top)
+> If you want to know how to send message, see [Message](/zh/api/message)
+> If you want to know how to get contact, see [Contact](/zh/api/contact)
 
 **Kind**: global class  
 
-* [Wechaty](/zh/api/wechaty?id=top)
-    * [new Wechaty([options])](#new_Wechaty_newoptions)
+* [Wechaty](/zh/api/wechaty)
+    * [new Wechaty([options])](#new_Wechaty_new)
     * _instance_
-        * [.on(event, listener)](#Wechatyonevent-listener) [<code>Wechaty</code>](/zh/api/wechaty?id=top)
+        * [.on(event, listener)](#Wechatyon) [<code>Wechaty</code>](/zh/api/wechaty)
         * [.start()](#Wechatystart) <code>Promise.&lt;void&gt;</code>
         * [.stop()](#Wechatystop) <code>Promise.&lt;void&gt;</code>
         * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechatylogonoff) <code>boolean</code>
         * ~~[.self()](#Wechatyself)~~
-        * [.userSelf()](#WechatyuserSelf) [<code>Contact</code>](/zh/api/contact?id=top)
-        * [.say(textOrContactOrFile)](#WechatysaytextOrContactOrFile) <code>Promise.&lt;void&gt;</code>
-        * [.version([forceNpm])](#WechatyversionforceNpm) <code>string</code>
+        * [.userSelf()](#WechatyuserSelf) [<code>Contact</code>](/zh/api/contact)
+        * [.say(textOrContactOrFile)](#Wechatysay) <code>Promise.&lt;void&gt;</code>
+        * [.version([forceNpm])](#Wechatyversion) <code>string</code>
     * _static_
-        * [.instance([options])](#Wechatyinstanceoptions)
+        * [.instance([options])](#Wechatyinstance)
 
-<a name="new_Wechaty_new"></a>
+<a id="new_wechaty_new"></a>
 
 ## new Wechaty([options])
 Creates an instance of Wechaty.
@@ -51,11 +51,11 @@ bot.on('login',   user => console.log(`User ${user} logined`))
 bot.on('message', message => console.log(`Message: ${message}`))
 bot.start()
 ```
-<a name="Wechaty+on"></a>
+<a id="wechatyon"></a>
 
 ## wechaty.on(event, listener)
 
-**Return the type of**: [<code>Wechaty</code>](/zh/api/wechaty?id=top)
+**Return the type of**: [<code>Wechaty</code>](/zh/api/wechaty)
 
 
 When the bot get message, it will emit the following Event.
@@ -69,8 +69,8 @@ The main Event name as follows:
 
 see more in [WechatyEventName](/zh/api/?id=wechatyeventname)
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
-**Returns**: [<code>Wechaty</code>](/zh/api/wechaty?id=top) - - this for chain  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
+**Returns**: [<code>Wechaty</code>](/zh/api/wechaty) - - this for chain  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -161,7 +161,7 @@ bot.on('error', (error) => {
   console.error(error)
 })
 ```
-<a name="Wechaty+start"></a>
+<a id="wechatystart"></a>
 
 ## wechaty.start()
 
@@ -170,13 +170,13 @@ bot.on('error', (error) => {
 
 When you start the bot, bot will begin to login, need you wechat scan qrcode to login
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
 ```js
 await bot.start()
 // do other stuff with bot here
 ```
-<a name="Wechaty+stop"></a>
+<a id="wechatystop"></a>
 
 ## wechaty.stop()
 
@@ -185,12 +185,12 @@ await bot.start()
 
 Stop the bot
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
 ```js
 await bot.stop()
 ```
-<a name="Wechaty+logout"></a>
+<a id="wechatylogout"></a>
 
 ## wechaty.logout()
 
@@ -199,12 +199,12 @@ await bot.stop()
 
 Logout the bot
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
 ```js
 await bot.logout()
 ```
-<a name="Wechaty+logonoff"></a>
+<a id="wechatylogonoff"></a>
 
 ## wechaty.logonoff()
 
@@ -213,7 +213,7 @@ await bot.logout()
 
 Get the logon / logoff state
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
 ```js
 if (bot.logonoff()) {
@@ -222,30 +222,30 @@ if (bot.logonoff()) {
   console.log('Bot not logined')
 }
 ```
-<a name="Wechaty+self"></a>
+<a id="wechatyself"></a>
 
 ## ~~wechaty.self()~~
 ***Deprecated***
 
 Should use [userSelf](#WechatyuserSelf) instead
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
-<a name="Wechaty+userSelf"></a>
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
+<a id="wechatyuserself"></a>
 
 ## wechaty.userSelf()
 
-**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
+**Return the type of**: [<code>Contact</code>](/zh/api/contact)
 
 
 Get current user
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
 ```js
 const contact = bot.userSelf()
 console.log(`Bot is ${contact.name()}`)
 ```
-<a name="Wechaty+say"></a>
+<a id="wechatysay"></a>
 
 ## wechaty.say(textOrContactOrFile)
 
@@ -254,11 +254,11 @@ console.log(`Bot is ${contact.name()}`)
 
 Send message to userSelf, in other words, bot send message to itself.
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://wwwnpmjscom/package/file-box) to send file |
+| textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/zh/api/contact) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://www.npmjs.com/package/file-box) to send file |
 
 **Example**  
 ```js
@@ -283,7 +283,7 @@ import { FileBox }  from 'file-box'
 const fileBox = FileBox.fromLocal('/tmp/text.jpg')
 await bot.say(fileBox)
 ```
-<a name="Wechaty+version"></a>
+<a id="wechatyversion"></a>
 
 ## wechaty.version([forceNpm])
 
@@ -292,7 +292,7 @@ await bot.say(fileBox)
 
 Return version of Wechaty
 
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Returns**: <code>string</code> - - the version number  
 
 | Param | Type | Default | Description |
@@ -304,12 +304,12 @@ Return version of Wechaty
 console.log(Wechaty.instance().version())       // return '#git[af39df]'
 console.log(Wechaty.instance().version(true))   // return '0.7.9'
 ```
-<a name="Wechaty.instance"></a>
+<a id="wechatyinstance"></a>
 
 ## Wechaty.instance([options])
 get the singleton instance of Wechaty
 
-**Kind**: static method of [<code>Wechaty</code>](/zh/api/wechaty?id=top)  
+**Kind**: static method of [<code>Wechaty</code>](/zh/api/wechaty)  
 
 | Param | Type | Default |
 | --- | --- | --- |
@@ -325,4 +325,4 @@ Wechaty.instance() // Singleton
 .on('message',  message => console.log(`Message: ${message}`))
 .init()
 ```
-<a name="Room"></a>
+<a id="room"></a>

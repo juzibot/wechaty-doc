@@ -5,21 +5,21 @@ Send, receive friend request, and friend confirmation events.
 2. receive request(in friend event)
 3. confirmation friendship(friend event)
 
-[Examples/Friend-Bot](https://githubcom/Chatie/wechaty/blob/master/examples/friend-botts)
+[Examples/Friend-Bot](https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts)
 
 **Kind**: global class  
 
-* [Friendship](/api/friendship?id=top)
+* [Friendship](/api/friendship)
     * _instance_
         * [.accept()](#Friendshipaccept) <code>Promise.&lt;void&gt;</code>
         * [.hello()](#Friendshiphello) <code>string</code>
-        * [.contact()](#Friendshipcontact) [<code>Contact</code>](/api/contact?id=top)
+        * [.contact()](#Friendshipcontact) [<code>Contact</code>](/api/contact)
         * [.type()](#Friendshiptype) <code>FriendshipType</code>
     * _static_
         * ~~[.send()](#Friendshipsend)~~
-        * [.add(contact, hello)](#Friendshipaddcontact-hello) <code>Promise.&lt;void&gt;</code>
+        * [.add(contact, hello)](#Friendshipadd) <code>Promise.&lt;void&gt;</code>
 
-<a name="Friendship+accept"></a>
+<a id="friendshipaccept"></a>
 
 ## friendship.accept()
 
@@ -28,7 +28,7 @@ Send, receive friend request, and friend confirmation events.
 
 Accept Friend Request
 
-**Kind**: instance method of [<code>Friendship</code>](/api/friendship?id=top)  
+**Kind**: instance method of [<code>Friendship</code>](/api/friendship)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -55,7 +55,7 @@ bot.on('friendship', async friendship => {
 }
 .start()
 ```
-<a name="Friendship+hello"></a>
+<a id="friendshiphello"></a>
 
 ## friendship.hello()
 
@@ -64,7 +64,7 @@ bot.on('friendship', async friendship => {
 
 Get verify message from
 
-**Kind**: instance method of [<code>Friendship</code>](/api/friendship?id=top)  
+**Kind**: instance method of [<code>Friendship</code>](/api/friendship)  
 **Example** *(If request content is &#x60;ding&#x60;, then accept the friendship)*  
 ```js
 const bot = new Wechaty()
@@ -80,16 +80,16 @@ bot.on('friendship', async friendship => {
 }
 .start()
 ```
-<a name="Friendship+contact"></a>
+<a id="friendshipcontact"></a>
 
 ## friendship.contact()
 
-**Return the type of**: [<code>Contact</code>](/api/contact?id=top)
+**Return the type of**: [<code>Contact</code>](/api/contact)
 
 
 Get the contact from friendship
 
-**Kind**: instance method of [<code>Friendship</code>](/api/friendship?id=top)  
+**Kind**: instance method of [<code>Friendship</code>](/api/friendship)  
 **Example**  
 ```js
 const bot = new Wechaty()
@@ -100,7 +100,7 @@ bot.on('friendship', async friendship => {
 }
 .start()
 ```
-<a name="Friendship+type"></a>
+<a id="friendshiptype"></a>
 
 ## friendship.type()
 
@@ -114,7 +114,7 @@ Return the Friendship Type
 - FriendshipType.Receive  </br>
 - FriendshipType.Verify   </br>
 
-**Kind**: instance method of [<code>Friendship</code>](/api/friendship?id=top)  
+**Kind**: instance method of [<code>Friendship</code>](/api/friendship)  
 **Example** *(If request content is &#x60;ding&#x60;, then accept the friendship)*  
 ```js
 const bot = new Wechaty()
@@ -129,15 +129,15 @@ bot.on('friendship', async friendship => {
 }
 .start()
 ```
-<a name="Friendship.send"></a>
+<a id="friendshipsend"></a>
 
 ## ~~Friendship.send()~~
 ***Deprecated***
 
 use [Friendship#add](Friendship#add) instead
 
-**Kind**: static method of [<code>Friendship</code>](/api/friendship?id=top)  
-<a name="Friendship.add"></a>
+**Kind**: static method of [<code>Friendship</code>](/api/friendship)  
+<a id="friendshipadd"></a>
 
 ## Friendship.add(contact, hello)
 
@@ -149,11 +149,11 @@ Send a Friend Request to a `contact` with message `hello`.
 The best practice is to send friend request once per minute.
 Remeber not to do this too frequently, or your account may be blocked.
 
-**Kind**: static method of [<code>Friendship</code>](/api/friendship?id=top)  
+**Kind**: static method of [<code>Friendship</code>](/api/friendship)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| contact | [<code>Contact</code>](/api/contact?id=top) | Send friend request to contact |
+| contact | [<code>Contact</code>](/api/contact) | Send friend request to contact |
 | hello | <code>string</code> | The friend request content |
 
 **Example**  
@@ -163,4 +163,4 @@ for (let i = 0; i < memberList.length; i++) {
   await bot.Friendship.send(member, 'Nice to meet you! I am wechaty bot!')
 }
 ```
-<a name="Message"></a>
+<a id="message"></a>
