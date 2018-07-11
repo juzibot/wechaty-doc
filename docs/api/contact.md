@@ -31,7 +31,7 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 
 ## contact.say(textOrContactOrFile)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 **Kind**: instance method of [<code>Contact</code>](/api/contact?id=top)  
@@ -67,7 +67,7 @@ await contact.say(contactCard)
 
 ## contact.name()
 
-**Return the type of**: string 
+**Return the type of**: <code>string</code>
 
 
 Get the name from a contact
@@ -81,7 +81,7 @@ const name = contact.name()
 
 ## contact.alias(newAlias)
 
-**Return the type of**: string  &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
+**Return the type of**: <code>string</code> &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
 
 
 GET / SET / DELETE the alias for a contact
@@ -134,7 +134,7 @@ Should use [friend](#Contactfriend) instead
 
 ## contact.friend()
 
-**Return the type of**: boolean  &#124; <code>null</code>
+**Return the type of**: <code>boolean</code> &#124; <code>null</code>
 
 
 Check if contact is friend
@@ -166,7 +166,7 @@ Check if it's a personal account, should use [type](#Contacttype) instead
 
 ## contact.type()
 
-**Return the type of**: ContactType.Unknown  &#124; <code>ContactType.Personal</code> &#124; <code>ContactType.Official</code>
+**Return the type of**: <code>ContactType.Unknown</code> &#124; <code>ContactType.Personal</code> &#124; <code>ContactType.Official</code>
 
 
 Return the type of the Contact
@@ -186,7 +186,7 @@ const isOfficial = contact.type() === bot.Contact.Type.OFFICIAL
 
 ## contact.gender()
 
-**Return the type of**: ContactGender.Unknown  &#124; <code>ContactGender.Male</code> &#124; <code>ContactGender.Female</code>
+**Return the type of**: <code>ContactGender.Unknown</code> &#124; <code>ContactGender.Male</code> &#124; <code>ContactGender.Female</code>
 
 
 Contact gender
@@ -204,7 +204,7 @@ const gender = contact.gender()
 
 ## contact.province()
 
-**Return the type of**: string  &#124; <code>null</code>
+**Return the type of**: <code>string</code> &#124; <code>null</code>
 
 
 Get the region 'province' from a contact
@@ -218,7 +218,7 @@ const province = contact.province()
 
 ## contact.city()
 
-**Return the type of**: string  &#124; <code>null</code>
+**Return the type of**: <code>string</code> &#124; <code>null</code>
 
 
 Get the region 'city' from a contact
@@ -232,7 +232,7 @@ const city = contact.city()
 
 ## contact.avatar()
 
-**Return the type of**: Promise.&lt;FileBox&gt; 
+**Return the type of**: <code>Promise.&lt;FileBox&gt;</code>
 
 
 Get avatar picture file stream
@@ -259,7 +259,7 @@ Force reload(re-ready()) data for Contact, use [sync](#Contactsync) instead
 
 ## contact.sync()
 
-**Return the type of**: Promise.&lt;this&gt; 
+**Return the type of**: <code>Promise.&lt;this&gt;</code>
 
 
 Force reload(re-ready()) data for Contact,
@@ -273,7 +273,7 @@ await contact.sync()
 
 ## contact.self()
 
-**Return the type of**: boolean 
+**Return the type of**: <code>boolean</code>
 
 
 Check if contact is self
@@ -288,7 +288,7 @@ const isSelf = contact.self()
 
 ## Contact.load(id)
 
-**Return the type of**: [Contact](/api/contact?id=top) 
+**Return the type of**: [<code>Contact</code>](/api/contact?id=top)
 
 
 Get Contact by id
@@ -309,7 +309,7 @@ const contact = bot.Contact.load('contactId')
 
 ## Contact.find(query)
 
-**Return the type of**: Promise.&lt;(Contact&#124;null)&gt; 
+**Return the type of**: <code>Promise.&lt;(Contact&#124;null)&gt;</code>
 
 
 Try to find a contact by filter: {name: string | RegExp} / {alias: string | RegExp}
@@ -334,7 +334,7 @@ const contactFindByAlias = await bot.Contact.find({ alias:"lijiarui"} )
 
 ## Contact.findAll([queryArg])
 
-**Return the type of**: Promise.&lt;Array.&lt;Contact&gt;&gt; 
+**Return the type of**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
 
 Find contact by `name` or `alias`

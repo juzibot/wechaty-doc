@@ -26,7 +26,7 @@ All wechat messages will be encapsulated as a Message.
 
 ## message.from()
 
-**Return the type of**: [Contact](/zh/api/contact?id=top) 
+**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
 
 
 Get the sender from a message.
@@ -53,7 +53,7 @@ bot
 
 ## message.to()
 
-**Return the type of**: [Contact](/zh/api/contact?id=top)  &#124; <code>null</code>
+**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
 
 
 Get the destination of the message
@@ -64,7 +64,7 @@ Message.to() will return null if a message is in a room, use Message.room() to g
 
 ## message.room()
 
-**Return the type of**: [Room](/zh/api/room?id=top)  &#124; <code>null</code>
+**Return the type of**: [<code>Room</code>](/zh/api/room?id=top) &#124; <code>null</code>
 
 
 Get the room from the message.
@@ -100,7 +100,7 @@ use [text](#Messagetext) instead
 
 ## message.text()
 
-**Return the type of**: string 
+**Return the type of**: <code>string</code>
 
 
 Get the text content of the message
@@ -127,7 +127,7 @@ bot
 
 ## message.say(textOrContactOrFile, [mention])
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Reply a Text or Media File message to the sender.
@@ -174,7 +174,7 @@ bot
 
 ## message.type()
 
-**Return the type of**: MessageType 
+**Return the type of**: <code>MessageType</code>
 
 
 Get the type from the message.
@@ -200,7 +200,7 @@ if (message.type() === bot.Message.Type.Text) {
 
 ## message.self()
 
-**Return the type of**: boolean 
+**Return the type of**: <code>boolean</code>
 
 
 Check if a message is sent by self.
@@ -217,7 +217,7 @@ if (message.self()) {
 
 ## message.mention()
 
-**Return the type of**: Promise.&lt;Array.&lt;Contact&gt;&gt; 
+**Return the type of**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
 
 Get message mentioned contactList.
@@ -250,7 +250,7 @@ should use [mention](#Messagemention) instead
 
 ## message.forward(to)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Forward the received message.
@@ -278,7 +278,7 @@ bot
 
 ## message.age()
 
-**Return the type of**: number 
+**Return the type of**: <code>number</code>
 
 
 Message Age:
@@ -298,7 +298,7 @@ use [toFileBox](#MessagetoFileBox) instead
 
 ## message.toFileBox()
 
-**Return the type of**: Promise.&lt;FileBox&gt; 
+**Return the type of**: <code>Promise.&lt;FileBox&gt;</code>
 
 
 Get Media File of the Message
@@ -308,7 +308,7 @@ Get Media File of the Message
 
 ## message.toContact()
 
-**Return the type of**: Promise.&lt;FileBox&gt; 
+**Return the type of**: <code>Promise.&lt;FileBox&gt;</code>
 
 
 Get Share Card of the Message

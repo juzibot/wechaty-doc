@@ -23,7 +23,7 @@ Send, receive friend request, and friend confirmation events.
 
 ## friendship.accept()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Accept Friend Request
@@ -59,7 +59,7 @@ bot.on('friendship', async friendship => {
 
 ## friendship.hello()
 
-**Return the type of**: string 
+**Return the type of**: <code>string</code>
 
 
 Get verify message from
@@ -84,7 +84,7 @@ bot.on('friendship', async friendship => {
 
 ## friendship.contact()
 
-**Return the type of**: [Contact](/zh/api/contact?id=top) 
+**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
 
 
 Get the contact from friendship
@@ -102,7 +102,7 @@ bot.on('friendship', async friendship => {
 
 ## friendship.type()
 
-**Return the type of**: FriendshipType 
+**Return the type of**: <code>FriendshipType</code>
 
 
 Return the Friendship Type
@@ -139,7 +139,7 @@ use [Friendship#add](Friendship#add) instead
 
 ## Friendship.add(contact, hello)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Send a Friend Request to a `contact` with message `hello`.

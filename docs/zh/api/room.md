@@ -34,7 +34,7 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 ## room.say(textOrContactOrFile, [mention])
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Send message inside Room, if set [replyTo], wechaty will mention the contact as well.
@@ -75,7 +75,7 @@ await room.say('Hello world!', contact)
 
 ## room.on(event, listener)
 
-**Return the type of**: this 
+**Return the type of**: <code>this</code>
 
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room?id=top)  
@@ -125,7 +125,7 @@ if (room) {
 
 ## room.add(contact)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Add contact in a room
@@ -154,7 +154,7 @@ if (room) {
 
 ## room.del(contact)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Delete a contact from the room
@@ -184,7 +184,7 @@ if (room) {
 
 ## room.quit()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Bot quit the room itself
@@ -198,7 +198,7 @@ await room.quit()
 
 ## room.topic([newTopic])
 
-**Return the type of**: Promise.&lt;(string&#124;void)&gt; 
+**Return the type of**: <code>Promise.&lt;(string&#124;void)&gt;</code>
 
 
 SET/GET topic from the room
@@ -240,7 +240,7 @@ bot
 
 ## room.announce([text])
 
-**Return the type of**: Promise.&lt;(void&#124;string)&gt; 
+**Return the type of**: <code>Promise.&lt;(void&#124;string)&gt;</code>
 
 
 SET/GET announce from the room
@@ -283,7 +283,7 @@ bot
 
 ## room.qrcode()
 
-**Return the type of**: Promise.&lt;string&gt; 
+**Return the type of**: <code>Promise.&lt;string&gt;</code>
 
 
 Get Room QR Code
@@ -293,7 +293,7 @@ Get Room QR Code
 
 ## room.alias(contact)
 
-**Return the type of**: Promise.&lt;(string&#124;null)&gt; 
+**Return the type of**: <code>Promise.&lt;(string&#124;null)&gt;</code>
 
 
 Return contact's roomAlias in the room, the same as roomAlias
@@ -323,7 +323,7 @@ bot
 
 ## room.roomAlias(contact)
 
-**Return the type of**: Promise.&lt;(string&#124;null)&gt; 
+**Return the type of**: <code>Promise.&lt;(string&#124;null)&gt;</code>
 
 
 Same as function alias
@@ -338,7 +338,7 @@ Same as function alias
 
 ## room.has(contact)
 
-**Return the type of**: Promise.&lt;boolean&gt; 
+**Return the type of**: <code>Promise.&lt;boolean&gt;</code>
 
 
 Check if the room has member `contact`, the return is a Promise and must be `await`-ed
@@ -368,7 +368,7 @@ if (contact && room) {
 
 ## room.memberAll(query)
 
-**Return the type of**: Promise.&lt;Array.&lt;Contact&gt;&gt; 
+**Return the type of**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
 
 Find all contacts in a room
@@ -388,7 +388,7 @@ Find all contacts in a room
 
 ## room.member(queryArg)
 
-**Return the type of**: Promise.&lt;(null&#124;Contact)&gt; 
+**Return the type of**: <code>Promise.&lt;(null&#124;Contact)&gt;</code>
 
 
 Find all contacts in a room, if get many, return the first one.
@@ -431,7 +431,7 @@ if (room) {
 
 ## room.memberList()
 
-**Return the type of**: Promise.&lt;Array.&lt;Contact&gt;&gt; 
+**Return the type of**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
 
 Get all room member from the room
@@ -453,7 +453,7 @@ Force reload data for Room, use [sync](#Roomsync) instead
 
 ## room.sync()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Force reload data for Room, Sync data for Room
@@ -467,7 +467,7 @@ await room.sync()
 
 ## room.owner()
 
-**Return the type of**: [Contact](/zh/api/contact?id=top)  &#124; <code>null</code>
+**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
 
 
 Get room's owner from the room.
@@ -481,7 +481,7 @@ const owner = room.owner()
 
 ## Room.create(contactList, [topic])
 
-**Return the type of**: [Promise.&lt;Room&gt;](/zh/api/room?id=top) 
+**Return the type of**: [<code>Promise.&lt;Room&gt;</code>](/zh/api/room?id=top)
 
 
 Create a new room.
@@ -508,7 +508,7 @@ await room.say('ding - created')
 
 ## Room.findAll([query])
 
-**Return the type of**: Promise.&lt;Array.&lt;Room&gt;&gt; 
+**Return the type of**: <code>Promise.&lt;Array.&lt;Room&gt;&gt;</code>
 
 
 Find room by by filter: {topic: string | RegExp}, return all the matched room
@@ -530,7 +530,7 @@ const roomList = await bot.Room.findAll({topic: 'wechaty'})  // find all of the 
 
 ## Room.find(query)
 
-**Return the type of**: Promise.&lt;(Room&#124;null)&gt; 
+**Return the type of**: <code>Promise.&lt;(Room&#124;null)&gt;</code>
 
 
 Try to find a room by filter: {topic: string | RegExp}. If get many, return the first one.
@@ -553,7 +553,7 @@ const roomList = await bot.Room.find({topic: 'wechaty'})
 
 ## Room.load(id)
 
-**Return the type of**: [Room](/zh/api/room?id=top) 
+**Return the type of**: [<code>Room</code>](/zh/api/room?id=top)
 
 
 Load room by topic. <br>

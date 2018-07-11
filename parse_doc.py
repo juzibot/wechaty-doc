@@ -40,12 +40,14 @@ for line in lines:
     if line.startswith('#'):
         # 把标题中的链接去掉，因为docsify支持不好
         if '~~' in line:
-            line = re.sub(r' ⇒ \[<code>([^<]+)</code>\]\(([^\)]+)\)(.*)', '~~\n\n**Return the type of**: [\\1](\\2) \\3\n\n', line)
-            line = re.sub(r' ⇒ <code>([^<]+)</code>(.*)', '~~\n\n**Return the type of**: \\1 \\2\n\n', line)
+            # line = re.sub(r' ⇒ \[<code>([^<]+)</code>\]\(([^\)]+)\)(.*)', '~~\n\n**Return the type of**: [\\1](\\2) \\3\n\n', line)
+            # line = re.sub(r' ⇒ <code>([^<]+)</code>(.*)', '~~\n\n**Return the type of**: \\1 \\2\n\n', line)
+            line = re.sub(r' ⇒ (.+)', '~~\n\n**Return the type of**: \\1\n\n', line)
             line = line[:-2]
         else:
-            line = re.sub(r' ⇒ \[<code>([^<]+)</code>\]\(([^\)]+)\)(.*)', '\n\n**Return the type of**: [\\1](\\2) \\3\n\n', line)
-            line = re.sub(r' ⇒ <code>([^<]+)</code>(.*)', '\n\n**Return the type of**: \\1 \\2\n\n', line)
+            # line = re.sub(r' ⇒ \[<code>([^<]+)</code>\]\(([^\)]+)\)(.*)', '\n\n**Return the type of**: [\\1](\\2) \\3\n\n', line)
+            # line = re.sub(r' ⇒ <code>([^<]+)</code>(.*)', '\n\n**Return the type of**: \\1 \\2\n\n', line)
+            line = re.sub(r' ⇒ (.+)', '\n\n**Return the type of**: \\1\n\n', line)
     
     if ' ⇒' in line:
         line = line.replace(' ⇒', '')

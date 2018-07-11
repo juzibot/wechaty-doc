@@ -64,7 +64,7 @@ bot.start()
 
 ## wechaty.on(event, listener)
 
-**Return the type of**: [Wechaty](/zh/api/wechaty?id=top) 
+**Return the type of**: [<code>Wechaty</code>](/zh/api/wechaty?id=top)
 
 
 When the bot get message, it will emit the following Event.
@@ -174,7 +174,7 @@ bot.on('error', (error) => {
 
 ## wechaty.start()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 When you start the bot, bot will begin to login, need you wechat scan qrcode to login
@@ -189,7 +189,7 @@ await bot.start()
 
 ## wechaty.stop()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Stop the bot
@@ -203,7 +203,7 @@ await bot.stop()
 
 ## wechaty.logout()
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Logout the bot
@@ -217,7 +217,7 @@ await bot.logout()
 
 ## wechaty.logonoff()
 
-**Return the type of**: boolean 
+**Return the type of**: <code>boolean</code>
 
 
 Get the logon / logoff state
@@ -243,7 +243,7 @@ Should use [userSelf](#WechatyuserSelf) instead
 
 ## wechaty.userSelf()
 
-**Return the type of**: [Contact](/zh/api/contact?id=top) 
+**Return the type of**: [<code>Contact</code>](/zh/api/contact?id=top)
 
 
 Get current user
@@ -258,7 +258,7 @@ console.log(`Bot is ${contact.name()}`)
 
 ## wechaty.say(textOrContactOrFile)
 
-**Return the type of**: Promise.&lt;void&gt; 
+**Return the type of**: <code>Promise.&lt;void&gt;</code>
 
 
 Send message to userSelf, in other words, bot send message to itself.
@@ -295,7 +295,7 @@ await bot.say(fileBox)
 
 ## wechaty.version([forceNpm])
 
-**Return the type of**: string 
+**Return the type of**: <code>string</code>
 
 
 Return version of Wechaty
