@@ -88,7 +88,7 @@ The plugins are named XXXPuppet, for example:</p>
 
 <a name="PuppetName"></a>
 
-<div id="PuppetName"></div><h4>PuppetName</h4>
+<div id="puppetname"></div><h4>PuppetName</h4>
 The term [Puppet](https://githubcom/Chatie/wechaty/wiki/Puppet) in Wechaty is an Abstract Class for implementing protocol plugins.
 The plugins are the component that helps Wechaty to control the Wechat(that's the reason we call it puppet).
 The plugins are named XXXPuppet, for example:
@@ -107,7 +107,7 @@ The plugins are named XXXPuppet, for example:
 
 <a name="WechatyOptions"></a>
 
-<div id="WechatyOptions"></div><h4>WechatyOptions</h4>
+<div id="wechatyoptions"></div><h4>WechatyOptions</h4>
 The option parameter to create a wechaty instance
 
 **Kind**: global typedef  
@@ -122,7 +122,7 @@ The option parameter to create a wechaty instance
 
 <a name="WechatyEventName"></a>
 
-<div id="WechatyEventName"></div><h4>WechatyEventName</h4>
+<div id="wechatyeventname"></div><h4>WechatyEventName</h4>
 Wechaty Class Event Type
 
 **Kind**: global typedef  
@@ -143,7 +143,7 @@ Wechaty Class Event Type
 
 <a name="WechatyEventFunction"></a>
 
-<div id="WechatyEventFunction"></div><h4>WechatyEventFunction</h4>
+<div id="wechatyeventfunction"></div><h4>WechatyEventFunction</h4>
 Wechaty Class Event Function
 
 **Kind**: global typedef  
@@ -164,7 +164,7 @@ Wechaty Class Event Function
 
 <a name="RoomQueryFilter"></a>
 
-<div id="RoomQueryFilter"></div><h4>RoomQueryFilter</h4>
+<div id="roomqueryfilter"></div><h4>RoomQueryFilter</h4>
 The filter to find the room:  {topic: string | RegExp}
 
 **Kind**: global typedef  
@@ -176,7 +176,7 @@ The filter to find the room:  {topic: string | RegExp}
 
 <a name="RoomEventName"></a>
 
-<div id="RoomEventName"></div><h4>RoomEventName</h4>
+<div id="roomeventname"></div><h4>RoomEventName</h4>
 Room Class Event Type
 
 **Kind**: global typedef  
@@ -190,7 +190,7 @@ Room Class Event Type
 
 <a name="RoomEventFunction"></a>
 
-<div id="RoomEventFunction"></div><h4>RoomEventFunction</h4>
+<div id="roomeventfunction"></div><h4>RoomEventFunction</h4>
 Room Class Event Function
 
 **Kind**: global typedef  
@@ -204,7 +204,7 @@ Room Class Event Function
 
 <a name="RoomMemberQueryFilter"></a>
 
-<div id="RoomMemberQueryFilter"></div><h4>RoomMemberQueryFilter</h4>
+<div id="roommemberqueryfilter"></div><h4>RoomMemberQueryFilter</h4>
 The way to search member by Room.member()
 
 **Kind**: global typedef  
@@ -218,7 +218,7 @@ The way to search member by Room.member()
 
 <a name="ContactQueryFilter"></a>
 
-<div id="ContactQueryFilter"></div><h4>ContactQueryFilter</h4>
+<div id="contactqueryfilter"></div><h4>ContactQueryFilter</h4>
 The way to search Contact
 
 **Kind**: global typedef  
