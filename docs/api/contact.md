@@ -191,9 +191,9 @@ const isOfficial = contact.type() === bot.Contact.Type.OFFICIAL
 
 Contact gender
 > Tips: ContactGender is enum here. </br>
-- ContactGender.Unknown = 0</br>
-- ContactGender.Male = 1</br>
-- ContactGender.Female = 2</br>
+- ContactGender.Unknown </br>
+- ContactGender.Male    </br>
+- ContactGender.Female  </br>
 
 **Kind**: instance method of [<code>Contact</code>](/api/contact?id=top)  
 **Example**  

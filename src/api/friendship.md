@@ -34,7 +34,7 @@ Accept Friend Request
 const bot = new Wechaty()
 bot.on('friendship', async friendship => {
   try {
-    console.log(`received friend event from ${friendship.contact().name()}`)
+    console.log(`received friend event.`)
     switch (friendship.type()) {
 
     # 1. New Friend Request
@@ -46,7 +46,7 @@ bot.on('friendship', async friendship => {
     # 2. Friend Ship Confirmed
 
     case Friendship.Type.Confirm:
-      console.log(`friend ship confirmed with ${friendship.contact().name()}`)
+      console.log(`friend ship confirmed`)
       break
     }
   } catch (e) {
@@ -94,7 +94,9 @@ Get the contact from friendship
 ```js
 const bot = new Wechaty()
 bot.on('friendship', async friendship => {
-  console.log(`received friend event from ${friendship.contact().name()}`)
+  const contact = friendship.contact()
+  const name = contact.name()
+  console.log(`received friend event from ${name}`)
 }
 .start()
 ```
@@ -107,10 +109,10 @@ bot.on('friendship', async friendship => {
 
 Return the Friendship Type
 > Tips: FriendshipType is enum here. </br>
-- FriendshipType.Unknown = 0 </br>
-- FriendshipType.Confirm = 1 </br>
-- FriendshipType.Receive = 2 </br>
-- FriendshipType.Verify  = 3 </br>
+- FriendshipType.Unknown  </br>
+- FriendshipType.Confirm  </br>
+- FriendshipType.Receive  </br>
+- FriendshipType.Verify   </br>
 
 **Kind**: instance method of [<code>Friendship</code>](/api/friendship?id=top)  
 **Example** *(If request content is &#x60;ding&#x60;, then accept the friendship)*  

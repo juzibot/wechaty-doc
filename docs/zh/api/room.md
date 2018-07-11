@@ -21,7 +21,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.memberAll(query)](#RoommemberAllquery) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
         * [.member(queryArg)](#RoommemberqueryArg) <code>Promise.&lt;(null&#124;Contact)&gt;</code>
         * [.memberList()](#RoommemberList) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-        * ~~[.refresh()](#Roomrefresh)~~
         * [.sync()](#Roomsync) <code>Promise.&lt;void&gt;</code>
         * [.owner()](#Roomowner) [<code>Contact</code>](/zh/api/contact?id=top) &#124; <code>null</code>
     * _static_
@@ -50,7 +49,8 @@ Send message inside Room, if set [replyTo], wechaty will mention the contact as 
 ```js
 const bot = new Wechaty()
 await bot.start()
-const room = await bot.Room.find({name: 'wechaty'})
+// after logged in...
+const room = await bot.Room.find({topic: 'wechaty'})
 
 # 1. Send text inside Room
 
@@ -90,11 +90,12 @@ await room.say('Hello world!', contact)
 ```js
 const bot = new Wechaty()
 await bot.start()
-const room = await bot.Room.find({topic: 'event-room'}) // change `event-room` to any room topic in your wechat
+// after logged in...
+const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
   room.on('join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
     const nameList = inviteeList.map(c => c.name()).join(',')
-    console.log(`Room ${room.topic()} got new member ${nameList}, invited by ${inviter}`)
+    console.log(`Room got new member ${nameList}, invited by ${inviter}`)
   })
 }
 ```
@@ -102,11 +103,12 @@ if (room) {
 ```js
 const bot = new Wechaty()
 await bot.start()
-const room = await bot.Room.find({topic: 'event-room'}) // change `event-room` to any room topic in your wechat
+// after logged in...
+const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
   room.on('leave', (room: Room, leaverList: Contact[]) => {
     const nameList = leaverList.map(c => c.name()).join(',')
-    console.log(`Room ${room.topic()} lost member ${nameList}`)
+    console.log(`Room lost member ${nameList}`)
   })
 }
 ```
@@ -114,10 +116,11 @@ if (room) {
 ```js
 const bot = new Wechaty()
 await bot.start()
-const room = await bot.Room.find({topic: 'event-room'}) // change `event-room` to any room topic in your wechat
+// after logged in...
+const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
   room.on('topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
-    console.log(`Room ${room.topic()} topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
+    console.log(`Room topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
   })
 }
 ```
@@ -140,6 +143,7 @@ Add contact in a room
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const contact = await bot.Contact.find({name: 'lijiarui'}) // change 'lijiarui' to any contact in your wechat
 const room = await bot.Room.find({topic: 'wechat'})        // change 'wechat' to any room topic in your wechat
 if (room) {
@@ -170,6 +174,7 @@ It works only when the bot is the owner of the room
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const room = await bot.Room.find({topic: 'wechat'})          // change 'wechat' to any room topic in your wechat
 const contact = await bot.Contact.find({name: 'lijiarui'})   // change 'lijiarui' to any room member in the room you just set
 if (room) {
@@ -255,29 +260,21 @@ SET/GET announce from the room
 **Example** *(When you say anything in a room, it will get room announce. )*  
 ```js
 const bot = new Wechaty()
-bot
-.on('message', async m => {
-  const room = m.room()
-  if (room) {
-    const announce = await room.announce()
-    console.log(`room announce is : ${announce}`)
-  }
-})
-.start()
+await bot.start()
+// after logged in...
+const room = await bot.Room.find({topic: 'your room'})
+const announce = await room.announce()
+console.log(`room announce is : ${announce}`)
 ```
 **Example** *(When you say anything in a room, it will change room announce. )*  
 ```js
 const bot = new Wechaty()
-bot
-.on('message', async m => {
-  const room = m.room()
-  if (room) {
-    const oldAnnounce = await room.announce()
-    await room.announce('change announce to wechaty!')
-    console.log(`room announce change from ${oldAnnounce} to ${room.announce()}`)
-  }
-})
-.start()
+await bot.start()
+// after logged in...
+const room = await bot.Room.find({topic: 'your room'})
+const oldAnnounce = await room.announce()
+await room.announce('change announce to wechaty!')
+console.log(`room announce change from ${oldAnnounce} to ${room.announce()}`)
 ```
 <a name="Room+qrcode"></a>
 
@@ -286,7 +283,7 @@ bot
 **Return the type of**: <code>Promise.&lt;string&gt;</code>
 
 
-Get Room QR Code
+Get QR Code of the Room from the room, which can be used as scan and join the room.
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room?id=top)  
 <a name="Room+alias"></a>
@@ -354,6 +351,7 @@ Check if the room has member `contact`, the return is a Promise and must be `awa
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const contact = await bot.Contact.find({name: 'lijiarui'})   // change 'lijiarui' to any of contact in your wechat
 const room = await bot.Room.find({topic: 'wechaty'})         // change 'wechaty' to any of the room in your wechat
 if (contact && room) {
@@ -403,6 +401,7 @@ Find all contacts in a room, if get many, return the first one.
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const room = await bot.Room.find({topic: 'wechaty'})           // change 'wechaty' to any room name in your wechat
 if (room) {
   const member = await room.member('lijiarui')             // change 'lijiarui' to any room member in your wechat
@@ -417,6 +416,7 @@ if (room) {
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const room = await bot.Room.find({topic: 'wechaty'})          // change 'wechaty' to any room name in your wechat
 if (room) {
   const member = await room.member({name: 'lijiarui'})        // change 'lijiarui' to any room member in your wechat
@@ -441,14 +441,6 @@ Get all room member from the room
 ```js
 await room.memberList()
 ```
-<a name="Room+refresh"></a>
-
-## ~~room.refresh()~~
-***Deprecated***
-
-Force reload data for Room, use [sync](#Roomsync) instead
-
-**Kind**: instance method of [<code>Room</code>](/zh/api/room?id=top)  
 <a name="Room+sync"></a>
 
 ## room.sync()
@@ -523,6 +515,7 @@ Find room by by filter: {topic: string | RegExp}, return all the matched room
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in
 const roomList = await bot.Room.findAll()                    // get the room list of the bot
 const roomList = await bot.Room.findAll({topic: 'wechaty'})  // find all of the rooms with name 'wechaty'
 ```
@@ -546,6 +539,7 @@ Try to find a room by filter: {topic: string | RegExp}. If get many, return the 
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const roomList = await bot.Room.find()
 const roomList = await bot.Room.find({topic: 'wechaty'})
 ```
@@ -571,6 +565,7 @@ we can get unique and permanent topic id.
 ```js
 const bot = new Wechaty()
 await bot.start()
+// after logged in...
 const room = bot.Room.load('roomId')
 ```
 <a name="Contact"></a>
