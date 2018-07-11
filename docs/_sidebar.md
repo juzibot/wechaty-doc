@@ -5,10 +5,10 @@
 
 * [API](/api/)
   * [Wechaty](/api/wechaty)
-  * [Contact](/api/contact)
-  * [Friendship](/api/friendship)
   * [Message](/api/message)
+  * [Contact](/api/contact)
   * [Room](/api/room)
+  * [Friendship](/api/friendship)
 
 * [FAQ](faq.md)
 

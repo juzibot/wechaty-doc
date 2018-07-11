@@ -5,10 +5,10 @@
 
 * [API文档](/zh/api/)
   * [Wechaty类](/zh/api/wechaty)
-  * [Contact类](/zh/api/contact)
-  * [Friendship类](/zh/api/friendship)
   * [Message类](/zh/api/message)
+  * [Contact类](/zh/api/contact)
   * [Room类](/zh/api/room)
+  * [Friendship类](/zh/api/friendship)
 
 * [常见问题 FAQ](/zh/faq.md)
 
