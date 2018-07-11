@@ -152,7 +152,9 @@ for key in keys:
         content = ret[key]
         if key == 'README':
             for t in typedefs:
-                content = content.replace('## ' + t, '### ' + t)
+                content = content.replace('## ' + t, '<div id="{}"></div><h4>{}</h4>'.format(t, t))
+            content = content.replace('## Classes', '<h2>Classes</h2>')
+            content = content.replace('## Typedefs', '<h2>Typedefs</h2>')
             
             # 载入api预设
             content = open('api.md').read() + '\n\n' + content
