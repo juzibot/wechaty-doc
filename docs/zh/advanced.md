@@ -32,8 +32,9 @@ docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.ts
 了解Wechaty Docker 更多信息: [Wiki: Docker](https://github.com/chatie/wechaty/wiki/Docker)
 
 ## 3. NPM 运行
+
 [![NPM Version](https://badge.fury.io/js/wechaty.svg)](https://badge.fury.io/js/wechaty)
-[![Downloads][downloads-image]][downloads-url]
+[![Downloads](http://img.shields.io/npm/dm/wechaty.svg?style=flat-square)](https://www.npmjs.com/package/wechaty)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Chatie/wechaty.svg)](https://greenkeeper.io/)
 
 ```shell
