@@ -71,6 +71,8 @@ The main Event name as follows:
 see more in [WechatyEventName](/zh/api/?id=wechatyeventname)
 
 **Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
+**Returns**: [<code>Wechaty</code>](/zh/api/wechaty) - - this for chaining,
+see advanced [chaining usage](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-EN#36-why-wechatyonevent-listener-return-wechaty)  
 
 | Param | Type | Description |
 | --- | --- | --- |
