@@ -20,7 +20,7 @@ All wechat messages will be encapsulated as a Message.
     * [.age()](#Messageage) <code>number</code>
     * ~~[.file()](#Messagefile)~~
     * [.toFileBox()](#MessagetoFileBox) <code>Promise.&lt;FileBox&gt;</code>
-    * [.toContact()](#MessagetoContact) <code>Promise.&lt;FileBox&gt;</code>
+    * [.toContact()](#MessagetoContact) [<code>Promise.&lt;Contact&gt;</code>](/zh/api/contact)
 
 <a id="messagefrom"></a>
 
@@ -314,10 +314,10 @@ Extract the Media File from the Message, and put it into the FileBox.
 
 ## message.toContact()
 
-**Return the type of**: <code>Promise.&lt;FileBox&gt;</code>
+**Return the type of**: [<code>Promise.&lt;Contact&gt;</code>](/zh/api/contact)
 
 
 Get Share Card of the Message
-TODO
+Extract the Contact Card from the Message, and encapsulate it into Contact class
 
 **Kind**: instance method of [<code>Message</code>](/zh/api/message)  
