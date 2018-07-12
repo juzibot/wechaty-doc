@@ -167,6 +167,8 @@ bot.on('error', (error) => {
 ## ~~wechaty.init()~~
 ***Deprecated***
 
+use [start](#Wechatystart) instead
+
 **Kind**: instance method of [<code>Wechaty</code>](/api/wechaty)  
 <a id="wechatystart"></a>
 
