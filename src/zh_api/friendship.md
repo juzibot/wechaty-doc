@@ -160,7 +160,7 @@ Remeber not to do this too frequently, or your account may be blocked.
 ```js
 const memberList = await room.memberList()
 for (let i = 0; i < memberList.length; i++) {
-  await bot.Friendship.send(member, 'Nice to meet you! I am wechaty bot!')
+  await bot.Friendship.add(member, 'Nice to meet you! I am wechaty bot!')
 }
 ```
 <a id="message"></a>
