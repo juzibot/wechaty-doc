@@ -71,7 +71,6 @@ The main Event name as follows:
 see more in [WechatyEventName](/zh/api/?id=wechatyeventname)
 
 **Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
-**Returns**: [<code>Wechaty</code>](/zh/api/wechaty) - - this for chain  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -178,6 +177,7 @@ use [start](#Wechatystart) instead
 
 
 When you start the bot, bot will begin to login, need you wechat scan qrcode to login
+> Tips: All the bot operation needs to be triggered after start() is done
 
 **Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 **Example**  
@@ -332,6 +332,6 @@ Wechaty.instance() // Singleton
 .on('scan', (url, code) => console.log(`Scan QR Code to login: ${code}\n${url}`))
 .on('login',       user => console.log(`User ${user} logined`))
 .on('message',  message => console.log(`Message: ${message}`))
-.init()
+.start()
 ```
 <a id="room"></a>
