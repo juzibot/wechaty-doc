@@ -287,9 +287,9 @@ bot
 
 Returns the message age in seconds. <br>
 
-For example, the message is sent at time 8:43:01,
-and when we received it in Wechaty, the time is 8:43:15,
-then the age() will return 8:43:15 - 8:43:01 = 14 (seconds)
+For example, the message is sent at time `8:43:01`,
+and when we received it in Wechaty, the time is `8:43:15`,
+then the age() will return `8:43:15 - 8:43:01 = 14 (seconds)`
 
 **Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 <a id="messagefile"></a>
