@@ -21,6 +21,7 @@ See more:
     * [new Wechaty([options])](#new_Wechaty_new)
     * _instance_
         * [.on(event, listener)](#Wechatyon) [<code>Wechaty</code>](/api/wechaty)
+        * ~~[.init()](#Wechatyinit)~~
         * [.start()](#Wechatystart) <code>Promise.&lt;void&gt;</code>
         * [.stop()](#Wechatystop) <code>Promise.&lt;void&gt;</code>
         * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
@@ -161,6 +162,12 @@ bot.on('error', (error) => {
   console.error(error)
 })
 ```
+<a id="wechatyinit"></a>
+
+## ~~wechaty.init()~~
+***Deprecated***
+
+**Kind**: instance method of [<code>Wechaty</code>](/api/wechaty)  
 <a id="wechatystart"></a>
 
 ## wechaty.start()

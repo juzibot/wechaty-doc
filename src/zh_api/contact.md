@@ -180,7 +180,7 @@ Return the type of the Contact
 ```js
 const bot = new Wechaty()
 await bot.start()
-const isOfficial = contact.type() === bot.Contact.Type.OFFICIAL
+const isOfficial = contact.type() === bot.Contact.Type.Official
 ```
 <a id="contactgender"></a>
 

@@ -239,7 +239,7 @@ Message event table as follows
 **Returns**: <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code> - - Return message mentioned contactList  
 **Example**  
 ```js
-const contactList = await message.mentioned()
+const contactList = await message.mention()
 console.log(contactList)
 ```
 <a id="messagementioned"></a>
