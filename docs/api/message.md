@@ -138,7 +138,7 @@ Reply a Text or Media File message to the sender.
 | Param | Type | Description |
 | --- | --- | --- |
 | textOrContactOrFile | <code>string</code> &#124; [<code>Contact</code>](/api/contact) &#124; <code>FileBox</code> | send text, Contact, or file to bot. </br> You can use [FileBox](https://www.npmjs.com/package/file-box) to send file |
-| [mention] | [<code>Contact</code>](/api/contact) &#124; [<code>Array.&lt;Contact&gt;</code>](/api/contact) | 　 |
+| [mention] | [<code>Contact</code>](/api/contact) &#124; [<code>Array.&lt;Contact&gt;</code>](/api/contact) | If this is a room message, when you set mention param, you can `@` Contact in the room. |
 
 **Example**  
 ```js
