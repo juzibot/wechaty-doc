@@ -186,10 +186,10 @@ for key in keys:
         content = re.sub(r'\n#####\s', '\n#### ', content)
         content = replace(content)
 
-        # content = re.sub('\n### (.+)', lambda x: '\n<h3>{}</h3>'.format(x.group(1)), content)
-        # content = re.sub('\n#### (.+)', lambda x: '\n<h4>{}</h4>'.format(x.group(1)), content)
-        # content = re.sub('\n##### (.+)', lambda x: '\n<h5>{}</h5>'.format(x.group(1)), content)
-        # content = re.sub('\n###### (.+)', lambda x: '\n<h6>{}</h6>'.format(x.group(1)), content)
+        content = re.sub('\n### (.+)', lambda x: '\n<h3>{}</h3>'.format(x.group(1)), content)
+        content = re.sub('\n#### (.+)', lambda x: '\n<h4>{}</h4>'.format(x.group(1)), content)
+        content = re.sub('\n##### (.+)', lambda x: '\n<h5>{}</h5>'.format(x.group(1)), content)
+        content = re.sub('\n###### (.+)', lambda x: '\n<h6>{}</h6>'.format(x.group(1)), content)
 
         with open(path, 'w') as fp:
             if 'zh' in od:

@@ -371,7 +371,7 @@ if (contact && room) {
 
 Find all contacts in a room
 
-### definition
+<h3>definition</h3>
 - `name`                 the name-string set by user-self, should be called name, equal to `Contact.name()`
 - `roomAlias`            the name-string set by user-self in the room, should be called roomAlias
 - `contactAlias`         the name-string set by bot for others, should be called alias, equal to `Contact.alias()`

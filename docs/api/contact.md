@@ -335,7 +335,7 @@ Find contact by `name` or `alias`
 
 If use Contact.findAll() get the contact list of the bot.
 
-### definition
+<h3>definition</h3>
 - `name`   the name-string set by user-self, should be called name
 - `alias`  the name-string set by bot for others, should be called alias
 
