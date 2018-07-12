@@ -32,6 +32,8 @@ If you want to know how to get contact, see <a href="#Contact">Contact</a></p>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.</p>
 <p><a href="https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
+<dt><a href="#ContactSelf">ContactSelf</a> ⇐ <code><a href="#Contact">Contact</a></code></dt>
+<dd></dd>
 <dt><a href="#Friendship">Friendship</a></dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
 <ol>
@@ -1184,6 +1186,251 @@ const contactList = await bot.Contact.findAll()                    // get the co
 const contactList = await bot.Contact.findAll({name: 'ruirui'})    // find allof the contacts whose name is 'ruirui'
 const contactList = await bot.Contact.findAll({alias: 'lijiarui'}) // find all of the contacts whose alias is 'lijiarui'
 ```
+<a name="ContactSelf"></a>
+
+## ContactSelf ⇐ [<code>Contact</code>](#Contact)
+**Kind**: global class  
+**Extends**: [<code>Contact</code>](#Contact)  
+
+* [ContactSelf](#ContactSelf) ⇐ [<code>Contact</code>](#Contact)
+    * [new ContactSelf()](#new_ContactSelf_new)
+    * [.say(textOrContactOrFile)](#Contact+say) ⇒ <code>Promise.&lt;void&gt;</code>
+    * [.name()](#Contact+name) ⇒ <code>string</code>
+    * [.alias(newAlias)](#Contact+alias) ⇒ <code>string</code> \| <code>null</code> \| <code>Promise.&lt;boolean&gt;</code>
+    * ~~[.stranger()](#Contact+stranger)~~
+    * [.friend()](#Contact+friend) ⇒ <code>boolean</code> \| <code>null</code>
+    * ~~[.official()](#Contact+official)~~
+    * ~~[.personal()](#Contact+personal)~~
+    * [.type()](#Contact+type) ⇒ <code>ContactType.Unknown</code> \| <code>ContactType.Personal</code> \| <code>ContactType.Official</code>
+    * [.gender()](#Contact+gender) ⇒ <code>ContactGender.Unknown</code> \| <code>ContactGender.Male</code> \| <code>ContactGender.Female</code>
+    * [.province()](#Contact+province) ⇒ <code>string</code> \| <code>null</code>
+    * [.city()](#Contact+city) ⇒ <code>string</code> \| <code>null</code>
+    * [.avatar()](#Contact+avatar) ⇒ <code>Promise.&lt;FileBox&gt;</code>
+    * ~~[.refresh()](#Contact+refresh)~~
+    * [.sync()](#Contact+sync) ⇒ <code>Promise.&lt;this&gt;</code>
+    * [.self()](#Contact+self) ⇒ <code>boolean</code>
+
+<a name="new_ContactSelf_new"></a>
+
+### new ContactSelf()
+Bot itself will be encapsulated as a ContactSelf.
+
+**Example**  
+```js
+const bot = new Wechaty()
+await bot.start()
+bot.on('login', (user: ContactSelf) => {
+  console.log(`user ${user} login`)
+})
+```
+<a name="Contact+say"></a>
+
+### contactSelf.say(textOrContactOrFile) ⇒ <code>Promise.&lt;void&gt;</code>
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| textOrContactOrFile | <code>string</code> \| [<code>Contact</code>](#Contact) \| <code>FileBox</code> | send text, Contact, or file to contact. </br> You can use [FileBox](https://www.npmjs.com/package/file-box) to send file |
+
+**Example**  
+```js
+const bot = new Wechaty()
+await bot.start()
+const contact = await bot.Contact.find({name: 'lijiarui'})  // change 'lijiarui' to any of your contact name in wechat
+
+# 1. send text to contact
+
+await contact.say('welcome to wechaty!')
+
+# 2. send media file to contact
+
+import { FileBox }  from 'file-box'
+const fileBox1 = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
+const fileBox2 = FileBox.fromLocal('/tmp/text.txt')
+await contact.say(fileBox1)
+await contact.say(fileBox2)
+
+# 3. send contact card to contact
+
+const contactCard = bot.Contact.load('contactId')
+await contact.say(contactCard)
+```
+<a name="Contact+name"></a>
+
+### contactSelf.name() ⇒ <code>string</code>
+Get the name from a contact
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+const name = contact.name()
+```
+<a name="Contact+alias"></a>
+
+### contactSelf.alias(newAlias) ⇒ <code>string</code> \| <code>null</code> \| <code>Promise.&lt;boolean&gt;</code>
+GET / SET / DELETE the alias for a contact
+
+Tests show it will failed if set alias too frequently(60 times in one minute).
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+
+| Param | Type |
+| --- | --- |
+| newAlias | <code>none</code> \| <code>string</code> \| <code>null</code> | 
+
+**Example** *( GET the alias for a contact, return {(string | null)})*  
+```js
+const alias = contact.alias()
+if (alias === null) {
+  console.log('You have not yet set any alias for contact ' + contact.name())
+} else {
+  console.log('You have already set an alias for contact ' + contact.name() + ':' + alias)
+}
+```
+**Example** *(SET the alias for a contact)*  
+```js
+try {
+  await contact.alias('lijiarui')
+  console.log(`change ${contact.name()}'s alias successfully!`)
+} catch (e) {
+  console.log(`failed to change ${contact.name()} alias!`)
+}
+```
+**Example** *(DELETE the alias for a contact)*  
+```js
+try {
+  const oldAlias = await contact.alias(null)
+  console.log(`delete ${contact.name()}'s alias successfully!`)
+  console.log('old alias is ${oldAlias}`)
+} catch (e) {
+  console.log(`failed to delete ${contact.name()}'s alias!`)
+}
+```
+<a name="Contact+stranger"></a>
+
+### ~~contactSelf.stranger()~~
+***Deprecated***
+
+Should use [friend](#Contact+friend) instead
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+<a name="Contact+friend"></a>
+
+### contactSelf.friend() ⇒ <code>boolean</code> \| <code>null</code>
+Check if contact is friend
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Returns**: <code>boolean</code> \| <code>null</code> - <br>True for friend of the bot <br>
+False for not friend of the bot, null for unknown.  
+**Example**  
+```js
+const isFriend = contact.friend()
+```
+<a name="Contact+official"></a>
+
+### ~~contactSelf.official()~~
+***Deprecated***
+
+Check if it's a offical account, should use [type](#Contact+type) instead
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+<a name="Contact+personal"></a>
+
+### ~~contactSelf.personal()~~
+***Deprecated***
+
+Check if it's a personal account, should use [type](#Contact+type) instead
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+<a name="Contact+type"></a>
+
+### contactSelf.type() ⇒ <code>ContactType.Unknown</code> \| <code>ContactType.Personal</code> \| <code>ContactType.Official</code>
+Return the type of the Contact
+> Tips: ContactType is enum here.</br>
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+const bot = new Wechaty()
+await bot.start()
+const isOfficial = contact.type() === bot.Contact.Type.Official
+```
+<a name="Contact+gender"></a>
+
+### contactSelf.gender() ⇒ <code>ContactGender.Unknown</code> \| <code>ContactGender.Male</code> \| <code>ContactGender.Female</code>
+Contact gender
+> Tips: ContactGender is enum here. </br>
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+const gender = contact.gender() === bot.Contact.Gender.Male
+```
+<a name="Contact+province"></a>
+
+### contactSelf.province() ⇒ <code>string</code> \| <code>null</code>
+Get the region 'province' from a contact
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+const province = contact.province()
+```
+<a name="Contact+city"></a>
+
+### contactSelf.city() ⇒ <code>string</code> \| <code>null</code>
+Get the region 'city' from a contact
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+const city = contact.city()
+```
+<a name="Contact+avatar"></a>
+
+### contactSelf.avatar() ⇒ <code>Promise.&lt;FileBox&gt;</code>
+Get avatar picture file stream
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Overrides**: [<code>avatar</code>](#Contact+avatar)  
+**Example**  
+```js
+# Save avatar to local file like `1-name.jpg`
+
+const file = await contact.avatar()
+const name = file.name
+await file.toFile(name, true)
+console.log(`Contact: ${contact.name()} with avatar file: ${name}`)
+```
+<a name="Contact+refresh"></a>
+
+### ~~contactSelf.refresh()~~
+***Deprecated***
+
+Force reload(re-ready()) data for Contact, use [sync](#Contact+sync) instead
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+<a name="Contact+sync"></a>
+
+### contactSelf.sync() ⇒ <code>Promise.&lt;this&gt;</code>
+Force reload(re-ready()) data for Contact,
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+await contact.sync()
+```
+<a name="Contact+self"></a>
+
+### contactSelf.self() ⇒ <code>boolean</code>
+Check if contact is self
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Returns**: <code>boolean</code> - True for contact is self, False for contact is others  
+**Example**  
+```js
+const isSelf = contact.self()
+```
 <a name="Friendship"></a>
 
 ## Friendship
@@ -1328,7 +1575,7 @@ Remeber not to do this too frequently, or your account may be blocked.
 ```js
 const memberList = await room.memberList()
 for (let i = 0; i < memberList.length; i++) {
-  await bot.Friendship.send(member, 'Nice to meet you! I am wechaty bot!')
+  await bot.Friendship.add(member, 'Nice to meet you! I am wechaty bot!')
 }
 ```
 <a name="Message"></a>
