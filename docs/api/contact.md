@@ -171,9 +171,6 @@ Check if it's a personal account, should use [type](#Contacttype) instead
 
 Return the type of the Contact
 > Tips: ContactType is enum here.</br>
-- ContactType.Unknown  = 0</br>
-- ContactType.Personal = 1</br>
-- ContactType.Official = 2</br>
 
 **Kind**: instance method of [<code>Contact</code>](/api/contact)  
 **Example**  
@@ -191,14 +188,11 @@ const isOfficial = contact.type() === bot.Contact.Type.Official
 
 Contact gender
 > Tips: ContactGender is enum here. </br>
-- ContactGender.Unknown </br>
-- ContactGender.Male    </br>
-- ContactGender.Female  </br>
 
 **Kind**: instance method of [<code>Contact</code>](/api/contact)  
 **Example**  
 ```js
-const gender = contact.gender()
+const gender = contact.gender() === bot.Contact.Gender.Male
 ```
 <a id="contactprovince"></a>
 
