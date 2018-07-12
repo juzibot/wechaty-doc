@@ -12,7 +12,7 @@ It may equals
 See more:
 - [What is a Puppet in Wechaty](https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-EN#31-what-is-a-puppet-in-wechaty)
 
-> If you want to know how to send message, see [Message](/zh/api/message)
+> If you want to know how to send message, see [Message](/zh/api/message) <br>
 > If you want to know how to get contact, see [Contact](/zh/api/contact)
 
 **Kind**: global class  

@@ -21,7 +21,7 @@ It may equals</p>
 <li><a href="https://github.com/Chatie/wechaty-getting-started/wiki/FAQ-EN#31-what-is-a-puppet-in-wechaty">What is a Puppet in Wechaty</a></li>
 </ul>
 <blockquote>
-<p>If you want to know how to send message, see [Message](/zh/api/message)
+<p>If you want to know how to send message, see [Message](/zh/api/message) <br>
 If you want to know how to get contact, see [Contact](/zh/api/contact)</p>
 </blockquote>
 </dd>
