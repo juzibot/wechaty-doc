@@ -18,14 +18,12 @@ Above is a 10 minute video tutorial(a little outdated, it's running under v0.14 
 **2.1. Run JavaScript**
 
 ```shell
-# for JavaScript
 docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.js
 ```
 
 **2.2. Run TypeScript**
 
 ```shell
-# for TypeScript
 docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.ts
 ```
 

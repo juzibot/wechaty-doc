@@ -17,15 +17,13 @@ The **best practice** to use Wechaty is running with docker, because it's not on
 
 > Wechaty Docker supports both JavaScript and TypeScript. To use TypeScript just write in TypeScript and save with extension name .ts, no need to compile because we use ts-node to run it.
 
-### 2.1 JavaScript:
+### 2.1 JavaScript
 ```shell
-# for JavaScript
 docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.js
 ```
 
 ### 2.2 TypeScript
 ```shell
-# for TypeScript
 docker run -ti --rm --volume="$(pwd)":/bot zixia/wechaty mybot.ts
 ```
 
