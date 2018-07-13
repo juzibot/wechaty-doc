@@ -1,7 +1,7 @@
 # Contact类
 All wechat contacts(friend) will be encapsulated as a Contact.
 
-[Examples/Contact-Bot](https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts)
+[Examples/Contact-Bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts)
 
 **Kind**: global class  
 
@@ -46,11 +46,11 @@ const bot = new Wechaty()
 await bot.start()
 const contact = await bot.Contact.find({name: 'lijiarui'})  // change 'lijiarui' to any of your contact name in wechat
 
-# 1. send text to contact
+// 1. send text to contact
 
 await contact.say('welcome to wechaty!')
 
-# 2. send media file to contact
+// 2. send media file to contact
 
 import { FileBox }  from 'file-box'
 const fileBox1 = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
@@ -58,7 +58,7 @@ const fileBox2 = FileBox.fromLocal('/tmp/text.txt')
 await contact.say(fileBox1)
 await contact.say(fileBox2)
 
-# 3. send contact card to contact
+// 3. send contact card to contact
 
 const contactCard = bot.Contact.load('contactId')
 await contact.say(contactCard)
@@ -234,7 +234,7 @@ Get avatar picture file stream
 **Kind**: instance method of [<code>Contact</code>](/zh/api/contact)  
 **Example**  
 ```js
-# Save avatar to local file like `1-name.jpg`
+// Save avatar to local file like `1-name.jpg`
 
 const file = await contact.avatar()
 const name = file.name

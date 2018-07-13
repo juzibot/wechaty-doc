@@ -27,7 +27,7 @@ See more:
         * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechatylogonoff) <code>boolean</code>
         * ~~[.self()](#Wechatyself)~~
-        * [.userSelf()](#WechatyuserSelf) [<code>Contact</code>](/api/contact)
+        * [.userSelf()](#WechatyuserSelf) <code>ContactSelf</code>
         * [.say(textOrContactOrFile)](#Wechatysay) <code>Promise.&lt;void&gt;</code>
         * [.version([forceNpm])](#Wechatyversion) <code>string</code>
     * _static_
@@ -81,7 +81,7 @@ see advanced [chaining usage](https://github.com/Chatie/wechaty-getting-started/
 
 **Example** *(Event:scan)*  
 ```js
-# Scan Event will emit when the bot needs to show you a QR Code for scanning
+// Scan Event will emit when the bot needs to show you a QR Code for scanning
 
 bot.on('scan', (url: string, code: number) => {
   console.log(`[${code}] Scan ${url} to login.` )
@@ -89,7 +89,7 @@ bot.on('scan', (url: string, code: number) => {
 ```
 **Example** *(Event:login )*  
 ```js
-# Login Event will emit when bot login full successful.
+// Login Event will emit when bot login full successful.
 
 bot.on('login', (user: ContactSelf) => {
   console.log(`user ${user} login`)
@@ -97,7 +97,7 @@ bot.on('login', (user: ContactSelf) => {
 ```
 **Example** *(Event:logout )*  
 ```js
-# Logout Event will emit when bot detected log out.
+// Logout Event will emit when bot detected log out.
 
 bot.on('logout', (user: ContactSelf) => {
   console.log(`user ${user} logout`)
@@ -105,7 +105,7 @@ bot.on('logout', (user: ContactSelf) => {
 ```
 **Example** *(Event:message )*  
 ```js
-# Message Event will emit when there's a new message.
+// Message Event will emit when there's a new message.
 
 wechaty.on('message', (message: Message) => {
   console.log(`message ${message} received`)
@@ -113,7 +113,7 @@ wechaty.on('message', (message: Message) => {
 ```
 **Example** *(Event:friendship )*  
 ```js
-# Friendship Event will emit when got a new friend request, or friendship is confirmed.
+// Friendship Event will emit when got a new friend request, or friendship is confirmed.
 
 bot.on('friendship', (friendship: Friendship) => {
   if(friendship.type() === Friendship.Type.RECEIVE){ // 1. receive new friendship request from new contact
@@ -131,7 +131,7 @@ bot.on('friendship', (friendship: Friendship) => {
 ```
 **Example** *(Event:room-join )*  
 ```js
-# room-join Event will emit when someone join the room.
+// room-join Event will emit when someone join the room.
 
 bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
   const nameList = inviteeList.map(c => c.name()).join(',')
@@ -140,7 +140,7 @@ bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
 ```
 **Example** *(Event:room-leave )*  
 ```js
-# room-leave Event will emit when someone leave the room.
+// room-leave Event will emit when someone leave the room.
 
 bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
   const nameList = leaverList.map(c => c.name()).join(',')
@@ -149,7 +149,7 @@ bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
 ```
 **Example** *(Event:room-topic )*  
 ```js
-# room-topic Event will emit when someone change the room's topic.
+// room-topic Event will emit when someone change the room's topic.
 
 bot.on('room-topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
   console.log(`Room ${room.topic()} topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
@@ -157,7 +157,7 @@ bot.on('room-topic', (room: Room, topic: string, oldTopic: string, changer: Cont
 ```
 **Example** *(Event:error )*  
 ```js
-# error Event will emit when there's an error occurred.
+// error Event will emit when there's an error occurred.
 
 bot.on('error', (error) => {
   console.error(error)
@@ -245,7 +245,7 @@ Should use [userSelf](#WechatyuserSelf) instead
 
 ## wechaty.userSelf()
 
-**Return the type of**: [<code>Contact</code>](/api/contact)
+**Return the type of**: <code>ContactSelf</code>
 
 
 Get current user
@@ -277,19 +277,19 @@ const bot = new Wechaty()
 await bot.start()
 // after logged in
 
-# 1. send text to bot itself
+// 1. send text to bot itself
 await bot.say('hello!')
 
-# 2. send Contact to bot itself
+// 2. send Contact to bot itself
 const contact = bot.Contact.load('contactId')
 await bot.say(contact)
 
-# 3. send Image to bot itself from remote url
+// 3. send Image to bot itself from remote url
 import { FileBox }  from 'file-box'
 const fileBox = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
 await bot.say(fileBox)
 
-# 4. send Image to bot itself from local file
+// 4. send Image to bot itself from local file
 import { FileBox }  from 'file-box'
 const fileBox = FileBox.fromLocal('/tmp/text.jpg')
 await bot.say(fileBox)

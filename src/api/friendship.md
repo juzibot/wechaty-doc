@@ -5,7 +5,7 @@ Send, receive friend request, and friend confirmation events.
 2. receive request(in friend event)
 3. confirmation friendship(friend event)
 
-[Examples/Friend-Bot](https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts)
+[Examples/Friend-Bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/friend-bot.ts)
 
 **Kind**: global class  
 
@@ -37,13 +37,13 @@ bot.on('friendship', async friendship => {
     console.log(`received friend event.`)
     switch (friendship.type()) {
 
-    # 1. New Friend Request
+    // 1. New Friend Request
 
     case Friendship.Type.Receive:
       await friendship.accept()
       break
 
-    # 2. Friend Ship Confirmed
+    // 2. Friend Ship Confirmed
 
     case Friendship.Type.Confirm:
       console.log(`friend ship confirmed`)

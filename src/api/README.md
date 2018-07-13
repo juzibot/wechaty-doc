@@ -27,11 +27,11 @@ If you want to know how to get contact, see [Contact](/api/contact)</p>
 </dd>
 <dt>[Room](/api/room)</dt>
 <dd><p>All wechat rooms(groups) will be encapsulated as a Room.</p>
-<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/room-bot.ts">Examples/Room-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/room-bot.ts">Examples/Room-Bot</a></p>
 </dd>
 <dt>[Contact](/api/contact)</dt>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.</p>
-<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
 <dt>[Friendship](/api/friendship)</dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
@@ -40,11 +40,11 @@ If you want to know how to get contact, see [Contact](/api/contact)</p>
 <li>receive request(in friend event)</li>
 <li>confirmation friendship(friend event)</li>
 </ol>
-<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/friend-bot.ts">Examples/Friend-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/friend-bot.ts">Examples/Friend-Bot</a></p>
 </dd>
 <dt>[Message](/api/message)</dt>
 <dd><p>All wechat messages will be encapsulated as a Message.</p>
-<p><a href="https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
+<p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
 </dd>
 </dl>
 

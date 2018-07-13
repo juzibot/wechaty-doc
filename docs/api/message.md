@@ -1,7 +1,7 @@
 # Message
 All wechat messages will be encapsulated as a Message.
 
-[Examples/Ding-Dong-Bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)
+[Examples/Ding-Dong-Bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts)
 
 **Kind**: global class  
 
@@ -133,7 +133,7 @@ bot
 Reply a Text or Media File message to the sender.
 
 **Kind**: instance method of [<code>Message</code>](/api/message)  
-**See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/master/examples/ding-dong-bot.ts)  
+**See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -147,20 +147,20 @@ const bot = new Wechaty()
 bot
 .on('message', async m => {
 
-# 1. send Image
+// 1. send Image
 
   if (/^ding$/i.test(m.text())) {
     const fileBox = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
     await msg.say(fileBox)
   }
 
-# 2. send Text
+// 2. send Text
 
   if (/^dong$/i.test(m.text())) {
     await msg.say('dingdingding')
   }
 
-# 3. send Contact
+// 3. send Contact
 
   if (/^lijiarui$/i.test(m.text())) {
     const contactCard = await bot.Contact.find({name: 'lijiarui'})
