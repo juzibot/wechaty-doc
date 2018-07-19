@@ -29,7 +29,6 @@ See more:
         * ~~[.self()](#Wechatyself)~~
         * [.userSelf()](#WechatyuserSelf) <code>ContactSelf</code>
         * [.say(textOrContactOrFile)](#Wechatysay) <code>Promise.&lt;void&gt;</code>
-        * [.version([forceNpm])](#Wechatyversion) <code>string</code>
     * _static_
         * [.instance([options])](#Wechatyinstance)
 
@@ -264,6 +263,8 @@ console.log(`Bot is ${contact.name()}`)
 
 
 Send message to userSelf, in other words, bot send message to itself.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 
@@ -294,31 +295,10 @@ import { FileBox }  from 'file-box'
 const fileBox = FileBox.fromLocal('/tmp/text.jpg')
 await bot.say(fileBox)
 ```
-<a id="wechatyversion"></a>
-
-## wechaty.version([forceNpm])
-
-**Return the type of**: <code>string</code>
-
-
-Return version of Wechaty
-
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
-**Returns**: <code>string</code> - - the version number  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [forceNpm] | <code>boolean</code> | <code>false</code> | If set to true, will only return the version in package.json. </br>                                      Otherwise will return git commit hash if .git exists. |
-
-**Example**  
-```js
-console.log(Wechaty.instance().version())       // return '#git[af39df]'
-console.log(Wechaty.instance().version(true))   // return '0.7.9'
-```
 <a id="wechatyinstance"></a>
 
 ## Wechaty.instance([options])
-get the singleton instance of Wechaty
+Get the global instance of Wechaty
 
 **Kind**: static method of [<code>Wechaty</code>](/zh/api/wechaty)  
 
@@ -330,7 +310,7 @@ get the singleton instance of Wechaty
 ```js
 const { Wechaty } = require('wechaty')
 
-Wechaty.instance() // Singleton
+Wechaty.instance() // Global instance
 .on('scan', (url, code) => console.log(`Scan QR Code to login: ${code}\n${url}`))
 .on('login',       user => console.log(`User ${user} logined`))
 .on('message',  message => console.log(`Message: ${message}`))

@@ -37,6 +37,8 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 
 Send message inside Room, if set [replyTo], wechaty will mention the contact as well.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 
@@ -133,6 +135,11 @@ if (room) {
 
 Add contact in a room
 
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+>
+> see [Web version of WeChat closed group interface](https://github.com/Chatie/wechaty/issues/1441)
+
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 
 | Param | Type |
@@ -164,6 +171,11 @@ if (room) {
 Delete a contact from the room
 It works only when the bot is the owner of the room
 
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+>
+> see [Web version of WeChat closed group interface](https://github.com/Chatie/wechaty/issues/1441)
+
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 
 | Param | Type |
@@ -193,6 +205,9 @@ if (room) {
 
 
 Bot quit the room itself
+
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 **Example**  
@@ -250,6 +265,8 @@ bot
 
 SET/GET announce from the room
 > Tips: It only works when bot is the owner of the room.
+>
+> This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 
@@ -284,6 +301,8 @@ console.log(`room announce change from ${oldAnnounce} to ${room.announce()}`)
 
 
 Get QR Code of the Room from the room, which can be used as scan and join the room.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 <a id="roomalias"></a>
@@ -463,6 +482,8 @@ await room.sync()
 
 
 Get room's owner from the room.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](/zh/api/room)  
 **Example**  
@@ -554,6 +575,8 @@ Load room by topic. <br>
 > Tips: For Web solution, it cannot get the unique topic id,
 but for other solutions besides web,
 we can get unique and permanent topic id.
+
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: static method of [<code>Room</code>](/zh/api/room)  
 

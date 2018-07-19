@@ -131,6 +131,8 @@ bot
 
 
 Reply a Text or Media File message to the sender.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 **See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts)  
@@ -308,6 +310,8 @@ use [toFileBox](#MessagetoFileBox) instead
 
 
 Extract the Media File from the Message, and put it into the FileBox.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](/zh/api/message)  
 <a id="messagetocontact"></a>
@@ -319,5 +323,7 @@ Extract the Media File from the Message, and put it into the FileBox.
 
 Get Share Card of the Message
 Extract the Contact Card from the Message, and encapsulate it into Contact class
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](/zh/api/message)  

@@ -1,4 +1,4 @@
-# Wechaty v0.19.10 Documentation
+# Wechaty v0.19.22 Documentation
 
 * <https://blog.chatie.io>
 
@@ -116,7 +116,6 @@ See more:
         * ~~[.self()](#Wechaty+self)~~
         * [.userSelf()](#Wechaty+userSelf) ⇒ <code>ContactSelf</code>
         * [.say(textOrContactOrFile)](#Wechaty+say) ⇒ <code>Promise.&lt;void&gt;</code>
-        * [.version([forceNpm])](#Wechaty+version) ⇒ <code>string</code>
     * _static_
         * [.instance([options])](#Wechaty.instance)
 
@@ -323,6 +322,8 @@ console.log(`Bot is ${contact.name()}`)
 
 ### wechaty.say(textOrContactOrFile) ⇒ <code>Promise.&lt;void&gt;</code>
 Send message to userSelf, in other words, bot send message to itself.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
 
@@ -353,27 +354,10 @@ import { FileBox }  from 'file-box'
 const fileBox = FileBox.fromLocal('/tmp/text.jpg')
 await bot.say(fileBox)
 ```
-<a name="Wechaty+version"></a>
-
-### wechaty.version([forceNpm]) ⇒ <code>string</code>
-Return version of Wechaty
-
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
-**Returns**: <code>string</code> - - the version number  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [forceNpm] | <code>boolean</code> | <code>false</code> | If set to true, will only return the version in package.json. </br>                                      Otherwise will return git commit hash if .git exists. |
-
-**Example**  
-```js
-console.log(Wechaty.instance().version())       // return '#git[af39df]'
-console.log(Wechaty.instance().version(true))   // return '0.7.9'
-```
 <a name="Wechaty.instance"></a>
 
 ### Wechaty.instance([options])
-get the singleton instance of Wechaty
+Get the global instance of Wechaty
 
 **Kind**: static method of [<code>Wechaty</code>](#Wechaty)  
 
@@ -385,7 +369,7 @@ get the singleton instance of Wechaty
 ```js
 const { Wechaty } = require('wechaty')
 
-Wechaty.instance() // Singleton
+Wechaty.instance() // Global instance
 .on('scan', (url, code) => console.log(`Scan QR Code to login: ${code}\n${url}`))
 .on('login',       user => console.log(`User ${user} logined`))
 .on('message',  message => console.log(`Message: ${message}`))
@@ -428,6 +412,8 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 ### room.say(textOrContactOrFile, [mention]) ⇒ <code>Promise.&lt;void&gt;</code>
 Send message inside Room, if set [replyTo], wechaty will mention the contact as well.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](#Room)  
 
@@ -516,6 +502,11 @@ if (room) {
 ### room.add(contact) ⇒ <code>Promise.&lt;void&gt;</code>
 Add contact in a room
 
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+>
+> see [Web version of WeChat closed group interface](https://github.com/Chatie/wechaty/issues/1441)
+
 **Kind**: instance method of [<code>Room</code>](#Room)  
 
 | Param | Type |
@@ -543,6 +534,11 @@ if (room) {
 Delete a contact from the room
 It works only when the bot is the owner of the room
 
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+>
+> see [Web version of WeChat closed group interface](https://github.com/Chatie/wechaty/issues/1441)
+
 **Kind**: instance method of [<code>Room</code>](#Room)  
 
 | Param | Type |
@@ -568,6 +564,9 @@ if (room) {
 
 ### room.quit() ⇒ <code>Promise.&lt;void&gt;</code>
 Bot quit the room itself
+
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](#Room)  
 **Example**  
@@ -617,6 +616,8 @@ bot
 ### room.announce([text]) ⇒ <code>Promise.&lt;(void\|string)&gt;</code>
 SET/GET announce from the room
 > Tips: It only works when bot is the owner of the room.
+>
+> This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](#Room)  
 
@@ -647,6 +648,8 @@ console.log(`room announce change from ${oldAnnounce} to ${room.announce()}`)
 
 ### room.qrcode() ⇒ <code>Promise.&lt;string&gt;</code>
 Get QR Code of the Room from the room, which can be used as scan and join the room.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](#Room)  
 <a name="Room+alias"></a>
@@ -794,6 +797,8 @@ await room.sync()
 
 ### room.owner() ⇒ [<code>Contact</code>](#Contact) \| <code>null</code>
 Get room's owner from the room.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Room</code>](#Room)  
 **Example**  
@@ -870,6 +875,8 @@ Load room by topic. <br>
 but for other solutions besides web,
 we can get unique and permanent topic id.
 
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+
 **Kind**: static method of [<code>Room</code>](#Room)  
 
 | Param | Type |
@@ -917,6 +924,9 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 <a name="Contact+say"></a>
 
 ### contact.say(textOrContactOrFile) ⇒ <code>Promise.&lt;void&gt;</code>
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
+
 **Kind**: instance method of [<code>Contact</code>](#Contact)  
 
 | Param | Type | Description |
@@ -1009,6 +1019,10 @@ Should use [friend](#Contact+friend) instead
 
 ### contact.friend() ⇒ <code>boolean</code> \| <code>null</code>
 Check if contact is friend
+
+> Tips:
+- [wechat4u](https://github.com/chatie/wechaty-puppet-wechat4u) and [puppeteer](https://github.com/chatie/wechaty-puppet-puppeteer) not support `Contact.friend()`
+- [padchat](https://github.com/lijiarui/wechaty-puppet-padchat) support `Contact.friend()`
 
 **Kind**: instance method of [<code>Contact</code>](#Contact)  
 **Returns**: <code>boolean</code> \| <code>null</code> - <br>True for friend of the bot <br>
@@ -1125,6 +1139,8 @@ const isSelf = contact.self()
 
 ### Contact.load(id) ⇒ [<code>Contact</code>](#Contact)
 Get Contact by id
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: static method of [<code>Contact</code>](#Contact)  
 
@@ -1446,6 +1462,8 @@ bot
 
 ### message.say(textOrContactOrFile, [mention]) ⇒ <code>Promise.&lt;void&gt;</code>
 Reply a Text or Media File message to the sender.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](#Message)  
 **See**: [Examples/ding-dong-bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts)  
@@ -1599,6 +1617,8 @@ use [toFileBox](#Message+toFileBox) instead
 
 ### message.toFileBox() ⇒ <code>Promise.&lt;FileBox&gt;</code>
 Extract the Media File from the Message, and put it into the FileBox.
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](#Message)  
 <a name="Message+toContact"></a>
@@ -1606,6 +1626,8 @@ Extract the Media File from the Message, and put it into the FileBox.
 ### message.toContact() ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
 Get Share Card of the Message
 Extract the Contact Card from the Message, and encapsulate it into Contact class
+> Tips:
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](#Message)  
 <a name="PuppetName"></a>
