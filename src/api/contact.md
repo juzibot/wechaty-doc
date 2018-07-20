@@ -1,9 +1,14 @@
 # Contact
 All wechat contacts(friend) will be encapsulated as a Contact.
-
 [Examples/Contact-Bot](https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts)
 
 **Kind**: global class  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | Get Contact id. This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table) |
+
 
 * [Contact](/api/contact)
     * _instance_
@@ -143,8 +148,7 @@ Should use [friend](#Contactfriend) instead
 Check if contact is friend
 
 > Tips:
-- [wechat4u](https://github.com/chatie/wechaty-puppet-wechat4u) and [puppeteer](https://github.com/chatie/wechaty-puppet-puppeteer) not support `Contact.friend()`
-- [padchat](https://github.com/lijiarui/wechaty-puppet-padchat) support `Contact.friend()`
+This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Contact</code>](/api/contact)  
 **Returns**: <code>boolean</code> &#124; <code>null</code> - <br>True for friend of the bot <br>

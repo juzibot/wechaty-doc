@@ -30,8 +30,8 @@ If you want to know how to get contact, see [Contact](/zh/api/contact)</p>
 <p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/room-bot.ts">Examples/Room-Bot</a></p>
 </dd>
 <dt>[Contact](/zh/api/contact)</dt>
-<dd><p>All wechat contacts(friend) will be encapsulated as a Contact.</p>
-<p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
+<dd><p>All wechat contacts(friend) will be encapsulated as a Contact.
+<a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
 <dt>[Friendship](/zh/api/friendship)</dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
