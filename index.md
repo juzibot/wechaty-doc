@@ -1,4 +1,4 @@
-# Wechaty v0.19.23 Documentation
+# Wechaty v0.19.104 Documentation
 
 * <https://blog.chatie.io>
 
@@ -31,6 +31,12 @@ If you want to know how to get contact, see <a href="#Contact">Contact</a></p>
 <dt><a href="#Contact">Contact</a></dt>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.
 <a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
+</dd>
+<dt><a href="#ContactSelf">ContactSelf</a></dt>
+<dd><p>Bot itself will be encapsulated as a ContactSelf.</p>
+<blockquote>
+<p>Tips: this class is extends Contact</p>
+</blockquote>
 </dd>
 <dt><a href="#Friendship">Friendship</a></dt>
 <dd><p>Send, receive friend request, and friend confirmation events.</p>
@@ -114,7 +120,7 @@ See more:
         * [.logout()](#Wechaty+logout) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechaty+logonoff) ⇒ <code>boolean</code>
         * ~~[.self()](#Wechaty+self)~~
-        * [.userSelf()](#Wechaty+userSelf) ⇒ <code>ContactSelf</code>
+        * [.userSelf()](#Wechaty+userSelf) ⇒ [<code>ContactSelf</code>](#ContactSelf)
         * [.say(textOrContactOrFile)](#Wechaty+say) ⇒ <code>Promise.&lt;void&gt;</code>
     * _static_
         * [.instance([options])](#Wechaty.instance)
@@ -309,7 +315,7 @@ Should use [userSelf](#Wechaty+userSelf) instead
 **Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
 <a name="Wechaty+userSelf"></a>
 
-### wechaty.userSelf() ⇒ <code>ContactSelf</code>
+### wechaty.userSelf() ⇒ [<code>ContactSelf</code>](#ContactSelf)
 Get current user
 
 **Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
@@ -392,6 +398,8 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 * [Room](#Room)
     * _instance_
+        * [.ready()](#Room+ready)
+        * [.isReady()](#Room+isReady)
         * [.say(textOrContactOrFile, [mention])](#Room+say) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.on(event, listener)](#Room+on) ⇒ <code>this</code>
         * [.add(contact)](#Room+add) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -414,6 +422,16 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.find(query)](#Room.find) ⇒ <code>Promise.&lt;(Room\|null)&gt;</code>
         * [.load(id)](#Room.load) ⇒ [<code>Room</code>](#Room)
 
+<a name="Room+ready"></a>
+
+### room.ready()
+**Kind**: instance method of [<code>Room</code>](#Room)  
+**Hidden**:   
+<a name="Room+isReady"></a>
+
+### room.isReady()
+**Kind**: instance method of [<code>Room</code>](#Room)  
+**Hidden**:   
 <a name="Room+say"></a>
 
 ### room.say(textOrContactOrFile, [mention]) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -1209,6 +1227,68 @@ await bot.start()
 const contactList = await bot.Contact.findAll()                    // get the contact list of the bot
 const contactList = await bot.Contact.findAll({name: 'ruirui'})    // find allof the contacts whose name is 'ruirui'
 const contactList = await bot.Contact.findAll({alias: 'lijiarui'}) // find all of the contacts whose alias is 'lijiarui'
+```
+<a name="ContactSelf"></a>
+
+## ContactSelf
+Bot itself will be encapsulated as a ContactSelf.
+
+> Tips: this class is extends Contact
+
+**Kind**: global class  
+
+* [ContactSelf](#ContactSelf)
+    * [.avatar([file])](#ContactSelf+avatar) ⇒ <code>Promise.&lt;(void\|FileBox)&gt;</code>
+    * [.qrcode()](#ContactSelf+qrcode) ⇒ <code>Promise.&lt;string&gt;</code>
+
+<a name="ContactSelf+avatar"></a>
+
+### contactSelf.avatar([file]) ⇒ <code>Promise.&lt;(void\|FileBox)&gt;</code>
+GET / SET bot avatar
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+
+| Param | Type |
+| --- | --- |
+| [file] | <code>FileBox</code> | 
+
+**Example** *( GET the avatar for bot, return {Promise&lt;FileBox&gt;})*  
+```js
+// Save avatar to local file like `1-name.jpg`
+
+bot.on('login', (user: ContactSelf) => {
+  console.log(`user ${user} login`)
+  const file = await user.avatar()
+  const name = file.name
+  await file.toFile(name, true)
+  console.log(`Save bot avatar: ${contact.name()} with avatar file: ${name}`)
+})
+```
+**Example** *(SET the avatar for a bot)*  
+```js
+import { FileBox }  from 'file-box'
+bot.on('login', (user: ContactSelf) => {
+  console.log(`user ${user} login`)
+  const fileBox = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
+  await user.avatar(fileBox)
+  console.log(`Change bot avatar successfully!`)
+})
+```
+<a name="ContactSelf+qrcode"></a>
+
+### contactSelf.qrcode() ⇒ <code>Promise.&lt;string&gt;</code>
+Get bot qrcode
+
+**Kind**: instance method of [<code>ContactSelf</code>](#ContactSelf)  
+**Example**  
+```js
+import { generate } from 'qrcode-terminal'
+bot.on('login', (user: ContactSelf) => {
+  console.log(`user ${user} login`)
+  const qrcode = await user.qrcode()
+  console.log(`Following is the bot qrcode!`)
+  generate(qrcode, { small: true })
+})
 ```
 <a name="Friendship"></a>
 

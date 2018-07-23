@@ -13,6 +13,8 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 * [Room](/api/room)
     * _instance_
+        * [.ready()](#Roomready)
+        * [.isReady()](#RoomisReady)
         * [.say(textOrContactOrFile, [mention])](#Roomsay) <code>Promise.&lt;void&gt;</code>
         * [.on(event, listener)](#Roomon) <code>this</code>
         * [.add(contact)](#Roomadd) <code>Promise.&lt;void&gt;</code>
@@ -35,6 +37,16 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.find(query)](#Roomfind) <code>Promise.&lt;(Room&#124;null)&gt;</code>
         * [.load(id)](#Roomload) [<code>Room</code>](/api/room)
 
+<a id="roomready"></a>
+
+## room.ready()
+**Kind**: instance method of [<code>Room</code>](/api/room)  
+**Hidden**:   
+<a id="roomisready"></a>
+
+## room.isReady()
+**Kind**: instance method of [<code>Room</code>](/api/room)  
+**Hidden**:   
 <a id="roomsay"></a>
 
 ## room.say(textOrContactOrFile, [mention])

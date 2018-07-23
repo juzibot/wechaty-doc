@@ -27,7 +27,7 @@ See more:
         * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechatylogonoff) <code>boolean</code>
         * ~~[.self()](#Wechatyself)~~
-        * [.userSelf()](#WechatyuserSelf) <code>ContactSelf</code>
+        * [.userSelf()](#WechatyuserSelf) [<code>ContactSelf</code>](/api/?id=contactself)
         * [.say(textOrContactOrFile)](#Wechatysay) <code>Promise.&lt;void&gt;</code>
     * _static_
         * [.instance([options])](#Wechatyinstance)
@@ -244,7 +244,7 @@ Should use [userSelf](#WechatyuserSelf) instead
 
 ## wechaty.userSelf()
 
-**Return the type of**: <code>ContactSelf</code>
+**Return the type of**: [<code>ContactSelf</code>](/api/?id=contactself)
 
 
 Get current user
