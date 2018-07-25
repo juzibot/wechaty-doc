@@ -1,3 +1,5 @@
+<a id="message"></a>
+
 # Message类
 All wechat messages will be encapsulated as a Message.
 

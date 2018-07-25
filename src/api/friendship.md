@@ -1,3 +1,5 @@
+<a id="friendship"></a>
+
 # Friendship
 Send, receive friend request, and friend confirmation events.
 
@@ -163,4 +165,3 @@ for (let i = 0; i < memberList.length; i++) {
   await bot.Friendship.add(member, 'Nice to meet you! I am wechaty bot!')
 }
 ```
-<a id="message"></a>
