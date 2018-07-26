@@ -7,6 +7,7 @@
   * [Wechaty](/api/wechaty)
   * [Message](/api/message)
   * [Contact](/api/contact)
+  * [ContactSelf](/api/contact_self)
   * [Room](/api/room)
   * [Friendship](/api/friendship)
 

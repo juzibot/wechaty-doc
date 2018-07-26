@@ -7,6 +7,7 @@
   * [Wechaty类](/zh/api/wechaty)
   * [Message类](/zh/api/message)
   * [Contact类](/zh/api/contact)
+  * [ContactSelf类](/zh/api/contact_self)
   * [Room类](/zh/api/room)
   * [Friendship类](/zh/api/friendship)
 

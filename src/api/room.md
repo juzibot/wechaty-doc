@@ -609,4 +609,3 @@ await bot.start()
 // after logged in...
 const room = bot.Room.load('roomId')
 ```
-<a id="contact"></a>

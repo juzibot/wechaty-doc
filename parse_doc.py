@@ -26,14 +26,16 @@ for line in lines:
     # 分页
     if line == '<a name="Wechaty"></a>': # ('## Wechaty'):
         key = 'wechaty'
-    if line == '## Friendship':
+    if line == '<a name="Friendship"></a>':
         key = 'friendship'
     if line == '## Room':
         key = 'room'
-    if line == '## Message':
+    if line == '<a name="Message"></a>':
         key = 'message'
-    if line == '## Contact':
+    if line == '<a name="Contact"></a>':
         key = 'contact'
+    if line == '<a name="ContactSelf"></a>':
+        key = 'contact_self'
     if line == '<a name="PuppetName"></a>':
         key = 'README'
 
@@ -86,6 +88,7 @@ for line in lines:
     line = re.sub(r'<a href="#Friendship">Friendship</a>', '[Friendship](/api/friendship)', line)
     line = re.sub(r'<a href="#Message">Message</a>', '[Message](/api/message)', line)
     line = re.sub(r'<a href="#Contact">Contact</a>', '[Contact](/api/contact)', line)
+    line = re.sub(r'<a href="#ContactSelf">ContactSelf</a>', '[ContactSelf](/api/contact_self)', line)
     line = re.sub(r'<a href="#Room">Room</a>', '[Room](/api/room)', line)
 
     def _fun(x):
@@ -127,6 +130,7 @@ keys = [
     'README',
     'wechaty',
     'contact',
+    'contact_self',
     'friendship',
     'room',
     'message'
@@ -148,6 +152,7 @@ def replace(text):
         ['(#Message)', '(/api/message)'],
         ['(#Room)', '(/api/room)'],
         ['(#Contact)', '(/api/contact)'],
+        ['(#ContactSelf)', '(/api/contact_self)'],
         ['(#Wechaty)', '(/api/wechaty)'],
         ['(#Friendship)', '(/api/friendship)'],
     ]
@@ -194,7 +199,7 @@ for key in keys:
         with open(path, 'w') as fp:
             if 'zh' in od:
                 content = content.replace('/api/', '/zh/api/')
-                for c in ('Wechaty', 'Friendship', 'Contact', 'Message', 'Room'):
+                for c in ('Wechaty', 'Friendship', 'Contact', 'ContactSelf', 'Message', 'Room'):
                     content = content.replace('## ' + c + '\n', '## ' + c + '类\n')
                     content = content.replace('# ' + c + '\n', '# ' + c + '类\n')
             fp.write(content)

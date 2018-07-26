@@ -33,7 +33,7 @@ If you want to know how to get contact, see [Contact](/api/contact)</p>
 <dd><p>All wechat contacts(friend) will be encapsulated as a Contact.
 <a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/contact-bot.ts">Examples/Contact-Bot</a></p>
 </dd>
-[ContactSelf](/api/?id=contactself)
+<dt>[ContactSelf](/api/contact_self)</dt>
 <dd><p>Bot itself will be encapsulated as a ContactSelf.</p>
 <blockquote>
 <p>Tips: this class is extends Contact</p>
