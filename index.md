@@ -1,4 +1,4 @@
-# Wechaty v0.19.104 Documentation
+# Wechaty v0.19.112 Documentation
 
 * <https://blog.chatie.io>
 
@@ -930,9 +930,10 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 
 * [Contact](#Contact)
     * _instance_
+        * [.toString()](#Contact+toString)
         * [.say(textOrContactOrFile)](#Contact+say) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.name()](#Contact+name) ⇒ <code>string</code>
-        * [.alias(newAlias)](#Contact+alias) ⇒ <code>string</code> \| <code>null</code> \| <code>Promise.&lt;boolean&gt;</code>
+        * [.alias(newAlias)](#Contact+alias) ⇒ <code>Promise.&lt;(null\|string\|void)&gt;</code>
         * ~~[.stranger()](#Contact+stranger)~~
         * [.friend()](#Contact+friend) ⇒ <code>boolean</code> \| <code>null</code>
         * ~~[.official()](#Contact+official)~~
@@ -950,6 +951,11 @@ All wechat contacts(friend) will be encapsulated as a Contact.
         * [.find(query)](#Contact.find) ⇒ <code>Promise.&lt;(Contact\|null)&gt;</code>
         * [.findAll([queryArg])](#Contact.findAll) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
+<a name="Contact+toString"></a>
+
+### contact.toString()
+**Kind**: instance method of [<code>Contact</code>](#Contact)  
+**Hidden**:   
 <a name="Contact+say"></a>
 
 ### contact.say(textOrContactOrFile) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -976,7 +982,7 @@ await contact.say('welcome to wechaty!')
 
 import { FileBox }  from 'file-box'
 const fileBox1 = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
-const fileBox2 = FileBox.fromLocal('/tmp/text.txt')
+const fileBox2 = FileBox.fromFile('/tmp/text.txt')
 await contact.say(fileBox1)
 await contact.say(fileBox2)
 
@@ -997,7 +1003,7 @@ const name = contact.name()
 ```
 <a name="Contact+alias"></a>
 
-### contact.alias(newAlias) ⇒ <code>string</code> \| <code>null</code> \| <code>Promise.&lt;boolean&gt;</code>
+### contact.alias(newAlias) ⇒ <code>Promise.&lt;(null\|string\|void)&gt;</code>
 GET / SET / DELETE the alias for a contact
 
 Tests show it will failed if set alias too frequently(60 times in one minute).
@@ -1008,9 +1014,9 @@ Tests show it will failed if set alias too frequently(60 times in one minute).
 | --- | --- |
 | newAlias | <code>none</code> \| <code>string</code> \| <code>null</code> | 
 
-**Example** *( GET the alias for a contact, return {(string | null)})*  
+**Example** *( GET the alias for a contact, return {(Promise&lt;string | null&gt;)})*  
 ```js
-const alias = contact.alias()
+const alias = await contact.alias()
 if (alias === null) {
   console.log('You have not yet set any alias for contact ' + contact.name())
 } else {

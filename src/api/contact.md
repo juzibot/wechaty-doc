@@ -12,9 +12,10 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 
 * [Contact](/api/contact)
     * _instance_
+        * [.toString()](#ContacttoString)
         * [.say(textOrContactOrFile)](#Contactsay) <code>Promise.&lt;void&gt;</code>
         * [.name()](#Contactname) <code>string</code>
-        * [.alias(newAlias)](#Contactalias) <code>string</code> &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
+        * [.alias(newAlias)](#Contactalias) <code>Promise.&lt;(null&#124;string&#124;void)&gt;</code>
         * ~~[.stranger()](#Contactstranger)~~
         * [.friend()](#Contactfriend) <code>boolean</code> &#124; <code>null</code>
         * ~~[.official()](#Contactofficial)~~
@@ -32,6 +33,11 @@ All wechat contacts(friend) will be encapsulated as a Contact.
         * [.find(query)](#Contactfind) <code>Promise.&lt;(Contact&#124;null)&gt;</code>
         * [.findAll([queryArg])](#ContactfindAll) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
+<a id="contacttostring"></a>
+
+## contact.toString()
+**Kind**: instance method of [<code>Contact</code>](/api/contact)  
+**Hidden**:   
 <a id="contactsay"></a>
 
 ## contact.say(textOrContactOrFile)
@@ -62,7 +68,7 @@ await contact.say('welcome to wechaty!')
 
 import { FileBox }  from 'file-box'
 const fileBox1 = FileBox.fromUrl('https://chatie.io/wechaty/images/bot-qr-code.png')
-const fileBox2 = FileBox.fromLocal('/tmp/text.txt')
+const fileBox2 = FileBox.fromFile('/tmp/text.txt')
 await contact.say(fileBox1)
 await contact.say(fileBox2)
 
@@ -89,7 +95,7 @@ const name = contact.name()
 
 ## contact.alias(newAlias)
 
-**Return the type of**: <code>string</code> &#124; <code>null</code> &#124; <code>Promise.&lt;boolean&gt;</code>
+**Return the type of**: <code>Promise.&lt;(null&#124;string&#124;void)&gt;</code>
 
 
 GET / SET / DELETE the alias for a contact
@@ -102,9 +108,9 @@ Tests show it will failed if set alias too frequently(60 times in one minute).
 | --- | --- |
 | newAlias | <code>none</code> &#124; <code>string</code> &#124; <code>null</code> | 
 
-**Example** *( GET the alias for a contact, return {(string | null)})*  
+**Example** *( GET the alias for a contact, return {(Promise&lt;string | null&gt;)})*  
 ```js
-const alias = contact.alias()
+const alias = await contact.alias()
 if (alias === null) {
   console.log('You have not yet set any alias for contact ' + contact.name())
 } else {
