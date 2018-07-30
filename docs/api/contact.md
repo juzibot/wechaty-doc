@@ -14,32 +14,21 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 
 * [Contact](/api/contact)
     * _instance_
-        * [.toString()](#ContacttoString)
         * [.say(textOrContactOrFile)](#Contactsay) <code>Promise.&lt;void&gt;</code>
         * [.name()](#Contactname) <code>string</code>
         * [.alias(newAlias)](#Contactalias) <code>Promise.&lt;(null&#124;string&#124;void)&gt;</code>
-        * ~~[.stranger()](#Contactstranger)~~
         * [.friend()](#Contactfriend) <code>boolean</code> &#124; <code>null</code>
-        * ~~[.official()](#Contactofficial)~~
-        * ~~[.personal()](#Contactpersonal)~~
         * [.type()](#Contacttype) <code>ContactType.Unknown</code> &#124; <code>ContactType.Personal</code> &#124; <code>ContactType.Official</code>
         * [.gender()](#Contactgender) <code>ContactGender.Unknown</code> &#124; <code>ContactGender.Male</code> &#124; <code>ContactGender.Female</code>
         * [.province()](#Contactprovince) <code>string</code> &#124; <code>null</code>
         * [.city()](#Contactcity) <code>string</code> &#124; <code>null</code>
         * [.avatar()](#Contactavatar) <code>Promise.&lt;FileBox&gt;</code>
-        * ~~[.refresh()](#Contactrefresh)~~
-        * [.sync()](#Contactsync) <code>Promise.&lt;this&gt;</code>
         * [.self()](#Contactself) <code>boolean</code>
     * _static_
         * [.load(id)](#Contactload) [<code>Contact</code>](/api/contact)
         * [.find(query)](#Contactfind) <code>Promise.&lt;(Contact&#124;null)&gt;</code>
         * [.findAll([queryArg])](#ContactfindAll) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
-<a id="contacttostring"></a>
-
-## contact.toString()
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
-**Hidden**:   
 <a id="contactsay"></a>
 
 ## contact.say(textOrContactOrFile)
@@ -138,14 +127,6 @@ try {
   console.log(`failed to delete ${contact.name()}'s alias!`)
 }
 ```
-<a id="contactstranger"></a>
-
-## ~~contact.stranger()~~
-***Deprecated***
-
-Should use [friend](#Contactfriend) instead
-
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
 <a id="contactfriend"></a>
 
 ## contact.friend()
@@ -165,22 +146,6 @@ False for not friend of the bot, null for unknown.
 ```js
 const isFriend = contact.friend()
 ```
-<a id="contactofficial"></a>
-
-## ~~contact.official()~~
-***Deprecated***
-
-Check if it's a offical account, should use [type](#Contacttype) instead
-
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
-<a id="contactpersonal"></a>
-
-## ~~contact.personal()~~
-***Deprecated***
-
-Check if it's a personal account, should use [type](#Contacttype) instead
-
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
 <a id="contacttype"></a>
 
 ## contact.type()
@@ -259,28 +224,6 @@ const file = await contact.avatar()
 const name = file.name
 await file.toFile(name, true)
 console.log(`Contact: ${contact.name()} with avatar file: ${name}`)
-```
-<a id="contactrefresh"></a>
-
-## ~~contact.refresh()~~
-***Deprecated***
-
-Force reload(re-ready()) data for Contact, use [sync](#Contactsync) instead
-
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
-<a id="contactsync"></a>
-
-## contact.sync()
-
-**Return the type of**: <code>Promise.&lt;this&gt;</code>
-
-
-Force reload(re-ready()) data for Contact,
-
-**Kind**: instance method of [<code>Contact</code>](/api/contact)  
-**Example**  
-```js
-await contact.sync()
 ```
 <a id="contactself"></a>
 

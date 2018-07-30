@@ -13,8 +13,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 * [Room](/zh/api/room)
     * _instance_
-        * [.ready()](#Roomready)
-        * [.isReady()](#RoomisReady)
         * [.say(textOrContactOrFile, [mention])](#Roomsay) <code>Promise.&lt;void&gt;</code>
         * [.on(event, listener)](#Roomon) <code>this</code>
         * [.add(contact)](#Roomadd) <code>Promise.&lt;void&gt;</code>
@@ -29,7 +27,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.memberAll(query)](#RoommemberAll) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
         * [.member(queryArg)](#Roommember) <code>Promise.&lt;(null&#124;Contact)&gt;</code>
         * [.memberList()](#RoommemberList) <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-        * [.sync()](#Roomsync) <code>Promise.&lt;void&gt;</code>
         * [.owner()](#Roomowner) [<code>Contact</code>](/zh/api/contact) &#124; <code>null</code>
     * _static_
         * [.create(contactList, [topic])](#Roomcreate) [<code>Promise.&lt;Room&gt;</code>](/zh/api/room)
@@ -37,16 +34,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.find(query)](#Roomfind) <code>Promise.&lt;(Room&#124;null)&gt;</code>
         * [.load(id)](#Roomload) [<code>Room</code>](/zh/api/room)
 
-<a id="roomready"></a>
-
-## room.ready()
-**Kind**: instance method of [<code>Room</code>](/zh/api/room)  
-**Hidden**:   
-<a id="roomisready"></a>
-
-## room.isReady()
-**Kind**: instance method of [<code>Room</code>](/zh/api/room)  
-**Hidden**:   
 <a id="roomsay"></a>
 
 ## room.say(textOrContactOrFile, [mention])
@@ -113,7 +100,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
+  room.on('join', (room, inviteeList, inviter) => {
     const nameList = inviteeList.map(c => c.name()).join(',')
     console.log(`Room got new member ${nameList}, invited by ${inviter}`)
   })
@@ -126,7 +113,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('leave', (room: Room, leaverList: Contact[]) => {
+  room.on('leave', (room, leaverList) => {
     const nameList = leaverList.map(c => c.name()).join(',')
     console.log(`Room lost member ${nameList}`)
   })
@@ -139,7 +126,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
+  room.on('topic', (room, topic, oldTopic, changer) => {
     console.log(`Room topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
   })
 }
@@ -477,20 +464,6 @@ Get all room member from the room
 **Example**  
 ```js
 await room.memberList()
-```
-<a id="roomsync"></a>
-
-## room.sync()
-
-**Return the type of**: <code>Promise.&lt;void&gt;</code>
-
-
-Force reload data for Room, Sync data for Room
-
-**Kind**: instance method of [<code>Room</code>](/zh/api/room)  
-**Example**  
-```js
-await room.sync()
 ```
 <a id="roomowner"></a>
 

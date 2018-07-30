@@ -52,6 +52,9 @@ If you want to know how to get contact, see [Contact](/zh/api/contact)</p>
 <dd><p>All wechat messages will be encapsulated as a Message.</p>
 <p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
 </dd>
+[RoomInvitation](/zh/api/?id=roominvitation)
+<dd><p>accept room invitation</p>
+</dd>
 </dl>
 
 <h2>Typedefs</h2>
@@ -144,7 +147,8 @@ Wechaty Class Event Type
 | message | <code>string</code> | Emit when there's a new message. |
 | room-join | <code>string</code> | Emit when anyone join any room. |
 | room-topic | <code>string</code> | Get topic event, emitted when someone change room topic. |
-| room-leave | <code>string</code> | Emit when anyone leave the room.<br>                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
+| room-leave | <code>string</code> | Emit when anyone leave the room.<br> |
+| room-invite | <code>string</code> | Emit when there is a room invitation, see more in  [RoomInvitation](/zh/api/?id=roominvitation)                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
 | scan | <code>string</code> | A scan event will be emitted when the bot needs to show you a QR Code for scanning. </br>                                    It is recommend to install qrcode-terminal(run `npm install qrcode-terminal`) in order to show qrcode in the terminal. |
 
 <a id="wechatyeventfunction"></a>
@@ -167,6 +171,7 @@ Wechaty Class Event Function
 | room-join | <code>function</code> | (this: Wechaty, room: Room, inviteeList: Contact[],  inviter: Contact) => void |
 | room-topic | <code>function</code> | (this: Wechaty, room: Room, newTopic: string, oldTopic: string, changer: Contact) => void |
 | room-leave | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void |
+| room-invite | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void <br>                                        see more in  [RoomInvitation](/zh/api/?id=roominvitation) |
 
 <a id="roomqueryfilter"></a>
 

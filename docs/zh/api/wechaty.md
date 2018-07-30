@@ -21,12 +21,10 @@ See more:
     * [new Wechaty([options])](#new_Wechaty_new)
     * _instance_
         * [.on(event, listener)](#Wechatyon) [<code>Wechaty</code>](/zh/api/wechaty)
-        * ~~[.init()](#Wechatyinit)~~
         * [.start()](#Wechatystart) <code>Promise.&lt;void&gt;</code>
         * [.stop()](#Wechatystop) <code>Promise.&lt;void&gt;</code>
         * [.logout()](#Wechatylogout) <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechatylogonoff) <code>boolean</code>
-        * ~~[.self()](#Wechatyself)~~
         * [.userSelf()](#WechatyuserSelf) [<code>ContactSelf</code>](/zh/api/contact_self)
         * [.say(textOrContactOrFile)](#Wechatysay) <code>Promise.&lt;void&gt;</code>
     * _static_
@@ -82,7 +80,7 @@ see advanced [chaining usage](https://github.com/Chatie/wechaty-getting-started/
 ```js
 // Scan Event will emit when the bot needs to show you a QR Code for scanning
 
-bot.on('scan', (url: string, code: number) => {
+bot.on('scan', (url, code) => {
   console.log(`[${code}] Scan ${url} to login.` )
 })
 ```
@@ -90,7 +88,7 @@ bot.on('scan', (url: string, code: number) => {
 ```js
 // Login Event will emit when bot login full successful.
 
-bot.on('login', (user: ContactSelf) => {
+bot.on('login', (user) => {
   console.log(`user ${user} login`)
 })
 ```
@@ -98,7 +96,7 @@ bot.on('login', (user: ContactSelf) => {
 ```js
 // Logout Event will emit when bot detected log out.
 
-bot.on('logout', (user: ContactSelf) => {
+bot.on('logout', (user) => {
   console.log(`user ${user} logout`)
 })
 ```
@@ -106,7 +104,7 @@ bot.on('logout', (user: ContactSelf) => {
 ```js
 // Message Event will emit when there's a new message.
 
-wechaty.on('message', (message: Message) => {
+wechaty.on('message', (message) => {
   console.log(`message ${message} received`)
 })
 ```
@@ -114,7 +112,7 @@ wechaty.on('message', (message: Message) => {
 ```js
 // Friendship Event will emit when got a new friend request, or friendship is confirmed.
 
-bot.on('friendship', (friendship: Friendship) => {
+bot.on('friendship', (friendship) => {
   if(friendship.type() === Friendship.Type.RECEIVE){ // 1. receive new friendship request from new contact
     const contact = friendship.contact()
     let result = await friendship.accept()
@@ -132,7 +130,7 @@ bot.on('friendship', (friendship: Friendship) => {
 ```js
 // room-join Event will emit when someone join the room.
 
-bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
+bot.on('room-join', (room, inviteeList, inviter) => {
   const nameList = inviteeList.map(c => c.name()).join(',')
   console.log(`Room ${room.topic()} got new member ${nameList}, invited by ${inviter}`)
 })
@@ -141,7 +139,7 @@ bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
 ```js
 // room-leave Event will emit when someone leave the room.
 
-bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
+bot.on('room-leave', (room, leaverList) => {
   const nameList = leaverList.map(c => c.name()).join(',')
   console.log(`Room ${room.topic()} lost member ${nameList}`)
 })
@@ -150,9 +148,22 @@ bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
 ```js
 // room-topic Event will emit when someone change the room's topic.
 
-bot.on('room-topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
+bot.on('room-topic', (room, topic, oldTopic, changer) => {
   console.log(`Room ${room.topic()} topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
 })
+```
+**Example** *(Event:room-invite, RoomInvitation has been encapsulated as a RoomInvitation Class. )*  
+```js
+// room-invite Event will emit when there's an room invitation.
+
+bot.on('room-invite', async roomInvitation => {
+  try {
+    console.log(`received room-invite event.`)
+    await roomInvitation.accept()
+  } catch (e) {
+    console.error(e)
+  }
+}
 ```
 **Example** *(Event:error )*  
 ```js
@@ -162,14 +173,6 @@ bot.on('error', (error) => {
   console.error(error)
 })
 ```
-<a id="wechatyinit"></a>
-
-## ~~wechaty.init()~~
-***Deprecated***
-
-use [start](#Wechatystart) instead
-
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 <a id="wechatystart"></a>
 
 ## wechaty.start()
@@ -232,14 +235,6 @@ if (bot.logonoff()) {
   console.log('Bot not logined')
 }
 ```
-<a id="wechatyself"></a>
-
-## ~~wechaty.self()~~
-***Deprecated***
-
-Should use [userSelf](#WechatyuserSelf) instead
-
-**Kind**: instance method of [<code>Wechaty</code>](/zh/api/wechaty)  
 <a id="wechatyuserself"></a>
 
 ## wechaty.userSelf()
@@ -292,7 +287,7 @@ await bot.say(fileBox)
 
 // 4. send Image to bot itself from local file
 import { FileBox }  from 'file-box'
-const fileBox = FileBox.fromLocal('/tmp/text.jpg')
+const fileBox = FileBox.fromFile('/tmp/text.jpg')
 await bot.say(fileBox)
 ```
 <a id="wechatyinstance"></a>

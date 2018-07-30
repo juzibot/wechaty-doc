@@ -1,4 +1,4 @@
-# Wechaty v0.19.112 Documentation
+# Wechaty v0.19.116 Documentation
 
 * <https://blog.chatie.io>
 
@@ -50,6 +50,9 @@ If you want to know how to get contact, see <a href="#Contact">Contact</a></p>
 <dt><a href="#Message">Message</a></dt>
 <dd><p>All wechat messages will be encapsulated as a Message.</p>
 <p><a href="https://github.com/Chatie/wechaty/blob/1523c5e02be46ebe2cc172a744b2fbe53351540e/examples/ding-dong-bot.ts">Examples/Ding-Dong-Bot</a></p>
+</dd>
+<dt><a href="#RoomInvitation">RoomInvitation</a></dt>
+<dd><p>accept room invitation</p>
 </dd>
 </dl>
 
@@ -114,12 +117,10 @@ See more:
     * [new Wechaty([options])](#new_Wechaty_new)
     * _instance_
         * [.on(event, listener)](#Wechaty+on) ⇒ [<code>Wechaty</code>](#Wechaty)
-        * ~~[.init()](#Wechaty+init)~~
         * [.start()](#Wechaty+start) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.stop()](#Wechaty+stop) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.logout()](#Wechaty+logout) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.logonoff()](#Wechaty+logonoff) ⇒ <code>boolean</code>
-        * ~~[.self()](#Wechaty+self)~~
         * [.userSelf()](#Wechaty+userSelf) ⇒ [<code>ContactSelf</code>](#ContactSelf)
         * [.say(textOrContactOrFile)](#Wechaty+say) ⇒ <code>Promise.&lt;void&gt;</code>
     * _static_
@@ -171,7 +172,7 @@ see advanced [chaining usage](https://github.com/Chatie/wechaty-getting-started/
 ```js
 // Scan Event will emit when the bot needs to show you a QR Code for scanning
 
-bot.on('scan', (url: string, code: number) => {
+bot.on('scan', (url, code) => {
   console.log(`[${code}] Scan ${url} to login.` )
 })
 ```
@@ -179,7 +180,7 @@ bot.on('scan', (url: string, code: number) => {
 ```js
 // Login Event will emit when bot login full successful.
 
-bot.on('login', (user: ContactSelf) => {
+bot.on('login', (user) => {
   console.log(`user ${user} login`)
 })
 ```
@@ -187,7 +188,7 @@ bot.on('login', (user: ContactSelf) => {
 ```js
 // Logout Event will emit when bot detected log out.
 
-bot.on('logout', (user: ContactSelf) => {
+bot.on('logout', (user) => {
   console.log(`user ${user} logout`)
 })
 ```
@@ -195,7 +196,7 @@ bot.on('logout', (user: ContactSelf) => {
 ```js
 // Message Event will emit when there's a new message.
 
-wechaty.on('message', (message: Message) => {
+wechaty.on('message', (message) => {
   console.log(`message ${message} received`)
 })
 ```
@@ -203,7 +204,7 @@ wechaty.on('message', (message: Message) => {
 ```js
 // Friendship Event will emit when got a new friend request, or friendship is confirmed.
 
-bot.on('friendship', (friendship: Friendship) => {
+bot.on('friendship', (friendship) => {
   if(friendship.type() === Friendship.Type.RECEIVE){ // 1. receive new friendship request from new contact
     const contact = friendship.contact()
     let result = await friendship.accept()
@@ -221,7 +222,7 @@ bot.on('friendship', (friendship: Friendship) => {
 ```js
 // room-join Event will emit when someone join the room.
 
-bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
+bot.on('room-join', (room, inviteeList, inviter) => {
   const nameList = inviteeList.map(c => c.name()).join(',')
   console.log(`Room ${room.topic()} got new member ${nameList}, invited by ${inviter}`)
 })
@@ -230,7 +231,7 @@ bot.on('room-join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
 ```js
 // room-leave Event will emit when someone leave the room.
 
-bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
+bot.on('room-leave', (room, leaverList) => {
   const nameList = leaverList.map(c => c.name()).join(',')
   console.log(`Room ${room.topic()} lost member ${nameList}`)
 })
@@ -239,9 +240,22 @@ bot.on('room-leave', (room: Room, leaverList: Contact[]) => {
 ```js
 // room-topic Event will emit when someone change the room's topic.
 
-bot.on('room-topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
+bot.on('room-topic', (room, topic, oldTopic, changer) => {
   console.log(`Room ${room.topic()} topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
 })
+```
+**Example** *(Event:room-invite, RoomInvitation has been encapsulated as a RoomInvitation Class. )*  
+```js
+// room-invite Event will emit when there's an room invitation.
+
+bot.on('room-invite', async roomInvitation => {
+  try {
+    console.log(`received room-invite event.`)
+    await roomInvitation.accept()
+  } catch (e) {
+    console.error(e)
+  }
+}
 ```
 **Example** *(Event:error )*  
 ```js
@@ -251,14 +265,6 @@ bot.on('error', (error) => {
   console.error(error)
 })
 ```
-<a name="Wechaty+init"></a>
-
-### ~~wechaty.init()~~
-***Deprecated***
-
-use [start](#Wechaty+start) instead
-
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
 <a name="Wechaty+start"></a>
 
 ### wechaty.start() ⇒ <code>Promise.&lt;void&gt;</code>
@@ -305,14 +311,6 @@ if (bot.logonoff()) {
   console.log('Bot not logined')
 }
 ```
-<a name="Wechaty+self"></a>
-
-### ~~wechaty.self()~~
-***Deprecated***
-
-Should use [userSelf](#Wechaty+userSelf) instead
-
-**Kind**: instance method of [<code>Wechaty</code>](#Wechaty)  
 <a name="Wechaty+userSelf"></a>
 
 ### wechaty.userSelf() ⇒ [<code>ContactSelf</code>](#ContactSelf)
@@ -357,7 +355,7 @@ await bot.say(fileBox)
 
 // 4. send Image to bot itself from local file
 import { FileBox }  from 'file-box'
-const fileBox = FileBox.fromLocal('/tmp/text.jpg')
+const fileBox = FileBox.fromFile('/tmp/text.jpg')
 await bot.say(fileBox)
 ```
 <a name="Wechaty.instance"></a>
@@ -398,8 +396,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
 
 * [Room](#Room)
     * _instance_
-        * [.ready()](#Room+ready)
-        * [.isReady()](#Room+isReady)
         * [.say(textOrContactOrFile, [mention])](#Room+say) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.on(event, listener)](#Room+on) ⇒ <code>this</code>
         * [.add(contact)](#Room+add) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -414,7 +410,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.memberAll(query)](#Room+memberAll) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
         * [.member(queryArg)](#Room+member) ⇒ <code>Promise.&lt;(null\|Contact)&gt;</code>
         * [.memberList()](#Room+memberList) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-        * [.sync()](#Room+sync) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.owner()](#Room+owner) ⇒ [<code>Contact</code>](#Contact) \| <code>null</code>
     * _static_
         * [.create(contactList, [topic])](#Room.create) ⇒ [<code>Promise.&lt;Room&gt;</code>](#Room)
@@ -422,16 +417,6 @@ All wechat rooms(groups) will be encapsulated as a Room.
         * [.find(query)](#Room.find) ⇒ <code>Promise.&lt;(Room\|null)&gt;</code>
         * [.load(id)](#Room.load) ⇒ [<code>Room</code>](#Room)
 
-<a name="Room+ready"></a>
-
-### room.ready()
-**Kind**: instance method of [<code>Room</code>](#Room)  
-**Hidden**:   
-<a name="Room+isReady"></a>
-
-### room.isReady()
-**Kind**: instance method of [<code>Room</code>](#Room)  
-**Hidden**:   
 <a name="Room+say"></a>
 
 ### room.say(textOrContactOrFile, [mention]) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -490,7 +475,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('join', (room: Room, inviteeList: Contact[], inviter: Contact) => {
+  room.on('join', (room, inviteeList, inviter) => {
     const nameList = inviteeList.map(c => c.name()).join(',')
     console.log(`Room got new member ${nameList}, invited by ${inviter}`)
   })
@@ -503,7 +488,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('leave', (room: Room, leaverList: Contact[]) => {
+  room.on('leave', (room, leaverList) => {
     const nameList = leaverList.map(c => c.name()).join(',')
     console.log(`Room lost member ${nameList}`)
   })
@@ -516,7 +501,7 @@ await bot.start()
 // after logged in...
 const room = await bot.Room.find({topic: 'topic of your room'}) // change `event-room` to any room topic in your wechat
 if (room) {
-  room.on('topic', (room: Room, topic: string, oldTopic: string, changer: Contact) => {
+  room.on('topic', (room, topic, oldTopic, changer) => {
     console.log(`Room topic changed from ${oldTopic} to ${topic} by ${changer.name()}`)
   })
 }
@@ -807,16 +792,6 @@ Get all room member from the room
 ```js
 await room.memberList()
 ```
-<a name="Room+sync"></a>
-
-### room.sync() ⇒ <code>Promise.&lt;void&gt;</code>
-Force reload data for Room, Sync data for Room
-
-**Kind**: instance method of [<code>Room</code>](#Room)  
-**Example**  
-```js
-await room.sync()
-```
 <a name="Room+owner"></a>
 
 ### room.owner() ⇒ [<code>Contact</code>](#Contact) \| <code>null</code>
@@ -930,32 +905,21 @@ All wechat contacts(friend) will be encapsulated as a Contact.
 
 * [Contact](#Contact)
     * _instance_
-        * [.toString()](#Contact+toString)
         * [.say(textOrContactOrFile)](#Contact+say) ⇒ <code>Promise.&lt;void&gt;</code>
         * [.name()](#Contact+name) ⇒ <code>string</code>
         * [.alias(newAlias)](#Contact+alias) ⇒ <code>Promise.&lt;(null\|string\|void)&gt;</code>
-        * ~~[.stranger()](#Contact+stranger)~~
         * [.friend()](#Contact+friend) ⇒ <code>boolean</code> \| <code>null</code>
-        * ~~[.official()](#Contact+official)~~
-        * ~~[.personal()](#Contact+personal)~~
         * [.type()](#Contact+type) ⇒ <code>ContactType.Unknown</code> \| <code>ContactType.Personal</code> \| <code>ContactType.Official</code>
         * [.gender()](#Contact+gender) ⇒ <code>ContactGender.Unknown</code> \| <code>ContactGender.Male</code> \| <code>ContactGender.Female</code>
         * [.province()](#Contact+province) ⇒ <code>string</code> \| <code>null</code>
         * [.city()](#Contact+city) ⇒ <code>string</code> \| <code>null</code>
         * [.avatar()](#Contact+avatar) ⇒ <code>Promise.&lt;FileBox&gt;</code>
-        * ~~[.refresh()](#Contact+refresh)~~
-        * [.sync()](#Contact+sync) ⇒ <code>Promise.&lt;this&gt;</code>
         * [.self()](#Contact+self) ⇒ <code>boolean</code>
     * _static_
         * [.load(id)](#Contact.load) ⇒ [<code>Contact</code>](#Contact)
         * [.find(query)](#Contact.find) ⇒ <code>Promise.&lt;(Contact\|null)&gt;</code>
         * [.findAll([queryArg])](#Contact.findAll) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
 
-<a name="Contact+toString"></a>
-
-### contact.toString()
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
-**Hidden**:   
 <a name="Contact+say"></a>
 
 ### contact.say(textOrContactOrFile) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -1042,14 +1006,6 @@ try {
   console.log(`failed to delete ${contact.name()}'s alias!`)
 }
 ```
-<a name="Contact+stranger"></a>
-
-### ~~contact.stranger()~~
-***Deprecated***
-
-Should use [friend](#Contact+friend) instead
-
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
 <a name="Contact+friend"></a>
 
 ### contact.friend() ⇒ <code>boolean</code> \| <code>null</code>
@@ -1065,22 +1021,6 @@ False for not friend of the bot, null for unknown.
 ```js
 const isFriend = contact.friend()
 ```
-<a name="Contact+official"></a>
-
-### ~~contact.official()~~
-***Deprecated***
-
-Check if it's a offical account, should use [type](#Contact+type) instead
-
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
-<a name="Contact+personal"></a>
-
-### ~~contact.personal()~~
-***Deprecated***
-
-Check if it's a personal account, should use [type](#Contact+type) instead
-
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
 <a name="Contact+type"></a>
 
 ### contact.type() ⇒ <code>ContactType.Unknown</code> \| <code>ContactType.Personal</code> \| <code>ContactType.Official</code>
@@ -1139,24 +1079,6 @@ const file = await contact.avatar()
 const name = file.name
 await file.toFile(name, true)
 console.log(`Contact: ${contact.name()} with avatar file: ${name}`)
-```
-<a name="Contact+refresh"></a>
-
-### ~~contact.refresh()~~
-***Deprecated***
-
-Force reload(re-ready()) data for Contact, use [sync](#Contact+sync) instead
-
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
-<a name="Contact+sync"></a>
-
-### contact.sync() ⇒ <code>Promise.&lt;this&gt;</code>
-Force reload(re-ready()) data for Contact,
-
-**Kind**: instance method of [<code>Contact</code>](#Contact)  
-**Example**  
-```js
-await contact.sync()
 ```
 <a name="Contact+self"></a>
 
@@ -1462,7 +1384,6 @@ All wechat messages will be encapsulated as a Message.
     * [.type()](#Message+type) ⇒ <code>MessageType</code>
     * [.self()](#Message+self) ⇒ <code>boolean</code>
     * [.mention()](#Message+mention) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-    * ~~[.mentioned()](#Message+mentioned)~~
     * [.forward(to)](#Message+forward) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.age()](#Message+age) ⇒ <code>number</code>
     * ~~[.file()](#Message+file)~~
@@ -1659,14 +1580,6 @@ Message event table as follows
 const contactList = await message.mention()
 console.log(contactList)
 ```
-<a name="Message+mentioned"></a>
-
-### ~~message.mentioned()~~
-***Deprecated***
-
-should use [mention](#Message+mention) instead
-
-**Kind**: instance method of [<code>Message</code>](#Message)  
 <a name="Message+forward"></a>
 
 ### message.forward(to) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -1726,6 +1639,75 @@ Extract the Contact Card from the Message, and encapsulate it into Contact class
 This function is depending on the Puppet Implementation, see [puppet-compatible-table](https://github.com/Chatie/wechaty/wiki/Puppet#3-puppet-compatible-table)
 
 **Kind**: instance method of [<code>Message</code>](#Message)  
+<a name="RoomInvitation"></a>
+
+## RoomInvitation
+accept room invitation
+
+**Kind**: global class  
+
+* [RoomInvitation](#RoomInvitation)
+    * [.accept()](#RoomInvitation+accept) ⇒ <code>Promise.&lt;void&gt;</code>
+    * [.inviter()](#RoomInvitation+inviter) ⇒ [<code>Contact</code>](#Contact)
+    * [.roomTopic()](#RoomInvitation+roomTopic) ⇒ [<code>Contact</code>](#Contact)
+    * [.date()](#RoomInvitation+date) ⇒ <code>Promise.&lt;Date&gt;</code>
+
+<a name="RoomInvitation+accept"></a>
+
+### roomInvitation.accept() ⇒ <code>Promise.&lt;void&gt;</code>
+Accept Room Invitation
+
+**Kind**: instance method of [<code>RoomInvitation</code>](#RoomInvitation)  
+**Example**  
+```js
+const bot = new Wechaty()
+bot.on('room-invite', async roomInvitation => {
+  try {
+    console.log(`received room-invite event.`)
+    await roomInvitation.accept()
+  } catch (e) {
+    console.error(e)
+  }
+}
+.start()
+```
+<a name="RoomInvitation+inviter"></a>
+
+### roomInvitation.inviter() ⇒ [<code>Contact</code>](#Contact)
+Get the inviter from room invitation
+
+**Kind**: instance method of [<code>RoomInvitation</code>](#RoomInvitation)  
+**Example**  
+```js
+const bot = new Wechaty()
+bot.on('room-invite', async roomInvitation => {
+  const inviter = await roomInvitation.inviter()
+  const name = inviter.name()
+  console.log(`received room invitation event from ${name}`)
+}
+.start()
+```
+<a name="RoomInvitation+roomTopic"></a>
+
+### roomInvitation.roomTopic() ⇒ [<code>Contact</code>](#Contact)
+Get the room topic from room invitation
+
+**Kind**: instance method of [<code>RoomInvitation</code>](#RoomInvitation)  
+**Example**  
+```js
+const bot = new Wechaty()
+bot.on('room-invite', async roomInvitation => {
+  const topic = await roomInvitation.roomTopic()
+  console.log(`received room invitation event from room ${topic}`)
+}
+.start()
+```
+<a name="RoomInvitation+date"></a>
+
+### roomInvitation.date() ⇒ <code>Promise.&lt;Date&gt;</code>
+Get the invitation time
+
+**Kind**: instance method of [<code>RoomInvitation</code>](#RoomInvitation)  
 <a name="PuppetName"></a>
 
 ## PuppetName
@@ -1778,7 +1760,8 @@ Wechaty Class Event Type
 | message | <code>string</code> | Emit when there's a new message. |
 | room-join | <code>string</code> | Emit when anyone join any room. |
 | room-topic | <code>string</code> | Get topic event, emitted when someone change room topic. |
-| room-leave | <code>string</code> | Emit when anyone leave the room.<br>                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
+| room-leave | <code>string</code> | Emit when anyone leave the room.<br> |
+| room-invite | <code>string</code> | Emit when there is a room invitation, see more in  [RoomInvitation](#RoomInvitation)                                    If someone leaves the room by themselves, wechat will not notice other people in the room, so the bot will never get the "leave" event. |
 | scan | <code>string</code> | A scan event will be emitted when the bot needs to show you a QR Code for scanning. </br>                                    It is recommend to install qrcode-terminal(run `npm install qrcode-terminal`) in order to show qrcode in the terminal. |
 
 <a name="WechatyEventFunction"></a>
@@ -1801,6 +1784,7 @@ Wechaty Class Event Function
 | room-join | <code>function</code> | (this: Wechaty, room: Room, inviteeList: Contact[],  inviter: Contact) => void |
 | room-topic | <code>function</code> | (this: Wechaty, room: Room, newTopic: string, oldTopic: string, changer: Contact) => void |
 | room-leave | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void |
+| room-invite | <code>function</code> | (this: Wechaty, room: Room, leaverList: Contact[]) => void <br>                                        see more in  [RoomInvitation](#RoomInvitation) |
 
 <a name="RoomQueryFilter"></a>
 
