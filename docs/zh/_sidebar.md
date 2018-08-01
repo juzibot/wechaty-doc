@@ -9,6 +9,7 @@
   * [Contact类](/zh/api/contact)
   * [ContactSelf类](/zh/api/contact_self)
   * [Room类](/zh/api/room)
+  * [RoomInvitation类](/zh/api/room_invitation)
   * [Friendship类](/zh/api/friendship)
 
 * [常见问题 FAQ](/zh/faq.md)

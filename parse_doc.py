@@ -38,6 +38,8 @@ for line in lines:
         key = 'contact_self'
     if line == '<a name="PuppetName"></a>':
         key = 'README'
+    if line == '<a name="RoomInvitation"></a>':
+        key = 'room_invitation'
 
     if line.startswith('#'):
         # 把标题中的链接去掉，因为docsify支持不好
@@ -90,6 +92,7 @@ for line in lines:
     line = re.sub(r'<a href="#Contact">Contact</a>', '[Contact](/api/contact)', line)
     line = re.sub(r'<a href="#ContactSelf">ContactSelf</a>', '[ContactSelf](/api/contact_self)', line)
     line = re.sub(r'<a href="#Room">Room</a>', '[Room](/api/room)', line)
+    line = re.sub(r'<a href="#RoomInvitation"></a>', '[RoomInvitation](/api/room_invitation)', line)
 
     def _fun(x):
         x = x.group(1).lower()
@@ -133,6 +136,7 @@ keys = [
     'contact_self',
     'friendship',
     'room',
+    'room_invitation',
     'message'
 ]
 
@@ -151,6 +155,7 @@ def replace(text):
     replace_list = [
         ['(#Message)', '(/api/message)'],
         ['(#Room)', '(/api/room)'],
+        ['(#RoomInvitation)', '(/api/room_invitation)'],
         ['(#Contact)', '(/api/contact)'],
         ['(#ContactSelf)', '(/api/contact_self)'],
         ['(#Wechaty)', '(/api/wechaty)'],
@@ -199,7 +204,7 @@ for key in keys:
         with open(path, 'w') as fp:
             if 'zh' in od:
                 content = content.replace('/api/', '/zh/api/')
-                for c in ('Wechaty', 'Friendship', 'Contact', 'ContactSelf', 'Message', 'Room'):
+                for c in ('Wechaty', 'Friendship', 'Contact', 'ContactSelf', 'Message', 'Room', 'RoomInvitation'):
                     content = content.replace('## ' + c + '\n', '## ' + c + '类\n')
                     content = content.replace('# ' + c + '\n', '# ' + c + '类\n')
             fp.write(content)
