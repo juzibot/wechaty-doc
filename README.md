@@ -14,7 +14,7 @@
 
 ## Preview
 
-https://qhduan.github.io/wechaty-doc/
+https://botorange.github.io/wechaty-doc/
 
 ## Other
 
