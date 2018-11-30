@@ -1,3 +1,7 @@
+# MOVE TO GITBOOK FOR DOC
+
+see https://github.com/lijiarui/wechaty-docs
+
 # Wechaty Documentation
 
 `./src/README.md` from [wechaty/README.md](https://github.com/Chatie/wechaty/blob/master/README.md)
